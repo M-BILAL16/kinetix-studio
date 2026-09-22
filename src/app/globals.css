@@ -1,26 +1,135 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+@theme {
+  --font-sans: var(--font-geist-sans), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-serif: var(--font-cormorant), "Playfair Display", Georgia, serif;
+  --font-mono: var(--font-geist-mono), "JetBrains Mono", monospace;
+
+  --color-canvas: #FAF9F5;
+  --color-canvas-subtle: #F2F0E8;
+  --color-canvas-pure: #FFFFFF;
+  --color-graphite: #0E0E10;
+  --color-graphite-muted: #6E6E78;
+  --color-graphite-light: #9E9EA8;
+  --color-graphite-border: rgba(14, 14, 16, 0.08);
+  --color-electric: #0047FF;
+  --color-flame: #FF3B14;
+  --color-lime: #CEFF00;
+  --color-pink: #FF2E93;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+@keyframes marquee {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
   }
 }
 
+@keyframes marquee-reverse {
+  0% {
+    transform: translateX(-50%);
+  }
+  100% {
+    transform: translateX(0%);
+  }
+}
+
+.animate-marquee {
+  animation: marquee 25s linear infinite;
+}
+
+.animate-marquee-reverse {
+  animation: marquee-reverse 30s linear infinite;
+}
+
+:root {
+  --background: #FAF9F5;
+  --foreground: #0E0E10;
+  --accent-electric: #0047FF;
+  --accent-flame: #FF3B14;
+  --accent-lime: #CEFF00;
+}
+
+/* Strictly Bright Mode - no dark mode overrides */
+html,
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: #FAF9F5;
+  color: #0E0E10;
+  overflow-x: hidden;
+  font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Lenis smooth scrolling rules */
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+.lenis.lenis-smooth iframe {
+  pointer-events: none;
+}
+
+/* Editorial selection */
+::selection {
+  background-color: #0047FF;
+  color: #FFFFFF;
+}
+
+/* Subtle editorial paper noise effect */
+.bg-noise {
+  background-image: radial-gradient(rgba(14, 14, 16, 0.05) 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+
+.bg-editorial-grid {
+  background-size: 48px 48px;
+  background-image: 
+    linear-gradient(to right, rgba(14, 14, 16, 0.04) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(14, 14, 16, 0.04) 1px, transparent 1px);
+}
+
+/* Custom minimal scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #FAF9F5;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(14, 14, 16, 0.2);
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(14, 14, 16, 0.4);
+}
+
+/* Hide default cursor on desktop when custom cursor active */
+@media (hover: hover) and (pointer: fine) {
+  body {
+    cursor: default;
+  }
+  a, button, [role="button"], input, select, textarea {
+    cursor: pointer;
+  }
 }
