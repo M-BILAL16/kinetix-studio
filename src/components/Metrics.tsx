@@ -22,7 +22,7 @@ export default function Metrics() {
           </span>
         </div>
         <p className="text-xs font-mono text-[#6E6E78] max-w-sm text-left md:text-right">
-          WE OPERATE AT THE INTERSECTION OF EDITORIAL OBSESSION AND COLD COMMERCIAL CONVERSION.
+          EVERY NUMBER BELOW COMES FROM WORK THAT SHIPPED AND STAYED IN PRODUCTION.
         </p>
       </div>
 
@@ -72,10 +72,10 @@ export default function Metrics() {
       <div className="mt-12 flex flex-wrap items-center justify-between text-[11px] font-mono text-[#6E6E78] pt-4 border-t border-black/6">
         <div className="flex items-center gap-2">
           <span className="w-2 h-2 rounded-full bg-[#10B981]" />
-          <span>DATA AUDITED ANNUALLY // ZERO ESTIMATES</span>
+          <span>DATA REVIEWED ANNUALLY // ZERO ESTIMATES</span>
         </div>
         <div className="text-[#0E0E10] font-bold">
-          TOTAL DIRECT COMMERCIAL IMPACT: &gt; $340M USD
+          TOTAL DOCUMENTED REVENUE ENABLED: &gt; $300K USD
         </div>
       </div>
     </section>

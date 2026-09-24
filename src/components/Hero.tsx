@@ -52,12 +52,12 @@ export default function Hero({ onOpenContact }: HeroProps) {
         <div className="flex items-center gap-3">
           <span className="w-2 h-2 rounded-full bg-[#0047FF]" />
           <span className="text-[11px] font-mono tracking-widest uppercase text-[#0E0E10] font-semibold">
-            VOL. 05 // EXPERIMENTAL DIGITAL ATELIER
+            BUILD & AUTOMATE // GROW & ACQUIRE
           </span>
         </div>
         <div className="hidden sm:flex items-center gap-6 text-[11px] font-mono text-[#6E6E78]">
           <span>INDEX // 001</span>
-          <span>LAT 40.7128° N, 74.0060° W</span>
+          <span>IDEA TO LIVE SYSTEM IN 60 DAYS</span>
           <span className="text-[#0047FF] font-bold">LIVE STATUS: ONLINE</span>
         </div>
       </div>
@@ -92,7 +92,7 @@ export default function Hero({ onOpenContact }: HeroProps) {
               variants={lineVariants}
               className="inline-block px-3.5 py-1 rounded-full bg-[#CEFF00] border border-black/10 text-xs font-mono font-bold tracking-widest text-black uppercase transform -rotate-2"
             >
-              ★ AWWWARDS CALIBER
+              ★ 250+ PROJECTS DELIVERED
             </motion.span>
           </div>
 
@@ -121,7 +121,7 @@ export default function Hero({ onOpenContact }: HeroProps) {
             className="mt-6 flex items-center gap-3 text-xs font-mono tracking-wider text-[#6E6E78]"
           >
             <span className="w-1.5 h-1.5 rounded-full bg-[#FF3B14]" />
-            <span>DISRUPTIVE DIGITAL ARCHITECTURE & LUXURY EDITORIAL ENGINEERING</span>
+            <span>AI AGENTS · AUTOMATION · CUSTOM SOFTWARE · GROWTH & MARKETING</span>
           </motion.div>
         </div>
 
@@ -161,20 +161,28 @@ export default function Hero({ onOpenContact }: HeroProps) {
               <span>THE VALUE FORMULA</span>
             </div>
             <p className="text-sm sm:text-base text-[#6E6E78] leading-relaxed font-sans">
-              We identify the exact part of your business costing you time, margins, and momentum
-              — then design and deploy the right digital solution to unlock it.
+              We identify which part of your business is costing you time and money, then we
+              deploy tested solutions to fix it for you.
             </p>
           </div>
 
-          <div className="flex items-center gap-3 shrink-0">
+          <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 shrink-0">
             <button
               onClick={onOpenContact}
               data-cursor="start"
-              className="px-8 py-4 rounded-full bg-[#0E0E10] hover:bg-[#0047FF] text-[#FAF9F5] text-xs font-mono font-bold tracking-widest uppercase transition-all duration-300 flex items-center gap-2 shadow-lg hover:shadow-xl active:scale-95 group"
+              className="px-7 py-4 rounded-full bg-[#0E0E10] hover:bg-[#0047FF] text-[#FAF9F5] text-xs font-mono font-bold tracking-widest uppercase transition-all duration-300 flex items-center justify-center gap-2 shadow-lg hover:shadow-xl active:scale-95 group"
             >
-              <span>START SOMETHING</span>
+              <span>BUILD AND AUTOMATE</span>
               <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
             </button>
+            <a
+              href="#services"
+              data-cursor="explore"
+              className="px-7 py-4 rounded-full border border-black/15 bg-white hover:border-[#0047FF] hover:text-[#0047FF] text-[#0E0E10] text-xs font-mono font-bold tracking-widest uppercase transition-all duration-300 flex items-center justify-center gap-2 active:scale-95 group"
+            >
+              <span>GROW AND ACQUIRE</span>
+              <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+            </a>
           </div>
         </div>
       </motion.div>

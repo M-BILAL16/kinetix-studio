@@ -84,6 +84,37 @@ npm run start
 
 ---
 
+## 🐳 Docker Containerization
+
+The project is fully containerized using a multi-stage, security-hardened Alpine Linux build with Next.js standalone optimization (resulting in an image size of only ~65MB).
+
+### Run with Docker Compose (Recommended)
+```bash
+docker compose up --build
+```
+Access the application at [http://localhost:3000](http://localhost:3000).
+
+To run in detached mode:
+```bash
+docker compose up -d
+```
+
+To stop:
+```bash
+docker compose down
+```
+
+### Build & Run Manually with Docker CLI
+```bash
+# 1. Build Docker image
+docker build -t kinetix-studio:latest .
+
+# 2. Run container
+docker run -d -p 3000:3000 --name kinetix-studio kinetix-studio:latest
+```
+
+---
+
 ## 📄 License
 
 Private & proprietary to KINETIX Studio.
