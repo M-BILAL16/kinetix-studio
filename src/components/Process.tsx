@@ -11,16 +11,10 @@ export default function Process() {
   const activeStage = AGENCY_DATA.process[selectedPhase];
 
   return (
-    <section id="process" className="py-32 px-4 sm:px-8 lg:px-12 bg-[#FAF9F5] relative overflow-hidden">
+    <section id="process" className="py-32 site-gutter bg-[#FAF9F5] relative overflow-hidden">
       {/* Editorial Header */}
       <div className="flex flex-col md:flex-row md:items-end justify-between mb-20 pb-8 border-b border-black/10 gap-6">
         <div>
-          <div className="flex items-center gap-2 mb-3">
-            <span className="text-xs font-mono font-bold text-[#0047FF]">08 //</span>
-            <span className="text-xs font-mono uppercase tracking-widest text-[#6E6E78]">
-              SYSTEM DEPLOYMENT CYCLE
-            </span>
-          </div>
           <h2 className="text-4xl sm:text-6xl lg:text-7xl font-black uppercase tracking-tight text-[#0E0E10] font-sans leading-[0.95]">
             FROM DIAGNOSTIC <br />
             <span className="font-serif italic font-normal text-[#0047FF] lowercase">
@@ -76,9 +70,7 @@ export default function Process() {
           <div className="lg:col-span-7">
             <div className="flex items-center gap-3 text-xs font-mono text-[#6E6E78] mb-4">
               <span className="text-[#0047FF] font-bold">PHASE 0{selectedPhase + 1}</span>
-              <span>//</span>
               <span className="uppercase">{activeStage.timeline}</span>
-              <span>//</span>
               <span className="px-2 py-0.5 rounded-full bg-black/5 text-[#0E0E10] font-semibold">
                 {activeStage.focus}
               </span>
@@ -127,12 +119,12 @@ export default function Process() {
 
             {/* Terminal simulation code */}
             <div className="my-6 font-mono text-xs text-[#0E0E10] space-y-2">
-              <div className="text-[#6E6E78]">// Pipeline Telemetry Protocol</div>
+              <div className="text-[#6E6E78]">Pipeline Telemetry Protocol</div>
               <div className="p-3 bg-white rounded-xl border border-black/5 font-mono text-[11px] text-[#0047FF]">
                 {activeStage.techSpec}
               </div>
               <div className="text-[11px] text-[#6E6E78]">
-                STATUS: &gt; ALL ASSETS VALIDATED // 0 ERRORS
+                STATUS: ALL ASSETS VALIDATED, 0 ERRORS
               </div>
             </div>
 

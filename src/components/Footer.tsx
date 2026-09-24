@@ -49,7 +49,7 @@ export default function Footer() {
 
   return (
     <footer className="bg-[#FAF9F5] border-t border-black/10 pt-20 pb-0 overflow-hidden relative select-none">
-      <div className="px-4 sm:px-8 lg:px-12">
+      <div className="site-gutter">
         {/* Top Operational Bar */}
         <div className="grid grid-cols-1 md:grid-cols-12 gap-8 pb-16 border-b border-black/8 items-start">
           {/* Status & Studio Info (4 cols) */}
@@ -142,7 +142,7 @@ export default function Footer() {
                   rel="noreferrer"
                   className="hover:text-[#0047FF] transition-colors flex items-center justify-between"
                 >
-                  <span>X // Twitter</span>
+                  <span>X / Twitter</span>
                   <span>↗</span>
                 </a>
               </li>

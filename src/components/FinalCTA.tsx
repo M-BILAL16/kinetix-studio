@@ -38,7 +38,7 @@ export default function FinalCTA({ onOpenContact }: FinalCTAProps) {
   };
 
   return (
-    <section className="relative min-h-[85vh] lg:min-h-screen py-32 px-4 sm:px-8 lg:px-16 flex flex-col justify-between bg-[#FAF9F5] overflow-hidden select-none">
+    <section className="relative min-h-[85vh] lg:min-h-screen py-32 site-gutter flex flex-col justify-between bg-[#FAF9F5] overflow-hidden select-none">
       {/* Dynamic Ambient Glow that intensifies when button is hovered */}
       <motion.div
         animate={{
@@ -50,13 +50,7 @@ export default function FinalCTA({ onOpenContact }: FinalCTAProps) {
       />
 
       {/* Top Editorial Index */}
-      <div className="flex items-center justify-between border-b border-black/8 pb-4 relative z-10">
-        <div className="flex items-center gap-3">
-          <span className="w-2 h-2 rounded-full bg-[#0047FF]" />
-          <span className="text-xs font-mono tracking-widest uppercase text-[#0E0E10] font-semibold">
-            10 // YOUR NEXT CHAPTER
-          </span>
-        </div>
+      <div className="flex items-center justify-end border-b border-black/8 pb-4 relative z-10">
         <div className="flex items-center gap-2 text-xs font-mono text-[#6E6E78]">
           <Sparkles className="w-3.5 h-3.5 text-[#0047FF]" />
           <span>CURRENT STATUS: ACCEPTING Q3/Q4 PARTNERS</span>
@@ -109,7 +103,7 @@ export default function FinalCTA({ onOpenContact }: FinalCTAProps) {
 
       {/* Bottom Sub-bar */}
       <div className="flex flex-col sm:flex-row items-center justify-between pt-8 border-t border-black/8 text-xs font-mono text-[#6E6E78] relative z-10 gap-3">
-        <span>DISCOVERY CALL IS FREE // 30 MINUTES</span>
+        <span>DISCOVERY CALL IS FREE. 30 MINUTES</span>
         <span className="text-[#0E0E10] font-bold">TYPICAL BUILD: 45 DAYS TO LIVE</span>
       </div>
     </section>

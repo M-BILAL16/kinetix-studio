@@ -79,7 +79,7 @@ export const AGENCY_DATA = {
   tagline: "Making your brand impossible to ignore.",
   subline:
     "We identify which part of your business is costing you time and money, then we deploy tested solutions to fix it for you.",
-  coordinates: "40.7128° N, 74.0060° W // NYC",
+  coordinates: "40.7128° N, 74.0060° W, NYC",
   founded: "2021",
   status: "AVAILABLE FOR SELECT Q3/Q4 2026 ENGAGEMENTS",
   primaryCta: "Build and Automate",
@@ -125,7 +125,7 @@ export const AGENCY_DATA = {
       ],
       accentColor: "#0047FF",
       tag: "AUTONOMY",
-      visualSnippet: "AGENT_RUNTIME // ROUTINE_WORK_OFFLOADED",
+      visualSnippet: "AGENT_RUNTIME — ROUTINE_WORK_OFFLOADED",
     },
     {
       id: "automation",
@@ -141,7 +141,7 @@ export const AGENCY_DATA = {
       ],
       accentColor: "#FF3B14",
       tag: "THROUGHPUT",
-      visualSnippet: "PIPELINE // TOOLS_TALKING_TO_EACH_OTHER",
+      visualSnippet: "PIPELINE — TOOLS_TALKING_TO_EACH_OTHER",
     },
     {
       id: "software",
@@ -157,7 +157,7 @@ export const AGENCY_DATA = {
       ],
       accentColor: "#10B981",
       tag: "OWNERSHIP",
-      visualSnippet: "BESPOKE_BUILD // NO_TEMPLATE_COMPROMISE",
+      visualSnippet: "BESPOKE_BUILD — NO_TEMPLATE_COMPROMISE",
     },
     {
       id: "dashboards",
@@ -173,7 +173,7 @@ export const AGENCY_DATA = {
       ],
       accentColor: "#7C3AED",
       tag: "VISIBILITY",
-      visualSnippet: "TELEMETRY // DECISIONS_IN_REAL_TIME",
+      visualSnippet: "TELEMETRY — DECISIONS_IN_REAL_TIME",
     },
     {
       id: "growth",
@@ -189,7 +189,7 @@ export const AGENCY_DATA = {
       ],
       accentColor: "#FF2E93",
       tag: "ACQUISITION",
-      visualSnippet: "DEMAND_ENGINE // PIPELINE_OVER_VANITY",
+      visualSnippet: "DEMAND_ENGINE — PIPELINE_OVER_VANITY",
     },
   ],
   projects: [
@@ -410,7 +410,7 @@ export const AGENCY_DATA = {
       author: "Steve Benko",
       role: "Co-Founder",
       company: "United School Supplies",
-      location: "Education // United States",
+      location: "Education, United States",
       metric: "4 New Enterprise Clients",
     },
     {
@@ -420,7 +420,7 @@ export const AGENCY_DATA = {
       author: "Sabrina Mcdonald",
       role: "Founder",
       company: "City Eats CA",
-      location: "Hospitality // California",
+      location: "Hospitality, California",
       metric: "12-Hour Gap, Zero Friction",
     },
     {
@@ -430,7 +430,7 @@ export const AGENCY_DATA = {
       author: "Van Dyke",
       role: "Founder",
       company: "Bloodwork Blueprint",
-      location: "Health Tech // United States",
+      location: "Health Tech, United States",
       metric: "Zero Structural Debt",
     },
   ],

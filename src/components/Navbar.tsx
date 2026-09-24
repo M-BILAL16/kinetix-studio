@@ -30,12 +30,12 @@ export default function Navbar({ onOpenContact }: NavbarProps) {
 
   return (
     <>
-      <header className="fixed top-0 left-0 right-0 z-50 flex justify-center px-4 sm:px-8 pt-4 sm:pt-6 pointer-events-none">
+      <header className="fixed top-0 left-0 right-0 z-50 flex justify-center site-gutter pt-4 sm:pt-6 pointer-events-none">
         <motion.nav
           initial={{ y: -60, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] as const }}
-          className={`pointer-events-auto w-full max-w-6xl transition-all duration-300 rounded-full border ${
+          className={`pointer-events-auto w-full transition-all duration-300 rounded-full border ${
             scrolled
               ? "bg-[#FAF9F5]/85 backdrop-blur-xl border-black/10 py-2.5 px-4 sm:px-6 shadow-sm shadow-black/5"
               : "bg-white/60 backdrop-blur-md border-black/8 py-3.5 px-5 sm:px-8 shadow-sm"
@@ -48,14 +48,14 @@ export default function Navbar({ onOpenContact }: NavbarProps) {
             data-cursor="home"
           >
             <div className="w-8 h-8 rounded-full bg-[#0E0E10] flex items-center justify-center text-[#FAF9F5] font-black text-xs group-hover:bg-[#0047FF] transition-colors duration-300">
-              <span className="tracking-tighter">K//</span>
+              <span className="tracking-tighter">K</span>
             </div>
             <div className="flex flex-col">
               <span className="font-sans font-black tracking-tight text-sm text-[#0E0E10] leading-none">
                 KINETIX
               </span>
               <span className="font-mono text-[9px] tracking-widest text-[#6E6E78] uppercase mt-0.5">
-                STUDIO // 2026
+                STUDIO 2026
               </span>
             </div>
           </a>

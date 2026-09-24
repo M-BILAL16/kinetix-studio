@@ -51,14 +51,8 @@ export default function Statement() {
   return (
     <section
       ref={containerRef}
-      className="relative min-h-[70vh] lg:min-h-[85vh] py-32 px-4 sm:px-8 lg:px-16 flex flex-col justify-center bg-[#FAF9F5] border-t border-b border-black/10 overflow-hidden"
+      className="relative min-h-[70vh] lg:min-h-[85vh] py-32 site-gutter flex flex-col justify-center bg-[#FAF9F5] border-t border-b border-black/10 overflow-hidden"
     >
-      {/* Background Subtle Noise & Technical Stamp */}
-      <div className="absolute top-12 left-6 sm:left-12 flex items-center gap-3 text-xs font-mono text-[#6E6E78]">
-        <span className="w-2 h-2 rounded-full bg-[#FF3B14]" />
-        <span>07 // CORE THESIS</span>
-      </div>
-
       <div className="max-w-6xl mx-auto text-left sm:text-center my-auto">
         <h2 className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-black font-sans tracking-tight uppercase leading-[1.05] select-none">
           {statementWords.map((word, i) => {
@@ -85,7 +79,7 @@ export default function Statement() {
           <span className="px-3 py-1 rounded-full bg-white border border-black/10 text-[#0E0E10] font-semibold">
             PRICED ON VALUE & IMPACT, NEVER BY THE HOUR
           </span>
-          <span>250+ PROJECTS DELIVERED // 92% RETENTION</span>
+          <span>250+ PROJECTS DELIVERED. 92% RETENTION</span>
         </motion.div>
       </div>
     </section>

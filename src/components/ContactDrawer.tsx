@@ -249,7 +249,7 @@ export default function ContactDrawer({ isOpen, onClose }: ContactDrawerProps) {
                       )}
                     </button>
                     <p className="text-[10px] font-mono text-center text-[#9E9EA8] mt-3">
-                      STRICT NDA INCLUDED AUTOMATICALLY // PRIVATE REPOSITORY
+                      STRICT NDA INCLUDED AUTOMATICALLY. PRIVATE REPOSITORY
                     </p>
                   </div>
                 </form>
@@ -258,7 +258,7 @@ export default function ContactDrawer({ isOpen, onClose }: ContactDrawerProps) {
 
             {/* Footer stamp */}
             <div className="p-6 border-t border-black/8 bg-black/2 flex items-center justify-between text-[11px] font-mono text-[#6E6E78]">
-              <span>KINETIX STUDIO // HQ NYC</span>
+              <span>KINETIX STUDIO, HQ NYC</span>
               <span>SLOTS LEFT: 02 FOR Q3/Q4</span>
             </div>
           </motion.div>

@@ -45,6 +45,7 @@
 }
 
 :root {
+  --content-max: 1440px;
   --background: #FAF9F5;
   --foreground: #0E0E10;
   --accent-electric: #0047FF;
@@ -62,6 +63,24 @@ body {
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+/* Section backgrounds stay full-bleed; this caps only the content column.
+   Gutters grow beyond the minimum once the viewport exceeds --content-max. */
+.site-gutter {
+  padding-inline: max(1rem, (100% - var(--content-max)) / 2);
+}
+
+@media (min-width: 640px) {
+  .site-gutter {
+    padding-inline: max(2rem, (100% - var(--content-max)) / 2);
+  }
+}
+
+@media (min-width: 1024px) {
+  .site-gutter {
+    padding-inline: max(3rem, (100% - var(--content-max)) / 2);
+  }
 }
 
 /* Lenis smooth scrolling rules */

@@ -72,7 +72,7 @@ export default function HeroVisualCluster() {
             <div className="flex items-center gap-2">
               <span className="w-2.5 h-2.5 rounded-full bg-[#0047FF] animate-ping" />
               <span className="text-[10px] font-mono tracking-widest text-[#0E0E10] font-bold">
-                KINETIX // CORE
+                KINETIX CORE
               </span>
             </div>
             <span className="text-[10px] font-mono text-[#6E6E78]">
@@ -123,10 +123,10 @@ export default function HeroVisualCluster() {
 
             <div className="absolute inset-0 flex flex-col items-center justify-center">
               <span className="text-3xl font-black tracking-tight text-[#0E0E10] font-sans">
-                60<span className="text-sm font-mono text-[#0047FF]">FPS</span>
+                12<span className="text-sm font-mono text-[#0047FF]">+</span>
               </span>
               <span className="text-[9px] font-mono tracking-widest text-[#6E6E78] uppercase mt-0.5">
-                SUB-16MS FRAME
+                ENTERPRISE CLIENTS
               </span>
             </div>
           </div>
@@ -152,7 +152,7 @@ export default function HeroVisualCluster() {
             </span>
           </div>
           <div className="font-mono text-[11px] leading-relaxed text-[#0E0E10] space-y-0.5">
-            <p className="text-[#6E6E78]">// isolate bottleneck</p>
+            <p className="text-[#6E6E78]">isolate bottleneck</p>
             <p>
               <span className="text-[#0047FF] font-semibold">const</span> leverage ={" "}
               <span className="text-[#FF3B14]">solveHighValue</span>();
@@ -215,7 +215,7 @@ export default function HeroVisualCluster() {
         >
           <span className="w-1.5 h-1.5 rounded-full bg-[#10B981]" />
           <span className="text-[10px] font-mono font-bold tracking-widest text-[#0E0E10]">
-            EST. 2026 // NYC
+            EST. 2026, NYC
           </span>
           <ArrowUpRight className="w-3.5 h-3.5 text-[#0047FF]" />
         </motion.div>

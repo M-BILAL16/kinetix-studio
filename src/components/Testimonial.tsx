@@ -22,16 +22,10 @@ export default function Testimonial() {
   return (
     <section
       id="testimonials"
-      className="py-32 px-4 sm:px-8 lg:px-16 bg-[#FAF9F5] border-t border-b border-black/10 relative overflow-hidden"
+      className="py-32 site-gutter bg-[#FAF9F5] border-t border-b border-black/10 relative overflow-hidden"
     >
       {/* Editorial Marker */}
-      <div className="flex items-center justify-between mb-16 pb-6 border-b border-black/8">
-        <div className="flex items-center gap-3">
-          <span className="text-xs font-mono font-bold text-[#0047FF]">09 //</span>
-          <span className="text-xs font-mono uppercase tracking-widest text-[#6E6E78]">
-            WHAT PEOPLE SAID ABOUT US
-          </span>
-        </div>
+      <div className="flex items-center justify-end mb-16 pb-6 border-b border-black/8">
         <div className="flex items-center gap-2">
           <span className="text-xs font-mono text-[#0E0E10] font-bold">
             0{currentIdx + 1}

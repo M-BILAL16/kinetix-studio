@@ -46,18 +46,16 @@ export default function Hero({ onOpenContact }: HeroProps) {
   };
 
   return (
-    <section className="relative min-h-[92vh] lg:min-h-screen pt-28 pb-16 px-4 sm:px-8 lg:px-12 flex flex-col justify-between overflow-hidden bg-editorial-grid bg-noise">
+    <section className="relative min-h-[92vh] lg:min-h-screen pt-28 pb-16 site-gutter flex flex-col justify-between overflow-hidden bg-editorial-grid bg-noise">
       {/* Editorial Watermark & Technical Coordinates */}
       <div className="flex items-center justify-between border-b border-black/8 pb-4 mb-8 sm:mb-12">
         <div className="flex items-center gap-3">
           <span className="w-2 h-2 rounded-full bg-[#0047FF]" />
           <span className="text-[11px] font-mono tracking-widest uppercase text-[#0E0E10] font-semibold">
-            BUILD & AUTOMATE // GROW & ACQUIRE
+            IDEA TO LIVE SYSTEM IN 60 DAYS
           </span>
         </div>
         <div className="hidden sm:flex items-center gap-6 text-[11px] font-mono text-[#6E6E78]">
-          <span>INDEX // 001</span>
-          <span>IDEA TO LIVE SYSTEM IN 60 DAYS</span>
           <span className="text-[#0047FF] font-bold">LIVE STATUS: ONLINE</span>
         </div>
       </div>

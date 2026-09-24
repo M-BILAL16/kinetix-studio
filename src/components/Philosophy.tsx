@@ -14,7 +14,7 @@ export default function Philosophy() {
   const IconComponent = stepIcons[activeStep];
 
   return (
-    <section id="philosophy" className="py-28 px-4 sm:px-8 lg:px-12 bg-[#FAF9F5] relative overflow-hidden">
+    <section id="philosophy" className="py-28 site-gutter bg-[#FAF9F5] relative overflow-hidden">
       {/* Background Accent Glow */}
       <div
         className="absolute top-1/4 right-0 w-[500px] h-[500px] rounded-full blur-3xl opacity-20 pointer-events-none transition-colors duration-700"
@@ -23,12 +23,6 @@ export default function Philosophy() {
 
       {/* Section Header */}
       <div className="max-w-4xl mb-20">
-        <div className="flex items-center gap-2 mb-4">
-          <span className="text-xs font-mono font-bold text-[#0047FF]">03 //</span>
-          <span className="text-xs font-mono uppercase tracking-widest text-[#6E6E78]">
-            CLARITY BEFORE COMPLEXITY
-          </span>
-        </div>
         <h2 className="text-4xl sm:text-6xl lg:text-7xl font-black uppercase tracking-tight text-[#0E0E10] font-sans leading-[0.95]">
           FIND THE{" "}
           <span className="font-serif italic font-normal lowercase text-[#0047FF]">
@@ -161,7 +155,7 @@ export default function Philosophy() {
                   style={{ backgroundColor: activeData.accent }}
                 />
                 <span className="text-[11px] font-mono tracking-widest uppercase font-bold text-[#0E0E10]">
-                  DIAGNOSTIC STAGE // {activeData.number}
+                  DIAGNOSTIC STAGE {activeData.number}
                 </span>
               </div>
               <span className="text-[10px] font-mono text-[#6E6E78]">

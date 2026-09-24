@@ -11,16 +11,10 @@ export default function Metrics() {
   return (
     <section
       ref={containerRef}
-      className="relative py-24 px-4 sm:px-8 lg:px-12 bg-[#FAF9F5] border-t border-b border-black/10 overflow-hidden"
+      className="relative py-24 site-gutter bg-[#FAF9F5] border-t border-b border-black/10 overflow-hidden"
     >
       {/* Editorial Header */}
-      <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 pb-6 border-b border-black/8 gap-4">
-        <div className="flex items-center gap-3">
-          <span className="text-xs font-mono font-bold text-[#0047FF]">02 //</span>
-          <span className="text-xs font-mono uppercase tracking-widest text-[#6E6E78]">
-            DOCUMENTED IMPACT & TRACK RECORD
-          </span>
-        </div>
+      <div className="flex flex-col md:flex-row md:items-end justify-end mb-16 pb-6 border-b border-black/8 gap-4">
         <p className="text-xs font-mono text-[#6E6E78] max-w-sm text-left md:text-right">
           EVERY NUMBER BELOW COMES FROM WORK THAT SHIPPED AND STAYED IN PRODUCTION.
         </p>
@@ -72,7 +66,7 @@ export default function Metrics() {
       <div className="mt-12 flex flex-wrap items-center justify-between text-[11px] font-mono text-[#6E6E78] pt-4 border-t border-black/6">
         <div className="flex items-center gap-2">
           <span className="w-2 h-2 rounded-full bg-[#10B981]" />
-          <span>DATA REVIEWED ANNUALLY // ZERO ESTIMATES</span>
+          <span>DATA REVIEWED ANNUALLY. ZERO ESTIMATES</span>
         </div>
         <div className="text-[#0E0E10] font-bold">
           TOTAL DOCUMENTED REVENUE ENABLED: &gt; $300K USD

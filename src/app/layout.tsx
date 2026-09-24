@@ -21,7 +21,7 @@ const playfair = Playfair_Display({
 });
 
 export const metadata: Metadata = {
-  title: "KINETIX // AI Agents, Automation & Growth Systems",
+  title: "KINETIX — AI Agents, Automation & Growth Systems",
   description:
     "Making your brand impossible to ignore. We identify which part of your business is costing you time and money, then we deploy tested solutions to fix it for you.",
   keywords: [
@@ -35,7 +35,7 @@ export const metadata: Metadata = {
   ],
   authors: [{ name: "Kinetix Studio" }],
   openGraph: {
-    title: "KINETIX // Making your brand impossible to ignore.",
+    title: "KINETIX — Making your brand impossible to ignore.",
     description:
       "AI agents, automation systems, custom software, internal dashboards and growth marketing — from a free discovery call to a live system in 60 days.",
     type: "website",

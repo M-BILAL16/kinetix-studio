@@ -17,17 +17,11 @@ export default function Engagement({ onOpenContact }: EngagementProps) {
     <section
       id="start"
       ref={containerRef}
-      className="py-32 px-4 sm:px-8 lg:px-12 bg-[#FAF9F5] border-t border-black/10 relative overflow-hidden"
+      className="py-32 site-gutter bg-[#FAF9F5] border-t border-black/10 relative overflow-hidden"
     >
       {/* Editorial Header */}
       <div className="flex flex-col md:flex-row md:items-end justify-between mb-20 pb-8 border-b border-black/10 gap-6">
         <div>
-          <div className="flex items-center gap-2 mb-3">
-            <span className="text-xs font-mono font-bold text-[#0047FF]">05 //</span>
-            <span className="text-xs font-mono uppercase tracking-widest text-[#6E6E78]">
-              GET YOURSELF STARTED
-            </span>
-          </div>
           <h2 className="text-4xl sm:text-6xl lg:text-7xl font-black uppercase tracking-tight text-[#0E0E10] font-sans leading-[0.95]">
             THE MAP BEFORE <br />
             THE{" "}
@@ -175,7 +169,7 @@ export default function Engagement({ onOpenContact }: EngagementProps) {
       <div className="mt-14 pt-6 border-t border-black/8 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs font-mono text-[#6E6E78]">
         <div className="flex items-center gap-2">
           <span className="w-2 h-2 rounded-full bg-[#10B981]" />
-          <span>NO OBLIGATION AT ANY STEP // STOP WHENEVER IT STOPS MAKING SENSE</span>
+          <span>NO OBLIGATION AT ANY STEP. STOP WHENEVER IT STOPS MAKING SENSE</span>
         </div>
         <span className="text-[#0E0E10] font-bold">IDEA TO LIVE SYSTEM: 60 DAYS</span>
       </div>

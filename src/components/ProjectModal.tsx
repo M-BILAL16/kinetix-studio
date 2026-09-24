@@ -45,7 +45,7 @@ export default function ProjectModal({
                 [{project.number}]
               </span>
               <span className="text-xs font-mono uppercase tracking-widest text-[#6E6E78]">
-                CASE ARCHIVE // {project.year}
+                CASE ARCHIVE {project.year}
               </span>
             </div>
             <button
