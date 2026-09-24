@@ -21,23 +21,23 @@ const playfair = Playfair_Display({
 });
 
 export const metadata: Metadata = {
-  title: "KINETIX // Award-Winning Digital Architecture & Creative Atelier",
+  title: "KINETIX // AI Agents, Automation & Growth Systems",
   description:
-    "Making your brand impossible to ignore. Bespoke digital solutions, radical editorial web experiences, and high-velocity automation engines for global visionaries.",
+    "Making your brand impossible to ignore. We identify which part of your business is costing you time and money, then we deploy tested solutions to fix it for you.",
   keywords: [
-    "Digital Agency",
-    "Awwwards",
-    "Creative Studio",
+    "AI Agents",
+    "Business Automation",
+    "Custom Software",
+    "Internal Dashboards",
+    "Performance Marketing",
+    "SEO and AEO",
     "Next.js Development",
-    "Luxury Editorial",
-    "AI Automation",
-    "High-End Web Design",
   ],
   authors: [{ name: "Kinetix Studio" }],
   openGraph: {
     title: "KINETIX // Making your brand impossible to ignore.",
     description:
-      "Award-winning digital solutions company. Swiss editorial design + futuristic interfaces + luxury typography.",
+      "AI agents, automation systems, custom software, internal dashboards and growth marketing — from a free discovery call to a live system in 60 days.",
     type: "website",
   },
 };

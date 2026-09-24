@@ -3,12 +3,12 @@
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { AGENCY_DATA } from "@/lib/data";
-import { ArrowRight, Check, Search, Crosshair, Wrench, TrendingUp } from "lucide-react";
+import { ArrowRight, Check, Search, Crosshair, Wrench } from "lucide-react";
 
 export default function Philosophy() {
   const [activeStep, setActiveStep] = useState(0);
 
-  const stepIcons = [Search, Crosshair, Wrench, TrendingUp];
+  const stepIcons = [Search, Crosshair, Wrench];
 
   const activeData = AGENCY_DATA.philosophy[activeStep];
   const IconComponent = stepIcons[activeStep];
@@ -26,19 +26,19 @@ export default function Philosophy() {
         <div className="flex items-center gap-2 mb-4">
           <span className="text-xs font-mono font-bold text-[#0047FF]">03 //</span>
           <span className="text-xs font-mono uppercase tracking-widest text-[#6E6E78]">
-            OUR OPERATING DOGMA
+            CLARITY BEFORE COMPLEXITY
           </span>
         </div>
         <h2 className="text-4xl sm:text-6xl lg:text-7xl font-black uppercase tracking-tight text-[#0E0E10] font-sans leading-[0.95]">
-          CLARITY BEFORE <br />
+          FIND THE{" "}
           <span className="font-serif italic font-normal lowercase text-[#0047FF]">
-            complexity.
+            leverage
           </span>{" "}
-          FIND THE LEVERAGE FIRST.
+          FIRST.
         </h2>
         <p className="text-base sm:text-xl text-[#6E6E78] mt-6 max-w-2xl font-sans leading-relaxed">
-          We see the whole business, isolate the single highest-leverage bottleneck,
-          and deploy an uncompromising digital solution. No wasted motion.
+          We see the whole business, find the highest-leverage gap, then apply the right
+          solution.
         </p>
       </div>
 
@@ -126,6 +126,28 @@ export default function Philosophy() {
               </div>
             );
           })}
+
+          {/* Closing Callout — balances the column against the sticky stage */}
+          <div className="mt-8 p-6 sm:p-8 rounded-2xl bg-[#0E0E10] text-[#FAF9F5] flex flex-col sm:flex-row sm:items-center justify-between gap-5">
+            <div>
+              <div className="text-[10px] font-mono tracking-widest uppercase text-[#CEFF00] mb-2">
+                WHERE MOST ENGAGEMENTS BEGIN
+              </div>
+              <p className="text-sm sm:text-base font-sans leading-relaxed text-white/75 max-w-sm">
+                A free 30-minute call is usually enough to name the gap. No deck, no
+                obligation.
+              </p>
+            </div>
+
+            <a
+              href="#start"
+              data-cursor="explore"
+              className="shrink-0 inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-full bg-[#FAF9F5] text-[#0E0E10] text-xs font-mono font-bold tracking-widest uppercase hover:bg-[#CEFF00] transition-colors duration-300 group"
+            >
+              <span>See the starting points</span>
+              <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+            </a>
+          </div>
         </div>
 
         {/* Right: Sticky Interactive Visual Stage (5 cols) */}
@@ -193,6 +215,43 @@ export default function Philosophy() {
               <div className="relative z-10 text-[10px] font-mono bg-white/90 p-2.5 rounded-xl border border-black/8 flex items-center justify-between">
                 <span className="text-[#6E6E78]">PROTOCOL:</span>
                 <span className="font-bold text-[#0E0E10]">{activeData.deliverable}</span>
+              </div>
+            </div>
+
+            {/* Gap → Solution Mapping */}
+            <div className="mt-6">
+              <div className="flex items-center justify-between mb-3">
+                <span className="text-[10px] font-mono tracking-widest uppercase text-[#6E6E78]">
+                  IDENTIFY THE OPPORTUNITY
+                </span>
+                <span className="text-[10px] font-mono text-[#9E9EA8]">GAP → SOLUTION</span>
+              </div>
+
+              <div className="space-y-2">
+                {AGENCY_DATA.leverageMap.map((pair, idx) => (
+                  <motion.div
+                    key={pair.gap}
+                    initial={{ opacity: 0, x: -8 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ duration: 0.4, delay: idx * 0.08 }}
+                    className={`flex items-center justify-between gap-3 px-4 py-3 rounded-xl border transition-colors duration-300 ${
+                      activeStep === 1
+                        ? "bg-[#FAF9F5] border-black/12"
+                        : "bg-[#FAF9F5]/60 border-black/6"
+                    }`}
+                  >
+                    <span className="text-xs font-mono text-[#6E6E78] truncate">
+                      {pair.gap}
+                    </span>
+                    <ArrowRight
+                      className="w-3.5 h-3.5 shrink-0 transition-colors duration-300"
+                      style={{ color: activeStep === 1 ? activeData.accent : "#9E9EA8" }}
+                    />
+                    <span className="text-xs font-mono font-bold text-[#0E0E10] text-right truncate">
+                      {pair.fix}
+                    </span>
+                  </motion.div>
+                ))}
               </div>
             </div>
 

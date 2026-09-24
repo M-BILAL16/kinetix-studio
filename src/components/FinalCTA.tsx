@@ -54,7 +54,7 @@ export default function FinalCTA({ onOpenContact }: FinalCTAProps) {
         <div className="flex items-center gap-3">
           <span className="w-2 h-2 rounded-full bg-[#0047FF]" />
           <span className="text-xs font-mono tracking-widest uppercase text-[#0E0E10] font-semibold">
-            09 // INITIATE TRANSMISSION
+            10 // YOUR NEXT CHAPTER
           </span>
         </div>
         <div className="flex items-center gap-2 text-xs font-mono text-[#6E6E78]">
@@ -69,13 +69,17 @@ export default function FinalCTA({ onOpenContact }: FinalCTAProps) {
           HAVE A PROBLEM WORTH SOLVING?
         </span>
 
-        <h2 className="text-4xl sm:text-7xl lg:text-8xl xl:text-9xl font-black font-sans uppercase tracking-tight text-[#0E0E10] leading-[0.9] mb-12">
-          LET&apos;S BUILD SOMETHING{" "}
+        <h2 className="text-4xl sm:text-7xl lg:text-8xl xl:text-9xl font-black font-sans uppercase tracking-tight text-[#0E0E10] leading-[0.9] mb-8">
+          YOUR NEXT CHAPTER DESERVES THE{" "}
           <span className="font-serif italic font-normal text-[#0047FF] lowercase inline-block">
-            impossible
+            best
           </span>{" "}
-          TO IGNORE.
+          PARTNER.
         </h2>
+
+        <p className="text-base sm:text-xl text-[#6E6E78] font-sans leading-relaxed max-w-xl mb-4">
+          Tell us what you&apos;re trying to build. We&apos;ll come back with a plan.
+        </p>
 
         {/* Magnetic Giant Circle Button */}
         <div
@@ -105,8 +109,8 @@ export default function FinalCTA({ onOpenContact }: FinalCTAProps) {
 
       {/* Bottom Sub-bar */}
       <div className="flex flex-col sm:flex-row items-center justify-between pt-8 border-t border-black/8 text-xs font-mono text-[#6E6E78] relative z-10 gap-3">
-        <span>AVERAGE TIME-TO-DEPLOY: 4–6 WEEKS</span>
-        <span className="text-[#0E0E10] font-bold">RETAINER OR FIXED VALUE MILESTONES</span>
+        <span>DISCOVERY CALL IS FREE // 30 MINUTES</span>
+        <span className="text-[#0E0E10] font-bold">TYPICAL BUILD: 45 DAYS TO LIVE</span>
       </div>
     </section>
   );

@@ -133,8 +133,8 @@ export default function HeroVisualCluster() {
 
           {/* Bottom Telemetry */}
           <div className="flex items-center justify-between text-[10px] font-mono bg-[#FAF9F5] p-2 rounded-xl border border-black/5">
-            <span className="text-[#6E6E78]">ARCHITECTURE</span>
-            <span className="font-bold text-[#0E0E10]">RADICAL SIMPLICITY</span>
+            <span className="text-[#6E6E78]">CLIENT RETENTION</span>
+            <span className="font-bold text-[#0E0E10]">92% AND HOLDING</span>
           </div>
         </motion.div>
 
@@ -180,7 +180,7 @@ export default function HeroVisualCluster() {
               </defs>
               <text className="text-[8.5px] font-mono tracking-widest fill-[#0E0E10] uppercase font-semibold">
                 <textPath href="#circlePath">
-                  ★ BESPOKE CRAFT ★ ZERO TEMPLATES ★ 2026 ★
+                  ★ BUILD & AUTOMATE ★ GROW & ACQUIRE ★
                 </textPath>
               </text>
             </svg>
@@ -203,7 +203,7 @@ export default function HeroVisualCluster() {
               REVENUE ENABLED
             </div>
             <div className="text-xl font-black font-sans tracking-tight">
-              +$340,000,000
+              +$300,000
             </div>
           </div>
         </motion.div>

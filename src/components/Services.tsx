@@ -23,21 +23,21 @@ export default function Services({ onOpenContact }: ServicesProps) {
           <div className="flex items-center gap-2 mb-3">
             <span className="text-xs font-mono font-bold text-[#0047FF]">04 //</span>
             <span className="text-xs font-mono uppercase tracking-widest text-[#6E6E78]">
-              SERVICES & DIGITAL CAPABILITIES
+              OUR TOOLKIT
             </span>
           </div>
           <h2 className="text-4xl sm:text-6xl lg:text-7xl font-black uppercase tracking-tight text-[#0E0E10] font-sans leading-[0.95]">
-            HIGH-LEVERAGE <br />
+            FROM INSIGHT <br />
+            TO{" "}
             <span className="font-serif italic font-normal text-[#0047FF] lowercase">
-              solutions.
-            </span>{" "}
-            ZERO COMMODITIES.
+              impact.
+            </span>
           </h2>
         </div>
         <div className="max-w-md text-left md:text-right">
           <p className="text-xs sm:text-sm font-mono text-[#6E6E78] leading-relaxed">
-            WE DO NOT OFFER COOKIE-CUTTER PACKAGES. EVERY ENGAGEMENT IS ARCHITECTED FROM
-            FIRST PRINCIPLES TO SOLVE YOUR EXACT REVENUE BOTTLENECK.
+            A REPEATABLE TOOL KIT DESIGNED FOR ENTERPRISE COMPLEXITY AND STARTUP SPEED.
+            EVERY ENGAGEMENT COMBINES ONLY THE PIECES YOUR GAP ACTUALLY NEEDS.
           </p>
         </div>
       </div>
@@ -124,12 +124,12 @@ export default function Services({ onOpenContact }: ServicesProps) {
 
       {/* Bottom editorial CTA bar */}
       <div className="mt-12 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs font-mono text-[#6E6E78] pt-4">
-        <span>INTERESTED IN A HYBRID SCOPE?</span>
+        <span>NEED A COMBINATION OF THE ABOVE?</span>
         <button
           onClick={onOpenContact}
           className="text-[#0E0E10] hover:text-[#0047FF] font-bold underline transition-colors"
         >
-          CUSTOM ARCHITECTURE INQUIRY ↗
+          TELL US WHAT YOU&apos;RE TRYING TO BUILD ↗
         </button>
       </div>
     </section>

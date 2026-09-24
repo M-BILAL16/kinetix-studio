@@ -17,6 +17,8 @@ export default function SmoothScroll({
       smoothWheel: true,
       wheelMultiplier: 1.0,
       touchMultiplier: 1.5,
+      // Lenis owns the scroll position, so native anchor jumps get overwritten.
+      anchors: { offset: -96 },
     });
 
     let rafId: number;

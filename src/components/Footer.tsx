@@ -61,8 +61,8 @@ export default function Footer() {
               </span>
             </div>
             <p className="text-sm text-[#6E6E78] leading-relaxed max-w-sm font-sans">
-              Bespoke digital architecture, Awwwards-caliber web experiences, and high-velocity
-              automation engines for visionaries who refuse ordinary.
+              AI agents, automation systems, custom software, internal dashboards and growth
+              marketing — deployed against the one gap costing you the most.
             </p>
             <div className="text-xs font-mono text-[#0047FF] font-semibold">
               HELLO@KINETIX-STUDIO.COM
@@ -98,18 +98,23 @@ export default function Footer() {
             </div>
             <ul className="text-xs font-mono space-y-2 text-[#0E0E10]">
               <li>
-                <a href="#work" className="hover:text-[#0047FF] transition-colors">
-                  Work
+                <a href="#philosophy" className="hover:text-[#0047FF] transition-colors">
+                  Approach
                 </a>
               </li>
               <li>
                 <a href="#services" className="hover:text-[#0047FF] transition-colors">
-                  Services
+                  Toolkit
                 </a>
               </li>
               <li>
-                <a href="#philosophy" className="hover:text-[#0047FF] transition-colors">
-                  Philosophy
+                <a href="#start" className="hover:text-[#0047FF] transition-colors">
+                  Get Started
+                </a>
+              </li>
+              <li>
+                <a href="#work" className="hover:text-[#0047FF] transition-colors">
+                  Impact
                 </a>
               </li>
               <li>

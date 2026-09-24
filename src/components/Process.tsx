@@ -16,7 +16,7 @@ export default function Process() {
       <div className="flex flex-col md:flex-row md:items-end justify-between mb-20 pb-8 border-b border-black/10 gap-6">
         <div>
           <div className="flex items-center gap-2 mb-3">
-            <span className="text-xs font-mono font-bold text-[#0047FF]">07 //</span>
+            <span className="text-xs font-mono font-bold text-[#0047FF]">08 //</span>
             <span className="text-xs font-mono uppercase tracking-widest text-[#6E6E78]">
               SYSTEM DEPLOYMENT CYCLE
             </span>

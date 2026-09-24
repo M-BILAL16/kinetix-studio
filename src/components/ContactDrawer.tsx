@@ -11,18 +11,18 @@ interface ContactDrawerProps {
 }
 
 const SERVICES = [
-  "Web Experience",
-  "AI & Automation",
-  "Digital Strategy",
-  "Brand Architecture",
-  "Growth Systems",
+  "AI Agents",
+  "Automation Systems",
+  "Custom Software",
+  "Internal Dashboards",
+  "Growth & Marketing",
 ];
 
-const BUDGETS = ["$25k – $50k", "$50k – $100k", "$100k – $250k", "$250k+"];
+const BUDGETS = ["Free Discovery Call", "$2,500 AI Audit", "$15k – $50k Build", "Not sure yet"];
 
 export default function ContactDrawer({ isOpen, onClose }: ContactDrawerProps) {
-  const [selectedServices, setSelectedServices] = useState<string[]>(["Web Experience"]);
-  const [selectedBudget, setSelectedBudget] = useState<string>("$50k – $100k");
+  const [selectedServices, setSelectedServices] = useState<string[]>(["Automation Systems"]);
+  const [selectedBudget, setSelectedBudget] = useState<string>("Free Discovery Call");
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -162,7 +162,7 @@ export default function ContactDrawer({ isOpen, onClose }: ContactDrawerProps) {
                   {/* Budget Allocation */}
                   <div>
                     <label className="block text-[11px] font-mono tracking-widest uppercase text-[#6E6E78] mb-3">
-                      (02) Anticipated Investment Range
+                      (02) Which starting point fits you?
                     </label>
                     <div className="grid grid-cols-2 gap-2">
                       {BUDGETS.map((b) => (

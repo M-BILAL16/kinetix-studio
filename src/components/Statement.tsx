@@ -43,9 +43,9 @@ export default function Statement() {
     { text: "SELL", special: false },
     { text: "SERVICES.", special: false },
     { text: "WE", special: false },
-    { text: "SOLVE", special: false },
+    { text: "REMOVE", special: false },
     { text: "expensive", special: true },
-    { text: "PROBLEMS.", special: false },
+    { text: "BOTTLENECKS.", special: false },
   ];
 
   return (
@@ -56,7 +56,7 @@ export default function Statement() {
       {/* Background Subtle Noise & Technical Stamp */}
       <div className="absolute top-12 left-6 sm:left-12 flex items-center gap-3 text-xs font-mono text-[#6E6E78]">
         <span className="w-2 h-2 rounded-full bg-[#FF3B14]" />
-        <span>06 // CORE THESIS</span>
+        <span>07 // CORE THESIS</span>
       </div>
 
       <div className="max-w-6xl mx-auto text-left sm:text-center my-auto">
@@ -83,9 +83,9 @@ export default function Statement() {
           className="mt-12 flex flex-col sm:flex-row items-center justify-center gap-4 text-xs font-mono text-[#6E6E78]"
         >
           <span className="px-3 py-1 rounded-full bg-white border border-black/10 text-[#0E0E10] font-semibold">
-            PRICING ON VALUE & IMPACT, NEVER BY THE HOUR
+            PRICED ON VALUE & IMPACT, NEVER BY THE HOUR
           </span>
-          <span>ESTABLISHED 2026 // NYC & GENEVA</span>
+          <span>250+ PROJECTS DELIVERED // 92% RETENTION</span>
         </motion.div>
       </div>
     </section>

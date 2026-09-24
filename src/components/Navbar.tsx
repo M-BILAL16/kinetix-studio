@@ -21,11 +21,11 @@ export default function Navbar({ onOpenContact }: NavbarProps) {
   }, []);
 
   const navLinks = [
-    { label: "Work", href: "#work" },
-    { label: "Services", href: "#services" },
-    { label: "Philosophy", href: "#philosophy" },
+    { label: "Approach", href: "#philosophy" },
+    { label: "Toolkit", href: "#services" },
+    { label: "Get Started", href: "#start" },
+    { label: "Impact", href: "#work" },
     { label: "Process", href: "#process" },
-    { label: "Testimonials", href: "#testimonials" },
   ];
 
   return (
@@ -89,7 +89,7 @@ export default function Navbar({ onOpenContact }: NavbarProps) {
               data-cursor="open"
               className="relative group overflow-hidden px-5 py-2.5 rounded-full bg-[#0E0E10] hover:bg-[#0047FF] text-[#FAF9F5] text-xs font-mono font-bold tracking-wider uppercase transition-all duration-300 flex items-center gap-1.5 shadow-sm active:scale-95"
             >
-              <span>START A PROJECT</span>
+              <span>BOOK A CALL</span>
               <ArrowUpRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform duration-200" />
             </button>
 
@@ -145,7 +145,7 @@ export default function Navbar({ onOpenContact }: NavbarProps) {
               }}
               className="mt-4 w-full py-3.5 bg-[#0047FF] text-white rounded-full text-xs font-mono font-bold tracking-widest uppercase text-center"
             >
-              START A PROJECT ↗
+              BOOK A FREE CALL ↗
             </button>
           </div>
         </motion.div>

@@ -6,6 +6,7 @@ import Hero from "@/components/Hero";
 import Metrics from "@/components/Metrics";
 import Philosophy from "@/components/Philosophy";
 import Services from "@/components/Services";
+import Engagement from "@/components/Engagement";
 import FeaturedWork from "@/components/FeaturedWork";
 import Statement from "@/components/Statement";
 import CapabilitiesMarquee from "@/components/CapabilitiesMarquee";
@@ -37,6 +38,9 @@ export default function Home() {
 
       {/* Services Preview */}
       <Services onOpenContact={() => setIsContactOpen(true)} />
+
+      {/* Engagement Tiers / How To Get Started */}
+      <Engagement onOpenContact={() => setIsContactOpen(true)} />
 
       {/* Featured Work / Portfolio Showcase */}
       <FeaturedWork

@@ -27,9 +27,9 @@ export default function Testimonial() {
       {/* Editorial Marker */}
       <div className="flex items-center justify-between mb-16 pb-6 border-b border-black/8">
         <div className="flex items-center gap-3">
-          <span className="text-xs font-mono font-bold text-[#0047FF]">08 //</span>
+          <span className="text-xs font-mono font-bold text-[#0047FF]">09 //</span>
           <span className="text-xs font-mono uppercase tracking-widest text-[#6E6E78]">
-            EXECUTIVE TESTIMONIALS
+            WHAT PEOPLE SAID ABOUT US
           </span>
         </div>
         <div className="flex items-center gap-2">
@@ -38,6 +38,20 @@ export default function Testimonial() {
           </span>
           <span className="text-xs font-mono text-[#9E9EA8]">/ 0{testimonials.length}</span>
         </div>
+      </div>
+
+      {/* Section Headline */}
+      <div className="max-w-5xl mx-auto mb-16">
+        <h2 className="text-4xl sm:text-6xl lg:text-7xl font-black uppercase tracking-tight text-[#0E0E10] font-sans leading-[0.95]">
+          OPERATORS WHO CHOSE US <br />
+          — AND{" "}
+          <span className="font-serif italic font-normal text-[#0047FF] lowercase">
+            stayed.
+          </span>
+        </h2>
+        <p className="text-base sm:text-lg text-[#6E6E78] mt-5 max-w-xl font-sans leading-relaxed">
+          Everybody loves praise and appreciation, so we always document ours.
+        </p>
       </div>
 
       {/* Giant Editorial Magazine Quote Container */}
