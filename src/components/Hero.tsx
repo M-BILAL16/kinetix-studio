@@ -97,10 +97,9 @@ export default function Hero({ onOpenContact }: HeroProps) {
           <div className="overflow-hidden pb-1 flex items-baseline">
             <motion.span
               variants={lineVariants}
-              className="font-serif italic font-normal text-6xl sm:text-8xl xl:text-9xl 2xl:text-[7.25rem] tracking-tight text-[#0047FF] leading-[0.88] lowercase relative pr-4 inline-block"
+              className="text-5xl sm:text-7xl xl:text-8xl 2xl:text-[5.75rem] font-black uppercase tracking-tight text-[#0047FF] leading-[0.92] font-sans"
             >
-              impossible
-              <span className="absolute bottom-1 left-0 right-4 h-1 bg-[#CEFF00] -z-10 rounded-full" />
+              IMPOSSIBLE
             </motion.span>
           </div>
 
