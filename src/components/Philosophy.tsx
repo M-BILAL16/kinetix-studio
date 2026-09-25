@@ -1,31 +1,51 @@
 "use client";
 
-import React, { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import React, { useEffect, useRef, useState } from "react";
+import { motion, useInView, useReducedMotion } from "framer-motion";
 import { AGENCY_DATA } from "@/lib/data";
-import { ArrowRight, Check, Search, Crosshair, Wrench } from "lucide-react";
+import { ArrowRight, Search, Crosshair, Wrench } from "lucide-react";
 
 export default function Philosophy() {
-  const [activeStep, setActiveStep] = useState(0);
+  const flowRef = useRef<HTMLDivElement>(null);
+  const isInView = useInView(flowRef, { once: true, margin: "-100px" });
+  const prefersReducedMotion = useReducedMotion();
+
+  // Walks the leverage map one pair at a time; hovering a row takes over.
+  const [activePair, setActivePair] = useState(0);
+  const [isPaused, setIsPaused] = useState(false);
+
+  useEffect(() => {
+    if (!isInView || isPaused || prefersReducedMotion) return;
+
+    const timer = window.setInterval(() => {
+      setActivePair((current) => (current + 1) % AGENCY_DATA.leverageMap.length);
+    }, 2400);
+
+    return () => window.clearInterval(timer);
+  }, [isInView, isPaused, prefersReducedMotion]);
 
   const stepIcons = [Search, Crosshair, Wrench];
 
-  const activeData = AGENCY_DATA.philosophy[activeStep];
-  const IconComponent = stepIcons[activeStep];
+  const cardBase =
+    "h-full rounded-3xl bg-white border border-black/8 shadow-[0_18px_50px_-30px_rgba(0,0,0,0.25)] p-8 sm:p-9";
+
+  const reveal = (delay: number) => ({
+    initial: { opacity: 0, y: 28 },
+    animate: isInView ? { opacity: 1, y: 0 } : {},
+    transition: { duration: 0.75, delay, ease: [0.16, 1, 0.3, 1] as const },
+  });
+
+  const [understand, identify, execute] = AGENCY_DATA.philosophy;
+  const UnderstandIcon = stepIcons[0];
+  const ExecuteIcon = stepIcons[2];
 
   return (
     <section id="philosophy" className="py-28 site-gutter bg-[#FAF9F5] relative overflow-hidden">
-      {/* Background Accent Glow */}
-      <div
-        className="absolute top-1/4 right-0 w-[500px] h-[500px] rounded-full blur-3xl opacity-20 pointer-events-none transition-colors duration-700"
-        style={{ backgroundColor: activeData.accent }}
-      />
-
       {/* Section Header */}
       <div className="max-w-4xl mb-20">
         <h2 className="text-4xl sm:text-6xl lg:text-7xl font-black uppercase tracking-tight text-[#0E0E10] font-sans leading-[0.95]">
           FIND THE{" "}
-          <span className="font-serif italic font-normal lowercase text-[#0047FF]">
+          <span className="lowercase text-[#0047FF]">
             leverage
           </span>{" "}
           FIRST.
@@ -36,226 +56,230 @@ export default function Philosophy() {
         </p>
       </div>
 
-      {/* Interactive Sticky Stage & Timeline Grid */}
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
-        {/* Left: Step Interactive Timeline (7 cols) */}
-        <div className="lg:col-span-7 space-y-4">
-          {AGENCY_DATA.philosophy.map((step, idx) => {
-            const isActive = activeStep === idx;
-            const Icon = stepIcons[idx];
-
-            return (
+      {/* Three-Panel Diagnostic Flow */}
+      <div ref={flowRef} className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-stretch">
+        {/* Panel 01 — Understand */}
+        <motion.div {...reveal(0)} className="lg:col-span-3">
+          <div className={`${cardBase} flex flex-col justify-between gap-12`}>
+            <div className="flex items-start justify-between">
               <div
-                key={step.number}
-                onClick={() => setActiveStep(idx)}
-                data-cursor="explore"
-                className={`p-6 sm:p-8 rounded-2xl border transition-all duration-300 cursor-pointer text-left relative overflow-hidden ${
-                  isActive
-                    ? "bg-white border-black/15 shadow-xl scale-[1.01]"
-                    : "bg-white/40 border-black/6 hover:bg-white/70 hover:border-black/10 opacity-70"
-                }`}
+                className="w-14 h-14 rounded-2xl flex items-center justify-center shrink-0"
+                style={{ backgroundColor: `${understand.accent}14` }}
               >
-                {/* Active Indicator Bar */}
-                {isActive && (
-                  <motion.div
-                    layoutId="activeBar"
-                    className="absolute left-0 top-0 bottom-0 w-1.5"
-                    style={{ backgroundColor: step.accent }}
-                  />
-                )}
-
-                <div className="flex items-start justify-between gap-4">
-                  <div className="flex items-center gap-4">
-                    <span
-                      className={`text-2xl sm:text-3xl font-mono font-black transition-colors ${
-                        isActive ? "text-[#0E0E10]" : "text-[#9E9EA8]"
-                      }`}
-                    >
-                      {step.number}
-                    </span>
-                    <div>
-                      <h3 className="text-xl sm:text-2xl font-black font-sans tracking-tight text-[#0E0E10]">
-                        {step.title}
-                      </h3>
-                      <span className="text-xs font-mono uppercase tracking-widest text-[#6E6E78]">
-                        {step.subtitle}
-                      </span>
-                    </div>
-                  </div>
-
-                  <div
-                    className={`w-10 h-10 rounded-full flex items-center justify-center transition-colors shrink-0 ${
-                      isActive ? "bg-[#0E0E10] text-white" : "bg-black/5 text-[#6E6E78]"
-                    }`}
-                  >
-                    <Icon className="w-5 h-5" />
-                  </div>
-                </div>
-
-                {/* Expanded details when active */}
-                <AnimatePresence>
-                  {isActive && (
-                    <motion.div
-                      initial={{ opacity: 0, height: 0 }}
-                      animate={{ opacity: 1, height: "auto" }}
-                      exit={{ opacity: 0, height: 0 }}
-                      transition={{ duration: 0.35 }}
-                      className="overflow-hidden"
-                    >
-                      <p className="mt-5 text-sm sm:text-base text-[#6E6E78] leading-relaxed font-sans border-t border-black/8 pt-4">
-                        {step.description}
-                      </p>
-                      <div className="mt-4 flex flex-wrap items-center gap-3 pt-2">
-                        <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-mono bg-[#FAF9F5] border border-black/10 text-[#0E0E10] font-semibold">
-                          <Check className="w-3.5 h-3.5 text-[#0047FF]" />
-                          {step.keyMetric}
-                        </span>
-                        <span className="text-xs font-mono text-[#6E6E78]">
-                          DELIVERABLE: {step.deliverable}
-                        </span>
-                      </div>
-                    </motion.div>
-                  )}
-                </AnimatePresence>
-              </div>
-            );
-          })}
-
-          {/* Closing Callout — balances the column against the sticky stage */}
-          <div className="mt-8 p-6 sm:p-8 rounded-2xl bg-[#0E0E10] text-[#FAF9F5] flex flex-col sm:flex-row sm:items-center justify-between gap-5">
-            <div>
-              <div className="text-[10px] font-mono tracking-widest uppercase text-[#CEFF00] mb-2">
-                WHERE MOST ENGAGEMENTS BEGIN
-              </div>
-              <p className="text-sm sm:text-base font-sans leading-relaxed text-white/75 max-w-sm">
-                A free 30-minute call is usually enough to name the gap. No deck, no
-                obligation.
-              </p>
-            </div>
-
-            <a
-              href="#start"
-              data-cursor="explore"
-              className="shrink-0 inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-full bg-[#FAF9F5] text-[#0E0E10] text-xs font-mono font-bold tracking-widest uppercase hover:bg-[#CEFF00] transition-colors duration-300 group"
-            >
-              <span>See the starting points</span>
-              <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-            </a>
-          </div>
-        </div>
-
-        {/* Right: Sticky Interactive Visual Stage (5 cols) */}
-        <div className="lg:col-span-5 lg:sticky lg:top-28">
-          <div className="bg-white rounded-3xl border border-black/10 p-8 shadow-xl relative overflow-hidden">
-            {/* Stage Header */}
-            <div className="flex items-center justify-between border-b border-black/8 pb-4 mb-6">
-              <div className="flex items-center gap-2">
-                <span
-                  className="w-2.5 h-2.5 rounded-full"
-                  style={{ backgroundColor: activeData.accent }}
+                <UnderstandIcon
+                  className="w-6 h-6"
+                  style={{ color: understand.accent }}
                 />
-                <span className="text-[11px] font-mono tracking-widest uppercase font-bold text-[#0E0E10]">
-                  DIAGNOSTIC STAGE {activeData.number}
-                </span>
               </div>
-              <span className="text-[10px] font-mono text-[#6E6E78]">
-                STATE: SYNCHRONIZED
+              <span className="text-xs font-mono font-black text-[#D8D8DE]">
+                {understand.number}
               </span>
             </div>
 
-            {/* Dynamic Stage Graphic */}
-            <div className="relative h-64 sm:h-72 rounded-2xl bg-[#FAF9F5] border border-black/8 p-6 flex flex-col justify-between overflow-hidden">
-              {/* Background vector graphics */}
-              <div className="absolute inset-0 flex items-center justify-center opacity-10 pointer-events-none">
-                <svg viewBox="0 0 100 100" className="w-full h-full">
-                  <polygon
-                    points="50,5 90,25 90,75 50,95 10,75 10,25"
-                    fill="none"
-                    stroke="#000"
-                    strokeWidth="1"
-                  />
-                  <line x1="50" y1="5" x2="50" y2="95" stroke="#000" strokeWidth="1" />
-                  <line x1="10" y1="25" x2="90" y2="75" stroke="#000" strokeWidth="1" />
-                  <line x1="10" y1="75" x2="90" y2="25" stroke="#000" strokeWidth="1" />
-                </svg>
-              </div>
-
-              <div className="flex items-center justify-between relative z-10">
-                <span className="px-2.5 py-1 rounded-full bg-white text-[10px] font-mono font-bold text-[#0E0E10] border border-black/10">
-                  SYSTEM ACTIVE
-                </span>
-                <span className="text-3xl font-black font-sans" style={{ color: activeData.accent }}>
-                  {activeData.number}
-                </span>
-              </div>
-
-              {/* Center graphic badge */}
-              <div className="my-auto text-center relative z-10">
-                <div
-                  className="w-16 h-16 rounded-2xl mx-auto flex items-center justify-center text-white mb-3 shadow-lg"
-                  style={{ backgroundColor: activeData.accent }}
-                >
-                  <IconComponent className="w-8 h-8" />
-                </div>
-                <div className="text-lg font-black font-sans tracking-tight text-[#0E0E10]">
-                  {activeData.title}
-                </div>
-                <div className="text-xs font-mono text-[#6E6E78] mt-1">
-                  {activeData.subtitle}
-                </div>
-              </div>
-
-              {/* Bottom tag */}
-              <div className="relative z-10 text-[10px] font-mono bg-white/90 p-2.5 rounded-xl border border-black/8 flex items-center justify-between">
-                <span className="text-[#6E6E78]">PROTOCOL:</span>
-                <span className="font-bold text-[#0E0E10]">{activeData.deliverable}</span>
-              </div>
-            </div>
-
-            {/* Gap → Solution Mapping */}
-            <div className="mt-6">
-              <div className="flex items-center justify-between mb-3">
-                <span className="text-[10px] font-mono tracking-widest uppercase text-[#6E6E78]">
-                  IDENTIFY THE OPPORTUNITY
-                </span>
-                <span className="text-[10px] font-mono text-[#9E9EA8]">GAP → SOLUTION</span>
-              </div>
-
-              <div className="space-y-2">
-                {AGENCY_DATA.leverageMap.map((pair, idx) => (
-                  <motion.div
-                    key={pair.gap}
-                    initial={{ opacity: 0, x: -8 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ duration: 0.4, delay: idx * 0.08 }}
-                    className={`flex items-center justify-between gap-3 px-4 py-3 rounded-xl border transition-colors duration-300 ${
-                      activeStep === 1
-                        ? "bg-[#FAF9F5] border-black/12"
-                        : "bg-[#FAF9F5]/60 border-black/6"
-                    }`}
-                  >
-                    <span className="text-xs font-mono text-[#6E6E78] truncate">
-                      {pair.gap}
-                    </span>
-                    <ArrowRight
-                      className="w-3.5 h-3.5 shrink-0 transition-colors duration-300"
-                      style={{ color: activeStep === 1 ? activeData.accent : "#9E9EA8" }}
-                    />
-                    <span className="text-xs font-mono font-bold text-[#0E0E10] text-right truncate">
-                      {pair.fix}
-                    </span>
-                  </motion.div>
-                ))}
-              </div>
-            </div>
-
-            {/* Stage Footer Summary */}
-            <div className="mt-6 pt-4 border-t border-black/8 flex items-center justify-between text-xs font-mono">
-              <span className="text-[#6E6E78]">ACTIVE PARAMETER:</span>
-              <span className="text-[#0047FF] font-bold">{activeData.keyMetric}</span>
+            <div>
+              <span
+                className="block text-[11px] font-mono font-bold uppercase tracking-widest mb-3"
+                style={{ color: understand.accent }}
+              >
+                {understand.title}
+              </span>
+              <h3 className="text-2xl sm:text-3xl font-black font-sans tracking-tight text-[#0E0E10] leading-tight">
+                {understand.subtitle}
+              </h3>
+              <p className="mt-4 text-sm text-[#6E6E78] leading-relaxed font-sans">
+                {understand.lead}
+              </p>
             </div>
           </div>
-        </div>
+        </motion.div>
+
+        {/* Panel 02 — Identify the opportunity (the leverage map) */}
+        <motion.div {...reveal(0.15)} className="lg:col-span-6">
+          <div className={`${cardBase} flex flex-col`}>
+            <div className="flex justify-center">
+              <motion.span
+                whileHover={{ scale: 1.04 }}
+                transition={{ type: "spring", stiffness: 320, damping: 22 }}
+                className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#FAF9F5] border border-black/10 text-[11px] font-mono font-bold uppercase tracking-widest text-[#0E0E10]"
+              >
+                <motion.span
+                  className="inline-flex"
+                  animate={prefersReducedMotion ? undefined : { rotate: 360 }}
+                  transition={{ duration: 14, repeat: Infinity, ease: "linear" }}
+                >
+                  <Crosshair className="w-3.5 h-3.5" style={{ color: identify.accent }} />
+                </motion.span>
+                {identify.title} {identify.subtitle}
+              </motion.span>
+            </div>
+
+            {/* Column captions */}
+            <div className="mt-8 grid grid-cols-[1fr_auto_1fr] items-center gap-2 sm:gap-4 px-1">
+              <span className="text-[10px] font-mono uppercase tracking-widest text-[#9E9EA8]">
+                The gap
+              </span>
+              <span className="w-10 sm:w-16" />
+              <span className="text-[10px] font-mono uppercase tracking-widest text-[#9E9EA8] text-right">
+                The fix
+              </span>
+            </div>
+
+            {/* Gap → Solution rows */}
+            <div className="mt-3 space-y-3">
+              {AGENCY_DATA.leverageMap.map((pair, idx) => {
+                const isActive = activePair === idx;
+                const entrance = {
+                  duration: 0.6,
+                  delay: 0.35 + idx * 0.12,
+                  ease: [0.16, 1, 0.3, 1] as const,
+                };
+
+                return (
+                  <div
+                    key={pair.gap}
+                    onMouseEnter={() => {
+                      setActivePair(idx);
+                      setIsPaused(true);
+                    }}
+                    onMouseLeave={() => setIsPaused(false)}
+                    className="grid grid-cols-[1fr_auto_1fr] items-center gap-2 sm:gap-4 cursor-default"
+                  >
+                    {/* The gap */}
+                    <motion.div
+                      initial={{ opacity: 0, x: -24 }}
+                      animate={isInView ? { opacity: 1, x: 0 } : {}}
+                      transition={entrance}
+                    >
+                      <div
+                        className="rounded-2xl border border-dashed px-4 py-4 text-center transition-all duration-500"
+                        style={{
+                          borderColor: isActive ? identify.accent : "rgba(0,0,0,0.15)",
+                          backgroundColor: isActive ? "#FFFFFF" : "#FAF9F5",
+                          transform: isActive ? "scale(1.02)" : "scale(1)",
+                        }}
+                      >
+                        <span
+                          className="text-xs sm:text-sm font-mono transition-colors duration-500"
+                          style={{ color: isActive ? "#0E0E10" : "#6E6E78" }}
+                        >
+                          {pair.gap}
+                        </span>
+                      </div>
+                    </motion.div>
+
+                    {/* Connector that draws across when the pair is active */}
+                    <motion.div
+                      initial={{ opacity: 0 }}
+                      animate={isInView ? { opacity: 1 } : {}}
+                      transition={entrance}
+                      className="relative w-10 sm:w-16 h-5 flex items-center justify-end"
+                    >
+                      <div className="absolute inset-x-0 top-1/2 -translate-y-1/2 h-px bg-black/12" />
+                      <motion.div
+                        className="absolute left-0 right-1 top-1/2 -translate-y-1/2 h-px origin-left"
+                        style={{ backgroundColor: identify.accent }}
+                        animate={{ scaleX: isActive ? 1 : 0 }}
+                        transition={{ duration: 0.55, ease: [0.16, 1, 0.3, 1] as const }}
+                      />
+                      <motion.div
+                        animate={
+                          isActive && !prefersReducedMotion
+                            ? { x: [0, 3, 0] }
+                            : { x: 0 }
+                        }
+                        transition={
+                          isActive && !prefersReducedMotion
+                            ? { duration: 1.4, repeat: Infinity, ease: "easeInOut" }
+                            : { duration: 0.3 }
+                        }
+                        className="relative"
+                      >
+                        <ArrowRight
+                          className="w-4 h-4 shrink-0 transition-colors duration-500"
+                          style={{ color: isActive ? identify.accent : "#C6C6CE" }}
+                        />
+                      </motion.div>
+                    </motion.div>
+
+                    {/* The fix */}
+                    <motion.div
+                      initial={{ opacity: 0, x: 24 }}
+                      animate={isInView ? { opacity: 1, x: 0 } : {}}
+                      transition={entrance}
+                    >
+                      <div
+                        className="rounded-2xl bg-[#0E0E10] px-4 py-4 text-center transition-all duration-500"
+                        style={{
+                          transform: isActive
+                            ? "translateY(-2px) scale(1.02)"
+                            : "translateY(0) scale(1)",
+                          boxShadow: isActive
+                            ? "0 16px 32px -18px rgba(0,0,0,0.65)"
+                            : "0 6px 16px -12px rgba(0,0,0,0.4)",
+                          opacity: isActive ? 1 : 0.72,
+                        }}
+                      >
+                        <span className="text-xs sm:text-sm font-bold font-sans text-[#FAF9F5]">
+                          {pair.fix}
+                        </span>
+                      </div>
+                    </motion.div>
+                  </div>
+                );
+              })}
+            </div>
+
+            {/* Cycle indicators */}
+            <div className="mt-7 flex items-center justify-center gap-2">
+              {AGENCY_DATA.leverageMap.map((pair, idx) => (
+                <button
+                  key={pair.gap}
+                  type="button"
+                  aria-label={`Show ${pair.gap}`}
+                  onClick={() => setActivePair(idx)}
+                  className="h-1.5 rounded-full transition-all duration-500"
+                  style={{
+                    width: activePair === idx ? 26 : 6,
+                    backgroundColor:
+                      activePair === idx ? identify.accent : "rgba(0,0,0,0.15)",
+                  }}
+                />
+              ))}
+            </div>
+          </div>
+        </motion.div>
+
+        {/* Panel 03 — Execute (mirrored) */}
+        <motion.div {...reveal(0.3)} className="lg:col-span-3">
+          <div className={`${cardBase} flex flex-col justify-between gap-12`}>
+            <div className="flex items-start justify-between lg:flex-row-reverse">
+              <div
+                className="w-14 h-14 rounded-2xl flex items-center justify-center shrink-0"
+                style={{ backgroundColor: `${execute.accent}14` }}
+              >
+                <ExecuteIcon className="w-6 h-6" style={{ color: execute.accent }} />
+              </div>
+              <span className="text-xs font-mono font-black text-[#D8D8DE]">
+                {execute.number}
+              </span>
+            </div>
+
+            <div className="lg:text-right">
+              <span
+                className="block text-[11px] font-mono font-bold uppercase tracking-widest mb-3"
+                style={{ color: execute.accent }}
+              >
+                {execute.title}
+              </span>
+              <h3 className="text-2xl sm:text-3xl font-black font-sans tracking-tight text-[#0E0E10] leading-tight">
+                {execute.subtitle}
+              </h3>
+              <p className="mt-4 text-sm text-[#6E6E78] leading-relaxed font-sans">
+                {execute.lead}
+              </p>
+            </div>
+          </div>
+        </motion.div>
       </div>
     </section>
   );

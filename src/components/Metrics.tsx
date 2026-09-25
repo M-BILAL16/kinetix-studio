@@ -44,7 +44,14 @@ export default function Metrics() {
 
             {/* Massive Oversized Number */}
             <div className="relative mb-6">
-              <span className="block text-6xl sm:text-7xl xl:text-8xl font-black tracking-tighter text-[#0E0E10] font-sans group-hover:text-[#0047FF] transition-colors duration-300">
+              <span
+                className={`block font-black tracking-tighter text-[#0E0E10] font-sans group-hover:text-[#0047FF] transition-colors duration-300 ${
+                  // Longer values like "$300K+" overflow the column at the full size.
+                  metric.value.length > 4
+                    ? "text-5xl sm:text-6xl xl:text-7xl"
+                    : "text-6xl sm:text-7xl xl:text-8xl"
+                }`}
+              >
                 {metric.value}
               </span>
               {/* Subtle visual accent line */}
@@ -60,17 +67,6 @@ export default function Metrics() {
             </p>
           </motion.div>
         ))}
-      </div>
-
-      {/* Floating Graphic Overlap Moment */}
-      <div className="mt-12 flex flex-wrap items-center justify-between text-[11px] font-mono text-[#6E6E78] pt-4 border-t border-black/6">
-        <div className="flex items-center gap-2">
-          <span className="w-2 h-2 rounded-full bg-[#10B981]" />
-          <span>DATA REVIEWED ANNUALLY. ZERO ESTIMATES</span>
-        </div>
-        <div className="text-[#0E0E10] font-bold">
-          TOTAL DOCUMENTED REVENUE ENABLED: &gt; $300K USD
-        </div>
       </div>
     </section>
   );

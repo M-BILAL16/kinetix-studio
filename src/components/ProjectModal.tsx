@@ -73,7 +73,7 @@ export default function ProjectModal({
               <h2 className="text-4xl sm:text-6xl font-black font-sans uppercase tracking-tight text-[#0E0E10]">
                 {project.title}
               </h2>
-              <p className="text-lg font-serif italic text-[#0047FF] mt-2">
+              <p className="text-lg text-[#0047FF] mt-2">
                 &ldquo;{project.tagline}&rdquo;
               </p>
             </div>

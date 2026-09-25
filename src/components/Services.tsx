@@ -23,7 +23,7 @@ export default function Services({ onOpenContact }: ServicesProps) {
           <h2 className="text-4xl sm:text-6xl lg:text-7xl font-black uppercase tracking-tight text-[#0E0E10] font-sans leading-[0.95]">
             FROM INSIGHT <br />
             TO{" "}
-            <span className="font-serif italic font-normal text-[#0047FF] lowercase">
+            <span className="text-[#0047FF] lowercase">
               impact.
             </span>
           </h2>

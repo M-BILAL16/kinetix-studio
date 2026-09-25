@@ -18,7 +18,7 @@ export default function FeaturedWork({ onOpenProject }: FeaturedWorkProps) {
           <h2 className="text-4xl sm:text-6xl lg:text-7xl font-black uppercase tracking-tight text-[#0E0E10] font-sans leading-[0.95]">
             OUTCOMES THAT MOVED <br />
             THE{" "}
-            <span className="font-serif italic font-normal text-[#0047FF] lowercase">
+            <span className="text-[#0047FF] lowercase">
               number.
             </span>
           </h2>
@@ -116,7 +116,7 @@ export default function FeaturedWork({ onOpenProject }: FeaturedWorkProps) {
                   </h3>
 
                   {/* Tagline */}
-                  <p className="text-base sm:text-lg font-serif italic text-[#0E0E10] mb-6">
+                  <p className="text-base sm:text-lg text-[#0E0E10] mb-6">
                     &ldquo;{project.tagline}&rdquo;
                   </p>
 

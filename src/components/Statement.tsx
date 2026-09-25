@@ -20,7 +20,7 @@ function Word({ children, range, progress, isSpecial }: WordProps) {
         style={{ opacity, y }}
         className={`inline-block transition-colors duration-200 ${
           isSpecial
-            ? "font-serif italic font-normal text-[#0047FF] lowercase text-6xl sm:text-8xl lg:text-9xl"
+            ? "text-[#0047FF] lowercase text-6xl sm:text-8xl lg:text-9xl"
             : "text-[#0E0E10]"
         }`}
       >

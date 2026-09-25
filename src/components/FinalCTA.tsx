@@ -65,7 +65,7 @@ export default function FinalCTA({ onOpenContact }: FinalCTAProps) {
 
         <h2 className="text-4xl sm:text-7xl lg:text-8xl xl:text-9xl font-black font-sans uppercase tracking-tight text-[#0E0E10] leading-[0.9] mb-8">
           YOUR NEXT CHAPTER DESERVES THE{" "}
-          <span className="font-serif italic font-normal text-[#0047FF] lowercase inline-block">
+          <span className="text-[#0047FF] lowercase inline-block">
             best
           </span>{" "}
           PARTNER.

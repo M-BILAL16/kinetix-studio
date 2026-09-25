@@ -25,7 +25,7 @@ export default function Engagement({ onOpenContact }: EngagementProps) {
           <h2 className="text-4xl sm:text-6xl lg:text-7xl font-black uppercase tracking-tight text-[#0E0E10] font-sans leading-[0.95]">
             THE MAP BEFORE <br />
             THE{" "}
-            <span className="font-serif italic font-normal text-[#0047FF] lowercase">
+            <span className="text-[#0047FF] lowercase">
               miles.
             </span>
           </h2>
@@ -93,7 +93,7 @@ export default function Engagement({ onOpenContact }: EngagementProps) {
                   {tier.title}
                 </h3>
                 <span
-                  className="text-base sm:text-lg font-serif italic"
+                  className="text-base sm:text-lg"
                   style={{ color: isFeatured ? "#CEFF00" : tier.accent }}
                 >
                   {tier.subtitle}

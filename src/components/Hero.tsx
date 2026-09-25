@@ -2,7 +2,7 @@
 
 import React from "react";
 import { motion, type Variants } from "framer-motion";
-import { ArrowDown, ArrowRight, CornerDownRight } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import HeroVisualCluster from "./HeroVisualCluster";
 
 interface HeroProps {
@@ -46,20 +46,7 @@ export default function Hero({ onOpenContact }: HeroProps) {
   };
 
   return (
-    <section className="relative min-h-[92vh] lg:min-h-screen pt-28 pb-16 site-gutter flex flex-col justify-between overflow-hidden bg-editorial-grid bg-noise">
-      {/* Editorial Watermark & Technical Coordinates */}
-      <div className="flex items-center justify-between border-b border-black/8 pb-4 mb-8 sm:mb-12">
-        <div className="flex items-center gap-3">
-          <span className="w-2 h-2 rounded-full bg-[#0047FF]" />
-          <span className="text-[11px] font-mono tracking-widest uppercase text-[#0E0E10] font-semibold">
-            IDEA TO LIVE SYSTEM IN 60 DAYS
-          </span>
-        </div>
-        <div className="hidden sm:flex items-center gap-6 text-[11px] font-mono text-[#6E6E78]">
-          <span className="text-[#0047FF] font-bold">LIVE STATUS: ONLINE</span>
-        </div>
-      </div>
-
+    <section className="relative min-h-[92vh] lg:min-h-screen pt-28 pb-16 site-gutter flex flex-col overflow-hidden bg-editorial-grid bg-noise">
       {/* Main Asymmetric Grid */}
       <motion.div
         variants={containerVariants}
@@ -123,51 +110,20 @@ export default function Hero({ onOpenContact }: HeroProps) {
         </div>
 
         {/* Right / Kinetic 3D Cluster (5 cols) */}
-        <div className="lg:col-span-5 flex justify-center items-center">
+        <div className="lg:col-span-5 flex flex-col justify-center items-center">
           <motion.div variants={fadeUp} className="w-full">
             <HeroVisualCluster />
           </motion.div>
-        </div>
-      </motion.div>
 
-      {/* Bottom Asymmetric Bar: Positioned in Lower Right */}
-      <motion.div
-        variants={fadeUp}
-        initial="hidden"
-        animate="visible"
-        className="mt-12 pt-8 border-t border-black/8 grid grid-cols-1 md:grid-cols-12 gap-8 items-end"
-      >
-        {/* Left: Scroll Prompt */}
-        <div className="md:col-span-4 flex items-center gap-4">
-          <a
-            href="#work"
-            className="group flex items-center gap-3 text-xs font-mono font-bold tracking-widest text-[#0E0E10] hover:text-[#0047FF] transition-colors"
+          {/* Primary CTAs, anchored directly under the visual */}
+          <motion.div
+            variants={fadeUp}
+            className="w-full max-w-[500px] mx-auto mt-10 flex flex-col sm:flex-row items-stretch gap-3"
           >
-            <div className="w-9 h-9 rounded-full border border-black/15 flex items-center justify-center group-hover:border-[#0047FF] group-hover:translate-y-1 transition-all duration-200">
-              <ArrowDown className="w-4 h-4 text-[#0E0E10] group-hover:text-[#0047FF]" />
-            </div>
-            <span>SEE WHAT WE DO ↓</span>
-          </a>
-        </div>
-
-        {/* Right: Asymmetrical Value Prop Paragraph & Primary CTA */}
-        <div className="md:col-span-8 flex flex-col sm:flex-row sm:items-center justify-between gap-6 md:pl-12">
-          <div className="max-w-md">
-            <div className="flex items-center gap-1.5 text-[10px] font-mono text-[#0047FF] font-bold uppercase tracking-wider mb-1.5">
-              <CornerDownRight className="w-3.5 h-3.5" />
-              <span>THE VALUE FORMULA</span>
-            </div>
-            <p className="text-sm sm:text-base text-[#6E6E78] leading-relaxed font-sans">
-              We identify which part of your business is costing you time and money, then we
-              deploy tested solutions to fix it for you.
-            </p>
-          </div>
-
-          <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 shrink-0">
             <button
               onClick={onOpenContact}
               data-cursor="start"
-              className="px-7 py-4 rounded-full bg-[#0E0E10] hover:bg-[#0047FF] text-[#FAF9F5] text-xs font-mono font-bold tracking-widest uppercase transition-all duration-300 flex items-center justify-center gap-2 shadow-lg hover:shadow-xl active:scale-95 group"
+              className="flex-1 px-7 py-4 rounded-full bg-[#0E0E10] hover:bg-[#0047FF] text-[#FAF9F5] text-xs font-mono font-bold tracking-widest uppercase transition-all duration-300 flex items-center justify-center gap-2 shadow-lg hover:shadow-xl active:scale-95 group"
             >
               <span>BUILD AND AUTOMATE</span>
               <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
@@ -175,12 +131,12 @@ export default function Hero({ onOpenContact }: HeroProps) {
             <a
               href="#services"
               data-cursor="explore"
-              className="px-7 py-4 rounded-full border border-black/15 bg-white hover:border-[#0047FF] hover:text-[#0047FF] text-[#0E0E10] text-xs font-mono font-bold tracking-widest uppercase transition-all duration-300 flex items-center justify-center gap-2 active:scale-95 group"
+              className="flex-1 px-7 py-4 rounded-full border border-black/15 bg-white hover:border-[#0047FF] hover:text-[#0047FF] text-[#0E0E10] text-xs font-mono font-bold tracking-widest uppercase transition-all duration-300 flex items-center justify-center gap-2 active:scale-95 group"
             >
               <span>GROW AND ACQUIRE</span>
               <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
             </a>
-          </div>
+          </motion.div>
         </div>
       </motion.div>
     </section>

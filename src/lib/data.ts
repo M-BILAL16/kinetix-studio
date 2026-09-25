@@ -29,6 +29,8 @@ export interface PhilosophyStep {
   number: string;
   title: string;
   subtitle: string;
+  /** One-line summary shown in the flow. Omitted for the stage that renders the leverage map. */
+  lead?: string;
   description: string;
   keyMetric: string;
   accent: string;
@@ -262,6 +264,7 @@ export const AGENCY_DATA = {
       number: "01",
       title: "Understand",
       subtitle: "Your business",
+      lead: "See the whole system before prescribing a move.",
       description:
         "See the whole system before prescribing a move. We look at how work actually flows through your company, where your revenue comes from, and where people are quietly spending hours on things a machine should be doing.",
       keyMetric: "Whole-System View",
@@ -282,6 +285,7 @@ export const AGENCY_DATA = {
       number: "03",
       title: "Execute",
       subtitle: "The right solution",
+      lead: "A focused combination built around the opportunity.",
       description:
         "A focused combination built around the opportunity. We deploy tested solutions rather than experiments, ship them into the real business, and stay until the number moves.",
       keyMetric: "Tested Solutions Only",
