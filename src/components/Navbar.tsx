@@ -21,11 +21,10 @@ export default function Navbar({ onOpenContact }: NavbarProps) {
   }, []);
 
   const navLinks = [
-    { label: "Approach", href: "#philosophy" },
-    { label: "Toolkit", href: "#services" },
-    { label: "Get Started", href: "#start" },
-    { label: "Impact", href: "#work" },
-    { label: "Process", href: "#process" },
+    { label: "AI & Technology", href: "#ai-agents" },
+    { label: "Growth & Marketing", href: "#growth" },
+    { label: "What Have We Done", href: "#work" },
+    { label: "How We Work", href: "#philosophy" },
   ];
 
   return (
@@ -48,25 +47,20 @@ export default function Navbar({ onOpenContact }: NavbarProps) {
             data-cursor="home"
           >
             <div className="w-8 h-8 rounded-full bg-[#0E0E10] flex items-center justify-center text-[#FAF9F5] font-black text-xs group-hover:bg-[#0047FF] transition-colors duration-300">
-              <span className="tracking-tighter">K</span>
+              <span className="tracking-tighter">S</span>
             </div>
-            <div className="flex flex-col">
-              <span className="font-sans font-black tracking-tight text-sm text-[#0E0E10] leading-none">
-                KINETIX
-              </span>
-              <span className="font-mono text-[9px] tracking-widest text-[#6E6E78] uppercase mt-0.5">
-                STUDIO 2026
-              </span>
-            </div>
+            <span className="font-sans font-black tracking-tight text-sm text-[#0E0E10] leading-none">
+              Single Solution
+            </span>
           </a>
 
           {/* Desktop Nav Links */}
-          <div className="hidden md:flex items-center gap-1 bg-black/3 p-1 rounded-full border border-black/5">
+          <div className="hidden lg:flex items-center gap-1 bg-black/3 p-1 rounded-full border border-black/5">
             {navLinks.map((link) => (
               <a
                 key={link.label}
                 href={link.href}
-                className="px-4 py-1.5 rounded-full text-xs font-mono font-medium text-[#0E0E10] hover:text-[#0047FF] hover:bg-white/80 transition-all duration-200"
+                className="px-3 py-1.5 rounded-full text-[11px] font-mono font-medium text-[#0E0E10] hover:text-[#0047FF] hover:bg-white/80 transition-all duration-200 whitespace-nowrap"
               >
                 {link.label}
               </a>
@@ -75,28 +69,20 @@ export default function Navbar({ onOpenContact }: NavbarProps) {
 
           {/* Right Action */}
           <div className="flex items-center gap-3">
-            {/* Live Indicator */}
-            <div className="hidden lg:flex items-center gap-2 pl-2 pr-3 py-1 rounded-full bg-black/4 border border-black/5">
-              <span className="w-1.5 h-1.5 rounded-full bg-[#10B981] animate-ping" />
-              <span className="text-[10px] font-mono text-[#6E6E78] tracking-wider uppercase">
-                Q3/Q4 SLOTS OPEN
-              </span>
-            </div>
-
             {/* Magnetic CTA */}
             <button
               onClick={onOpenContact}
               data-cursor="open"
-              className="relative group overflow-hidden px-5 py-2.5 rounded-full bg-[#0E0E10] hover:bg-[#0047FF] text-[#FAF9F5] text-xs font-mono font-bold tracking-wider uppercase transition-all duration-300 flex items-center gap-1.5 shadow-sm active:scale-95"
+              className="relative group overflow-hidden px-5 py-2.5 rounded-full bg-[#0E0E10] hover:bg-[#0047FF] text-[#FAF9F5] text-xs font-mono font-bold tracking-wide transition-all duration-300 flex items-center gap-1.5 shadow-sm active:scale-95 whitespace-nowrap"
             >
-              <span>BOOK A CALL</span>
+              <span>Start a Project</span>
               <ArrowUpRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform duration-200" />
             </button>
 
             {/* Mobile Menu Button */}
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="md:hidden w-9 h-9 rounded-full border border-black/10 flex flex-col items-center justify-center gap-1 bg-white"
+              className="lg:hidden w-9 h-9 rounded-full border border-black/10 flex flex-col items-center justify-center gap-1 bg-white"
               aria-label="Toggle mobile menu"
             >
               <span
@@ -125,7 +111,7 @@ export default function Navbar({ onOpenContact }: NavbarProps) {
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: -20 }}
-          className="fixed top-24 left-4 right-4 z-40 md:hidden bg-[#FAF9F5] border border-black/10 rounded-2xl p-6 shadow-xl"
+          className="fixed top-24 left-4 right-4 z-40 lg:hidden bg-[#FAF9F5] border border-black/10 rounded-2xl p-6 shadow-xl"
         >
           <div className="flex flex-col gap-3">
             {navLinks.map((link) => (
@@ -145,7 +131,7 @@ export default function Navbar({ onOpenContact }: NavbarProps) {
               }}
               className="mt-4 w-full py-3.5 bg-[#0047FF] text-white rounded-full text-xs font-mono font-bold tracking-widest uppercase text-center"
             >
-              BOOK A FREE CALL ↗
+              Start a Project ↗
             </button>
           </div>
         </motion.div>

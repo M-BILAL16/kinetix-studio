@@ -2,7 +2,7 @@
 
 import React, { useRef, useState } from "react";
 import { motion, useMotionValue, useSpring } from "framer-motion";
-import { ArrowUpRight, Sparkles } from "lucide-react";
+import { ArrowUpRight } from "lucide-react";
 
 interface FinalCTAProps {
   onOpenContact: () => void;
@@ -49,14 +49,6 @@ export default function FinalCTA({ onOpenContact }: FinalCTAProps) {
         className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] rounded-full bg-gradient-to-tr from-[#0047FF] via-[#CEFF00] to-[#FF3B14] blur-3xl pointer-events-none -z-0"
       />
 
-      {/* Top Editorial Index */}
-      <div className="flex items-center justify-end border-b border-black/8 pb-4 relative z-10">
-        <div className="flex items-center gap-2 text-xs font-mono text-[#6E6E78]">
-          <Sparkles className="w-3.5 h-3.5 text-[#0047FF]" />
-          <span>CURRENT STATUS: ACCEPTING Q3/Q4 PARTNERS</span>
-        </div>
-      </div>
-
       {/* Main Massive Headline & Magnetic CTA */}
       <div className="my-auto py-12 text-center max-w-5xl mx-auto relative z-10 flex flex-col items-center">
         <span className="text-xs sm:text-sm font-mono tracking-widest text-[#6E6E78] uppercase mb-6 block">
@@ -99,12 +91,6 @@ export default function FinalCTA({ onOpenContact }: FinalCTAProps) {
             </span>
           </motion.button>
         </div>
-      </div>
-
-      {/* Bottom Sub-bar */}
-      <div className="flex flex-col sm:flex-row items-center justify-between pt-8 border-t border-black/8 text-xs font-mono text-[#6E6E78] relative z-10 gap-3">
-        <span>DISCOVERY CALL IS FREE. 30 MINUTES</span>
-        <span className="text-[#0E0E10] font-bold">TYPICAL BUILD: 45 DAYS TO LIVE</span>
       </div>
     </section>
   );

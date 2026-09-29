@@ -1,213 +1,162 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
-import { ArrowUp, Globe, Clock } from "lucide-react";
+import React from "react";
 
-export default function Footer() {
-  const [times, setTimes] = useState({
-    nyc: "",
-    lon: "",
-    tyo: "",
-  });
+interface FooterProps {
+  onOpenContact: () => void;
+}
 
-  useEffect(() => {
-    const updateTimes = () => {
-      const now = new Date();
-      setTimes({
-        nyc: now.toLocaleTimeString("en-US", {
-          timeZone: "America/New_York",
-          hour: "2-digit",
-          minute: "2-digit",
-          second: "2-digit",
-          hour12: false,
-        }),
-        lon: now.toLocaleTimeString("en-GB", {
-          timeZone: "Europe/London",
-          hour: "2-digit",
-          minute: "2-digit",
-          second: "2-digit",
-          hour12: false,
-        }),
-        tyo: now.toLocaleTimeString("ja-JP", {
-          timeZone: "Asia/Tokyo",
-          hour: "2-digit",
-          minute: "2-digit",
-          second: "2-digit",
-          hour12: false,
-        }),
-      });
-    };
+const solutions = [
+  { label: "AI Agents", href: "#ai-agents" },
+  { label: "Automation Systems", href: "#automation" },
+  { label: "Custom Software", href: "#software" },
+  { label: "Internal Dashboards", href: "#dashboards" },
+  { label: "Growth & Marketing", href: "#growth" },
+];
 
-    updateTimes();
-    const interval = setInterval(updateTimes, 1000);
-    return () => clearInterval(interval);
-  }, []);
-
-  const scrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: "smooth" });
-  };
-
+export default function Footer({ onOpenContact }: FooterProps) {
   return (
-    <footer className="bg-[#FAF9F5] border-t border-black/10 pt-20 pb-0 overflow-hidden relative select-none">
+    <footer className="bg-[#FAF9F5] border-t border-black/10 pt-20 pb-0 overflow-hidden relative">
       <div className="site-gutter">
-        {/* Top Operational Bar */}
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-8 pb-16 border-b border-black/8 items-start">
-          {/* Status & Studio Info (4 cols) */}
-          <div className="md:col-span-4 space-y-4">
-            <div className="flex items-center gap-2">
-              <span className="w-2 h-2 rounded-full bg-[#10B981] animate-ping" />
-              <span className="text-xs font-mono font-bold uppercase tracking-widest text-[#0E0E10]">
-                STUDIO STATUS: ACTIVE
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-12 gap-12 lg:gap-8 pb-16 border-b border-black/8">
+          {/* Brand */}
+          <div className="sm:col-span-2 lg:col-span-4 space-y-5">
+            <a href="#" className="inline-flex items-center gap-2.5 group">
+              <span className="w-8 h-8 rounded-full bg-[#0E0E10] flex items-center justify-center text-[#FAF9F5] font-black text-xs group-hover:bg-[#0047FF] transition-colors duration-300">
+                S
               </span>
-            </div>
+              <span className="font-sans font-black tracking-tight text-sm text-[#0E0E10]">
+                Single Solution
+              </span>
+            </a>
             <p className="text-sm text-[#6E6E78] leading-relaxed max-w-sm font-sans">
-              AI agents, automation systems, custom software, internal dashboards and growth
-              marketing — deployed against the one gap costing you the most.
+              One digital partner for every growth problem — websites, automations, AI and
+              the systems in between.
             </p>
-            <div className="text-xs font-mono text-[#0047FF] font-semibold">
-              HELLO@KINETIX-STUDIO.COM
-            </div>
           </div>
 
-          {/* Time Clocks (4 cols) */}
-          <div className="md:col-span-4 space-y-3">
-            <div className="flex items-center gap-2 text-xs font-mono text-[#6E6E78] uppercase tracking-wider mb-2">
-              <Clock className="w-3.5 h-3.5" />
-              <span>STUDIO ATELIERS & LOCAL TIME</span>
+          {/* Get Started */}
+          <div className="lg:col-span-2">
+            <div className="text-[10px] font-mono text-[#6E6E78] uppercase tracking-widest mb-4">
+              Get Started
             </div>
-            <div className="font-mono text-xs space-y-1.5 text-[#0E0E10]">
-              <div className="flex justify-between border-b border-black/5 pb-1">
-                <span className="text-[#6E6E78]">NEW YORK [EST]</span>
-                <span className="font-bold">{times.nyc || "12:00:00"}</span>
-              </div>
-              <div className="flex justify-between border-b border-black/5 pb-1">
-                <span className="text-[#6E6E78]">LONDON [GMT]</span>
-                <span className="font-bold">{times.lon || "17:00:00"}</span>
-              </div>
-              <div className="flex justify-between">
-                <span className="text-[#6E6E78]">TOKYO [JST]</span>
-                <span className="font-bold">{times.tyo || "01:00:00"}</span>
-              </div>
-            </div>
+            <ul className="text-sm font-sans space-y-3 text-[#0E0E10]">
+              <li>
+                <button
+                  type="button"
+                  onClick={onOpenContact}
+                  className="hover:text-[#0047FF] transition-colors text-left"
+                >
+                  Schedule a Call
+                </button>
+              </li>
+              <li>
+                <a href="#audit" className="hover:text-[#0047FF] transition-colors">
+                  Get your AI Audit
+                </a>
+              </li>
+              <li>
+                <button
+                  type="button"
+                  onClick={onOpenContact}
+                  className="hover:text-[#0047FF] transition-colors text-left"
+                >
+                  Send a Query
+                </button>
+              </li>
+            </ul>
           </div>
 
-          {/* Navigation Links (2 cols) & Socials (2 cols) */}
-          <div className="md:col-span-2 space-y-2">
-            <div className="text-[10px] font-mono text-[#6E6E78] uppercase tracking-widest mb-3">
-              NAVIGATION
+          {/* Solutions */}
+          <div className="lg:col-span-2">
+            <div className="text-[10px] font-mono text-[#6E6E78] uppercase tracking-widest mb-4">
+              Solutions
             </div>
-            <ul className="text-xs font-mono space-y-2 text-[#0E0E10]">
+            <ul className="text-sm font-sans space-y-3 text-[#0E0E10]">
+              {solutions.map((item) => (
+                <li key={item.href}>
+                  <a href={item.href} className="hover:text-[#0047FF] transition-colors">
+                    {item.label}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Company */}
+          <div className="lg:col-span-2">
+            <div className="text-[10px] font-mono text-[#6E6E78] uppercase tracking-widest mb-4">
+              Company
+            </div>
+            <ul className="text-sm font-sans space-y-3 text-[#0E0E10]">
               <li>
                 <a href="#philosophy" className="hover:text-[#0047FF] transition-colors">
-                  Approach
+                  About
                 </a>
               </li>
               <li>
-                <a href="#services" className="hover:text-[#0047FF] transition-colors">
-                  Toolkit
+                <a href="#" className="hover:text-[#0047FF] transition-colors">
+                  Careers
                 </a>
               </li>
               <li>
-                <a href="#start" className="hover:text-[#0047FF] transition-colors">
-                  Get Started
-                </a>
-              </li>
-              <li>
-                <a href="#work" className="hover:text-[#0047FF] transition-colors">
-                  Impact
-                </a>
-              </li>
-              <li>
-                <a href="#process" className="hover:text-[#0047FF] transition-colors">
-                  Process
-                </a>
-              </li>
-              <li>
-                <a href="#testimonials" className="hover:text-[#0047FF] transition-colors">
-                  Testimonials
-                </a>
+                <button
+                  type="button"
+                  onClick={onOpenContact}
+                  className="hover:text-[#0047FF] transition-colors text-left"
+                >
+                  Contact Us
+                </button>
               </li>
             </ul>
           </div>
 
-          <div className="md:col-span-2 space-y-2">
-            <div className="text-[10px] font-mono text-[#6E6E78] uppercase tracking-widest mb-3">
-              NETWORK
+          {/* Phone & Address */}
+          <div className="lg:col-span-2 space-y-8">
+            <div>
+              <div className="text-[10px] font-mono text-[#6E6E78] uppercase tracking-widest mb-3">
+                Phone
+              </div>
+              <a
+                href="tel:+17744616388"
+                className="text-sm font-sans text-[#0E0E10] hover:text-[#0047FF] transition-colors"
+              >
+                +1 (774) 461-6388
+              </a>
             </div>
-            <ul className="text-xs font-mono space-y-2 text-[#0E0E10]">
-              <li>
-                <a
-                  href="https://twitter.com"
-                  target="_blank"
-                  rel="noreferrer"
-                  className="hover:text-[#0047FF] transition-colors flex items-center justify-between"
-                >
-                  <span>X / Twitter</span>
-                  <span>↗</span>
-                </a>
-              </li>
-              <li>
-                <a
-                  href="https://instagram.com"
-                  target="_blank"
-                  rel="noreferrer"
-                  className="hover:text-[#0047FF] transition-colors flex items-center justify-between"
-                >
-                  <span>Instagram</span>
-                  <span>↗</span>
-                </a>
-              </li>
-              <li>
-                <a
-                  href="https://linkedin.com"
-                  target="_blank"
-                  rel="noreferrer"
-                  className="hover:text-[#0047FF] transition-colors flex items-center justify-between"
-                >
-                  <span>LinkedIn</span>
-                  <span>↗</span>
-                </a>
-              </li>
-              <li>
-                <a
-                  href="https://dribbble.com"
-                  target="_blank"
-                  rel="noreferrer"
-                  className="hover:text-[#0047FF] transition-colors flex items-center justify-between"
-                >
-                  <span>Dribbble</span>
-                  <span>↗</span>
-                </a>
-              </li>
-            </ul>
+            <div>
+              <div className="text-[10px] font-mono text-[#6E6E78] uppercase tracking-widest mb-3">
+                Address
+              </div>
+              <p className="text-sm font-sans text-[#0E0E10] leading-relaxed">
+                123 Innovation Drive, Suite 400
+                <br />
+                San Francisco, CA 94103
+              </p>
+            </div>
           </div>
         </div>
 
-        {/* Sub-bar: Legal & Back To Top */}
-        <div className="flex flex-col sm:flex-row items-center justify-between py-8 text-xs font-mono text-[#6E6E78] gap-4">
-          <div className="flex items-center gap-3">
-            <span>© 2026 KINETIX DIGITAL ATELIER.</span>
-            <span>ALL RIGHTS RESERVED.</span>
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 py-8 text-xs font-mono text-[#6E6E78]">
+          <span>© 2026 Single Solution. All rights reserved.</span>
+          <div className="flex items-center gap-5">
+            <a href="#" className="hover:text-[#0047FF] transition-colors">
+              Privacy
+            </a>
+            <a href="#" className="hover:text-[#0047FF] transition-colors">
+              Terms
+            </a>
+            <a href="#" className="hover:text-[#0047FF] transition-colors">
+              Security
+            </a>
           </div>
-
-          <button
-            onClick={scrollToTop}
-            data-cursor="top"
-            className="flex items-center gap-2 text-[#0E0E10] hover:text-[#0047FF] font-bold group"
-          >
-            <span>BACK TO TOP</span>
-            <div className="w-7 h-7 rounded-full border border-black/15 flex items-center justify-center group-hover:border-[#0047FF] group-hover:-translate-y-1 transition-all">
-              <ArrowUp className="w-3.5 h-3.5" />
-            </div>
-          </button>
         </div>
       </div>
 
-      {/* Massive Cropped Brand Wordmark Spanning Width */}
-      <div className="w-full overflow-hidden leading-none select-none pointer-events-none mt-4 -mb-4 sm:-mb-8">
-        <h1 className="text-[17vw] font-black tracking-tighter text-black/5 hover:text-black/8 transition-colors text-center uppercase whitespace-nowrap font-sans">
-          KINETIX
-        </h1>
+      <div className="w-full overflow-hidden leading-none select-none pointer-events-none mt-2 -mb-3 sm:-mb-6">
+        <p className="text-[11vw] font-black tracking-tighter text-black/5 text-center uppercase whitespace-nowrap font-sans">
+          Single Solution
+        </p>
       </div>
     </footer>
   );

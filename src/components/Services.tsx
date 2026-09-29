@@ -44,11 +44,12 @@ export default function Services({ onOpenContact }: ServicesProps) {
           return (
             <div
               key={service.id}
+              id={service.id}
               onMouseEnter={() => setHoveredId(service.id)}
               onMouseLeave={() => setHoveredId(null)}
               onClick={onOpenContact}
               data-cursor="explore"
-              className="group relative transition-all duration-300 py-8 sm:py-12 px-2 sm:px-6 cursor-pointer overflow-hidden"
+              className="group relative scroll-mt-28 transition-all duration-300 py-8 sm:py-12 px-2 sm:px-6 cursor-pointer overflow-hidden"
             >
               {/* Row hover accent wash */}
               <div

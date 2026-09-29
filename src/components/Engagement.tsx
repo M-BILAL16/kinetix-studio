@@ -46,6 +46,7 @@ export default function Engagement({ onOpenContact }: EngagementProps) {
           return (
             <motion.div
               key={tier.id}
+              id={tier.id}
               initial={{ opacity: 0, y: 40 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{
@@ -53,7 +54,7 @@ export default function Engagement({ onOpenContact }: EngagementProps) {
                 delay: idx * 0.12,
                 ease: [0.16, 1, 0.3, 1] as const,
               }}
-              className={`relative flex flex-col rounded-3xl border p-8 sm:p-10 transition-all duration-300 group ${
+              className={`relative flex flex-col scroll-mt-28 rounded-3xl border p-8 sm:p-10 transition-all duration-300 group ${
                 isFeatured
                   ? "bg-[#0E0E10] border-[#0E0E10] text-[#FAF9F5] shadow-2xl lg:-translate-y-4"
                   : "bg-white border-black/10 text-[#0E0E10] shadow-sm hover:shadow-xl hover:border-black/25"

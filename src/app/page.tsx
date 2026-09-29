@@ -9,8 +9,6 @@ import Services from "@/components/Services";
 import Engagement from "@/components/Engagement";
 import FeaturedWork from "@/components/FeaturedWork";
 import Statement from "@/components/Statement";
-import CapabilitiesMarquee from "@/components/CapabilitiesMarquee";
-import Process from "@/components/Process";
 import Testimonial from "@/components/Testimonial";
 import FinalCTA from "@/components/FinalCTA";
 import Footer from "@/components/Footer";
@@ -50,12 +48,6 @@ export default function Home() {
       {/* Interactive Statement Section */}
       <Statement />
 
-      {/* Capabilities Kinetic Marquee */}
-      <CapabilitiesMarquee />
-
-      {/* Process Preview Sequence */}
-      <Process />
-
       {/* Testimonials Magazine Moment */}
       <Testimonial />
 
@@ -63,7 +55,7 @@ export default function Home() {
       <FinalCTA onOpenContact={() => setIsContactOpen(true)} />
 
       {/* Oversized Editorial Footer */}
-      <Footer />
+      <Footer onOpenContact={() => setIsContactOpen(true)} />
 
       {/* Interactive Slide-out Contact Drawer */}
       <ContactDrawer
