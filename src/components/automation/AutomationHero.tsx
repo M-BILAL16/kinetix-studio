@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import {
   Zap,
@@ -20,6 +20,7 @@ import {
   Activity,
   Bot,
   Layers,
+  ArrowUpRight,
 } from "lucide-react";
 import confetti from "canvas-confetti";
 
@@ -56,49 +57,49 @@ const INDUSTRY_DATA: Record<
   "real-estate": {
     name: "Real Estate (PK & UAE)",
     icon: Building2,
-    headline: "Zero-Latency Property Inquiries & WhatsApp Site Visit Dispatch",
+    headline: "Zero-Latency Property Inquiries & Automated Site Visit Dispatch",
     context: "Eliminating dropped leads across DHA, Bahria, and Dubai Off-Plan developments.",
     samplePrompt: "3-bed townhouse available in Dubai Hills? Budget is around AED 2.8M.",
     sampleReply:
       "Ji bilkul! Found 2 prime inventory units matching AED 2.8M. Digital brochure sent to your WhatsApp. Would you like a site visit tomorrow at 4 PM?",
-    stat: "340% Higher",
+    stat: "+340%",
     statLabel: "Site-Visit Show-Up Rate",
     pipeline: [
       {
         id: "p1",
         stepNumber: "01",
-        title: "Meta / Portal Lead Ingestion",
-        sub: "Instant Webhook trigger",
-        badge: "0.2s Event",
+        title: "Omni-Channel Lead Ingestion",
+        sub: "Meta Ads, TikTok & Portal Webhook",
+        badge: "0.2s Webhook",
         latency: "42ms",
-        detail: "Ingests prospect contact, source ad ID, and property interest payload.",
+        detail: "Instantly ingests prospect contact, ad source angle, and specific property interests.",
       },
       {
         id: "p2",
         stepNumber: "02",
-        title: "Linguistic & Budget Qualification",
-        sub: "Roman Urdu & English parser",
+        title: "Roman Urdu & English Triage",
+        sub: "Contextual Intent Parser",
         badge: "AI Triage",
         latency: "1.4s",
-        detail: "Verifies budget readiness, payment terms (cash vs mortgage), and preferred timeline.",
+        detail: "Verifies budget threshold, cash vs mortgage readiness, and purchase timeline.",
       },
       {
         id: "p3",
         stepNumber: "03",
-        title: "Dynamic Brochure & Video Dispatch",
-        sub: "Direct WhatsApp Delivery",
-        badge: "Auto-Fulfill",
+        title: "Dynamic Brochure Delivery",
+        sub: "Direct 1-on-1 WhatsApp Thread",
+        badge: "Instant PDF",
         latency: "0.8s",
-        detail: "Generates custom PDF floorplan & price-sheet delivered in 1-on-1 WhatsApp thread.",
+        detail: "Dispatches tailored floorplans, unit pricing sheets, and project walkthrough videos.",
       },
       {
         id: "p4",
         stepNumber: "04",
-        title: "Calendar Booking & VIP Escalation",
-        sub: "Senior Agent Hand-off",
-        badge: "Confirmed",
+        title: "Calendar Lock & VIP Escalation",
+        sub: "Agent Google Calendar Sync",
+        badge: "Booked",
         latency: "Instant",
-        detail: "Books physical site-tour, locks slot in agent Google Calendar, and sends SMS reminder.",
+        detail: "Schedules physical tour, blocks agent calendar, and fires automated reminder prompts.",
       },
     ],
   },
@@ -117,37 +118,37 @@ const INDUSTRY_DATA: Record<
         id: "p1",
         stepNumber: "01",
         title: "24/7 Patient WhatsApp Intake",
-        sub: "Inbound symptom triage",
+        sub: "Symptom & Treatment Inbound",
         badge: "Live 24/7",
         latency: "35ms",
-        detail: "Identifies requested treatment, urgency level, and preferred doctor.",
+        detail: "Categorizes requested treatment, urgency level, and preferred clinic branch.",
       },
       {
         id: "p2",
         stepNumber: "02",
-        title: "Clinic Software Calendar Sync",
-        sub: "EMR / Clinic PMS API",
-        badge: "Live Sync",
+        title: "EMR / Clinic PMS Live Sync",
+        sub: "Real-time calendar verification",
+        badge: "Direct Sync",
         latency: "0.6s",
-        detail: "Checks real-time doctor availability without front-desk intervention.",
+        detail: "Checks doctor roster and open consultation windows without human coordination.",
       },
       {
         id: "p3",
         stepNumber: "03",
         title: "Pre-Consultation Verification",
-        sub: "SMS / WhatsApp confirmation",
+        sub: "Location pin & intake form",
         badge: "Secured",
         latency: "Instant",
-        detail: "Collects basic medical intake, sends clinic location pin, and issues appointment token.",
+        detail: "Collects patient history, sends Google Maps pin, and generates appointment token.",
       },
       {
         id: "p4",
         stepNumber: "04",
-        title: "Automated Reminder Cadence",
-        sub: "24h & 2h Anti-Ghosting",
+        title: "Anti-Ghosting Reminder Flow",
+        sub: "24h & 2h WhatsApp alerts",
         badge: "0% Drop",
         latency: "Scheduled",
-        detail: "Sends friendly reminder prompts with 1-click confirmation or rescheduling.",
+        detail: "Automated 1-click confirmation or rescheduling prompts that slash no-shows.",
       },
     ],
   },
@@ -159,44 +160,44 @@ const INDUSTRY_DATA: Record<
     samplePrompt: "Mera order #8921 confirm hua ya nahi? Delivery kab tak aayegi?",
     sampleReply:
       "Aapka order #8921 dispatch ho chuka hai via Courier. Estimated delivery Thursday 2 PM. Tracking link sent!",
-    stat: "+28% Revenue",
-    statLabel: "Recovered Abandoned Carts",
+    stat: "+28%",
+    statLabel: "Recovered Cart Revenue",
     pipeline: [
       {
         id: "p1",
         stepNumber: "01",
-        title: "Shopify / WooCommerce Webhook",
-        sub: "Abandoned cart event",
+        title: "Shopify Abandoned Cart Event",
+        sub: "Real-time checkout webhook",
         badge: "Real-Time",
         latency: "18ms",
-        detail: "Detects uncompleted checkouts and logs cart value and customer WhatsApp number.",
+        detail: "Detects uncompleted checkouts and grabs customer WhatsApp contact & items.",
       },
       {
         id: "p2",
         stepNumber: "02",
-        title: "Smart Incentive Trigger",
-        sub: "Personalized discount logic",
+        title: "Dynamic Incentive Dispatch",
+        sub: "Personalized recovery offer",
         badge: "Algorithmic",
         latency: "1.1s",
-        detail: "Dispatches tailored WhatsApp recovery offer with 1-click checkout link.",
+        detail: "Sends a personalized 1-click checkout recovery discount to the customer's WhatsApp.",
       },
       {
         id: "p3",
         stepNumber: "03",
-        title: "COD Verification & Address Triage",
-        sub: "Anti-RTO Verification",
+        title: "1-Click COD Address Verification",
+        sub: "Anti-RTO location validation",
         badge: "Fraud Guard",
         latency: "0.5s",
-        detail: "Requests 1-click WhatsApp location or button confirmation before dispatch.",
+        detail: "Confirms order intent and GPS delivery pin via WhatsApp buttons before dispatch.",
       },
       {
         id: "p4",
         stepNumber: "04",
         title: "Courier Tracking & Review Loop",
-        sub: "Post-Purchase Delight",
+        sub: "Post-purchase delivery loop",
         badge: "Delivered",
         latency: "Continuous",
-        detail: "Automated delivery updates followed by 5-star Google Review request.",
+        detail: "Sends live tracking updates and automated 5-star Google review collection.",
       },
     ],
   },
@@ -208,44 +209,44 @@ const INDUSTRY_DATA: Record<
     samplePrompt: "We need custom CRM automation for a 45-person sales team. What are the costs?",
     sampleReply:
       "Enterprise systems range from $2.5k to $8k depending on endpoint integrations. Let's schedule a 20-min technical architecture call with our lead engineer.",
-    stat: "4.2x More",
+    stat: "4.2x",
     statLabel: "Qualified Sales Calls",
     pipeline: [
       {
         id: "p1",
         stepNumber: "01",
-        title: "Inbound Form / DM Ingestion",
-        sub: "HubSpot & LinkedIn sync",
+        title: "Inbound Lead Webhook",
+        sub: "Forms, Ads & LinkedIn Sync",
         badge: "Omni-Channel",
         latency: "50ms",
-        detail: "Captures prospect company size, software stack, and monthly budget.",
+        detail: "Captures prospect company size, CRM stack, and estimated implementation timeline.",
       },
       {
         id: "p2",
         stepNumber: "02",
-        title: "AI Fit & Readiness Scoring",
-        sub: "ICP verification matrix",
+        title: "AI Fit & ICP Scoring",
+        sub: "Revenue & software audit",
         badge: "ICP Score",
         latency: "0.9s",
-        detail: "Ranks lead viability based on revenue threshold and integration feasibility.",
+        detail: "Filters viable enterprise buyers from low-budget inquiries automatically.",
       },
       {
         id: "p3",
         stepNumber: "03",
         title: "Cal.com VIP Scheduling",
-        sub: "Direct Calendar Access",
+        sub: "Zero back-and-forth emails",
         badge: "Booked",
         latency: "Instant",
-        detail: "Prospect chooses exact available slot with automated timezone conversion.",
+        detail: "Lead picks their preferred time slot with automatic timezone detection.",
       },
       {
         id: "p4",
         stepNumber: "04",
-        title: "Executive Slack & Briefing Dispatch",
-        sub: "Zero Manual Prep",
+        title: "Executive Slack Briefing",
+        sub: "Pre-call intelligence memo",
         badge: "Dispatched",
         latency: "Real-Time",
-        detail: "Generates concise pre-call intelligence brief pushed directly to founder's Slack.",
+        detail: "Pushes full company background and agenda bullet-points straight to Slack.",
       },
     ],
   },
@@ -255,13 +256,13 @@ export default function AutomationHero({ onOpenContact }: AutomationHeroProps) {
   const [selectedIndustry, setSelectedIndustry] = useState<IndustryType>("real-estate");
   const [activeStepIndex, setActiveStepIndex] = useState<number>(0);
   const [isSimulating, setIsSimulating] = useState<boolean>(false);
-  const [monthlyLeads, setMonthlyLeads] = useState<number>(1200);
+  const [monthlyLeads, setMonthlyLeads] = useState<number>(1500);
 
   const currentData = INDUSTRY_DATA[selectedIndustry];
 
   // Dynamic calculations based on slider
-  const hoursSavedPerMonth = Math.round((monthlyLeads * 14) / 60); // 14 mins per lead saved
-  const recoveredRevenue = Math.round(monthlyLeads * 0.12 * 450); // 12% extra conversion * $450 avg value
+  const hoursSavedPerMonth = Math.round((monthlyLeads * 14) / 60);
+  const recoveredRevenue = Math.round(monthlyLeads * 0.12 * 450);
 
   const handleSimulate = () => {
     if (isSimulating) return;
@@ -276,7 +277,7 @@ export default function AutomationHero({ onOpenContact }: AutomationHeroProps) {
           try {
             confetti({
               particleCount: 50,
-              spread: 60,
+              spread: 70,
               origin: { y: 0.5 },
               colors: ["#10B981", "#0047FF", "#CEFF00", "#0E0E10"],
             });
@@ -287,21 +288,22 @@ export default function AutomationHero({ onOpenContact }: AutomationHeroProps) {
         }
         return prev + 1;
       });
-    }, 650);
+    }, 700);
   };
 
   return (
-    <section className="relative pt-28 pb-20 md:pt-36 md:pb-28 bg-[#FAF9F5] border-b border-black/10 overflow-hidden">
-      {/* Background Architectural Grid Lines */}
+    <section className="relative pt-32 pb-24 md:pt-40 md:pb-32 bg-[#FAF9F5] border-b border-black/10 overflow-hidden">
+      {/* Background Architectural Ambient Lighting */}
       <div className="absolute inset-0 pointer-events-none opacity-40">
-        <div className="absolute inset-0 bg-[linear-gradient(to_right,#0000000a_1px,transparent_1px),linear-gradient(to_bottom,#0000000a_1px,transparent_1px)] bg-[size:4rem_4rem]" />
-        <div className="absolute top-0 right-1/4 w-96 h-96 rounded-full bg-[#10B981]/10 blur-3xl pointer-events-none" />
-        <div className="absolute bottom-10 left-1/4 w-96 h-96 rounded-full bg-[#0047FF]/10 blur-3xl pointer-events-none" />
+        <div className="absolute inset-0 bg-[linear-gradient(to_right,#00000008_1px,transparent_1px),linear-gradient(to_bottom,#00000008_1px,transparent_1px)] bg-[size:4rem_4rem]" />
+        <div className="absolute top-10 right-1/4 w-[500px] h-[500px] rounded-full bg-[#10B981]/10 blur-3xl pointer-events-none" />
+        <div className="absolute bottom-10 left-1/4 w-[500px] h-[500px] rounded-full bg-[#0047FF]/10 blur-3xl pointer-events-none" />
       </div>
 
-      <div className="site-gutter max-w-7xl mx-auto relative z-10">
-        {/* TOP COMMAND DECK BAR */}
-        <div className="rounded-2xl bg-white border border-black/10 p-4 sm:p-5 shadow-sm mb-8 flex flex-wrap items-center justify-between gap-4">
+      {/* EXPANSIVE WIDE CONTAINER (No Cramping) */}
+      <div className="w-full max-w-[1560px] mx-auto px-4 sm:px-8 lg:px-12 xl:px-16 relative z-10 space-y-12 sm:space-y-16">
+        {/* 01. TOP TELEMETRY HUD BAR */}
+        <div className="w-full rounded-2xl bg-white border border-black/10 p-4 sm:p-5 shadow-sm flex flex-wrap items-center justify-between gap-4">
           <div className="flex items-center gap-3">
             <span className="relative flex h-3 w-3">
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#10B981] opacity-75"></span>
@@ -322,20 +324,20 @@ export default function AutomationHero({ onOpenContact }: AutomationHeroProps) {
               AVG RESPONSE: <strong className="text-[#0E0E10]">&lt; 2.8 SEC</strong>
             </span>
             <span className="px-3 py-1 rounded-full bg-[#0E0E10] text-[#FAF9F5] font-bold text-[10px]">
-              REGIONS: PK • UAE • GCC • UK
+              REGIONS: PAKISTAN • UAE • GCC • UK
             </span>
           </div>
         </div>
 
-        {/* FULL-WIDTH INTEGRATED ARCHITECTURAL HEADER */}
-        <div className="mb-10 space-y-4">
-          <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-6 pb-6 border-b border-black/8">
-            <div>
-              <div className="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-widest text-[#10B981] font-bold mb-2">
-                <Zap className="w-3.5 h-3.5" />
+        {/* 02. MONUMENTAL ARCHITECTURAL HEADER & CALLOUT */}
+        <div className="space-y-8">
+          <div className="flex flex-col xl:flex-row xl:items-end justify-between gap-8 pb-8 border-b border-black/10">
+            <div className="space-y-4 max-w-4xl">
+              <div className="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-widest text-[#10B981] font-bold">
+                <Zap className="w-4 h-4" />
                 DONE-FOR-YOU REVENUE & WORKFLOW AUTOMATIONS
               </div>
-              <h1 className="text-3xl sm:text-5xl lg:text-6xl xl:text-7xl font-sans font-black tracking-tight text-[#0E0E10] uppercase leading-[0.93]">
+              <h1 className="text-4xl sm:text-6xl lg:text-7xl xl:text-8xl font-sans font-black tracking-tight text-[#0E0E10] uppercase leading-[0.92]">
                 YOUR ENTIRE SALES &amp; OPS PIPELINE. <br />
                 <span className="font-serif italic font-normal text-[#0047FF] lowercase tracking-normal">
                   autonomous.
@@ -344,27 +346,27 @@ export default function AutomationHero({ onOpenContact }: AutomationHeroProps) {
               </h1>
             </div>
 
-            <div className="lg:max-w-sm space-y-3">
-              <p className="text-sm font-sans text-[#6E6E78] leading-relaxed">
-                We design and engineer bespoke AI sales agents, WhatsApp lead pipelines, and backend
-                automations that capture, qualify, and close inbound leads in seconds.
+            <div className="xl:max-w-md space-y-5">
+              <p className="text-base sm:text-lg font-sans text-[#6E6E78] leading-relaxed">
+                We engineer intelligent AI sales agents, WhatsApp lead qualification pipelines, and
+                backend automations that capture, qualify, and close inbound leads in seconds.
               </p>
-              <div className="flex items-center gap-3">
+              <div className="flex flex-wrap items-center gap-3">
                 <button
                   type="button"
                   onClick={onOpenContact}
-                  className="px-6 py-3 rounded-full bg-[#0E0E10] hover:bg-[#10B981] text-[#FAF9F5] font-sans font-bold text-xs uppercase tracking-wider transition-all duration-300 flex items-center gap-2 shadow-md hover:scale-[1.02]"
+                  className="px-8 py-4 rounded-full bg-[#0E0E10] hover:bg-[#10B981] text-[#FAF9F5] font-sans font-bold text-xs uppercase tracking-wider transition-all duration-300 flex items-center gap-2 shadow-lg hover:scale-[1.02]"
                 >
                   <span>CLAIM FREE AI AUDIT</span>
-                  <ArrowRight className="w-3.5 h-3.5" />
+                  <ArrowRight className="w-4 h-4" />
                 </button>
                 <button
                   type="button"
                   onClick={handleSimulate}
-                  className={`px-5 py-3 rounded-full border text-xs font-mono font-bold tracking-wider uppercase transition-all duration-200 flex items-center gap-2 ${
+                  className={`px-6 py-4 rounded-full border text-xs font-mono font-bold tracking-wider uppercase transition-all duration-200 flex items-center gap-2 ${
                     isSimulating
                       ? "bg-[#10B981] text-white border-[#10B981]"
-                      : "bg-white hover:bg-black/5 text-[#0E0E10] border-black/15"
+                      : "bg-white hover:bg-black/5 text-[#0E0E10] border-black/15 shadow-sm"
                   }`}
                 >
                   <Play className={`w-3.5 h-3.5 ${isSimulating ? "animate-spin" : "text-[#10B981]"}`} />
@@ -374,8 +376,8 @@ export default function AutomationHero({ onOpenContact }: AutomationHeroProps) {
             </div>
           </div>
 
-          {/* INDUSTRY BLUEPRINT SWITCHER TABS */}
-          <div className="flex items-center gap-2 overflow-x-auto pb-2 scrollbar-none pt-2">
+          {/* INDUSTRY SELECTOR TABS (Wide & Spacious) */}
+          <div className="flex items-center gap-3 overflow-x-auto pb-2 scrollbar-none">
             {(Object.keys(INDUSTRY_DATA) as IndustryType[]).map((key) => {
               const item = INDUSTRY_DATA[key];
               const Icon = item.icon;
@@ -388,10 +390,10 @@ export default function AutomationHero({ onOpenContact }: AutomationHeroProps) {
                     setSelectedIndustry(key);
                     setActiveStepIndex(0);
                   }}
-                  className={`flex items-center gap-2.5 px-5 py-3 rounded-2xl text-xs font-mono font-bold tracking-wider uppercase transition-all duration-300 shrink-0 border ${
+                  className={`flex items-center gap-3 px-6 py-4 rounded-2xl text-xs sm:text-sm font-mono font-bold tracking-wider uppercase transition-all duration-300 shrink-0 border ${
                     isSelected
-                      ? "bg-[#0E0E10] text-[#FAF9F5] border-[#0E0E10] shadow-md scale-[1.02]"
-                      : "bg-white hover:bg-[#F4F1EA] text-[#6E6E78] hover:text-[#0E0E10] border-black/10"
+                      ? "bg-[#0E0E10] text-[#FAF9F5] border-[#0E0E10] shadow-lg scale-[1.02]"
+                      : "bg-white hover:bg-[#F4F1EA] text-[#6E6E78] hover:text-[#0E0E10] border-black/10 shadow-xs"
                   }`}
                 >
                   <Icon className={`w-4 h-4 ${isSelected ? "text-[#10B981]" : "text-[#6E6E78]"}`} />
@@ -402,29 +404,32 @@ export default function AutomationHero({ onOpenContact }: AutomationHeroProps) {
           </div>
         </div>
 
-        {/* PANORAMIC INTERACTIVE WORKFLOW CANVAS */}
-        <div className="bg-white rounded-3xl border border-black/10 p-6 sm:p-10 shadow-xl relative overflow-hidden mb-12">
-          {/* Canvas Header */}
-          <div className="flex flex-col sm:flex-row sm:items-center justify-between pb-6 mb-8 border-b border-black/8 gap-4">
+        {/* 03. FULL-WIDTH AIRY WORKFLOW CANVAS */}
+        <div className="w-full bg-white rounded-3xl border border-black/10 p-6 sm:p-10 lg:p-12 shadow-xl space-y-10">
+          {/* Top of Canvas: Topology Title & Stat */}
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between pb-8 border-b border-black/8 gap-6">
             <div>
-              <div className="text-[10px] font-mono text-[#6E6E78] uppercase tracking-widest">
-                ACTIVE PIPELINE TOPOLOGY:
+              <div className="text-xs font-mono text-[#6E6E78] uppercase tracking-widest mb-1">
+                ACTIVE PIPELINE ARCHITECTURE //
               </div>
-              <h2 className="text-xl sm:text-2xl font-sans font-black text-[#0E0E10] mt-0.5">
+              <h2 className="text-2xl sm:text-3xl font-sans font-black text-[#0E0E10]">
                 {currentData.headline}
               </h2>
+              <p className="text-sm font-sans text-[#6E6E78] mt-1">
+                {currentData.context}
+              </p>
             </div>
-            <div className="flex items-center gap-4 text-right">
-              <div className="p-3 rounded-xl bg-[#FAF9F5] border border-black/6">
-                <div className="text-[9px] font-mono text-[#6E6E78] uppercase">DOCUMENTED LIFT</div>
-                <div className="text-lg font-mono font-black text-[#10B981]">{currentData.stat}</div>
-                <div className="text-[9px] font-mono text-[#6E6E78]">{currentData.statLabel}</div>
+            <div className="p-4 px-6 rounded-2xl bg-[#FAF9F5] border border-black/8 shrink-0 text-center sm:text-right">
+              <div className="text-[10px] font-mono text-[#6E6E78] uppercase">DOCUMENTED LIFT</div>
+              <div className="text-2xl sm:text-3xl font-mono font-black text-[#10B981] mt-0.5">
+                {currentData.stat}
               </div>
+              <div className="text-[10px] font-mono text-[#6E6E78] font-bold">{currentData.statLabel}</div>
             </div>
           </div>
 
-          {/* 4-Step Connected Circuit Flow */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 relative">
+          {/* 4 Spacious Pipeline Stage Cards */}
+          <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6">
             {currentData.pipeline.map((step, idx) => {
               const isCurrent = activeStepIndex === idx;
               const isCompleted = activeStepIndex > idx;
@@ -433,18 +438,18 @@ export default function AutomationHero({ onOpenContact }: AutomationHeroProps) {
                 <div
                   key={step.id}
                   onClick={() => setActiveStepIndex(idx)}
-                  className={`relative p-5 rounded-2xl border transition-all duration-300 cursor-pointer flex flex-col justify-between ${
+                  className={`p-6 sm:p-7 rounded-2xl border transition-all duration-300 cursor-pointer flex flex-col justify-between min-h-[220px] ${
                     isCurrent
-                      ? "bg-[#0E0E10] text-[#FAF9F5] border-[#0E0E10] shadow-xl scale-[1.03] ring-2 ring-[#10B981]"
+                      ? "bg-[#0E0E10] text-[#FAF9F5] border-[#0E0E10] shadow-xl scale-[1.02] ring-4 ring-[#10B981]/30"
                       : isCompleted
                       ? "bg-[#10B981]/10 text-[#0E0E10] border-[#10B981]/30"
-                      : "bg-[#FAF9F5] hover:bg-white text-[#0E0E10] border-black/10"
+                      : "bg-[#FAF9F5] hover:bg-white text-[#0E0E10] border-black/10 hover:border-black/25 shadow-xs"
                   }`}
                 >
                   <div>
-                    <div className="flex items-center justify-between mb-3">
+                    <div className="flex items-center justify-between mb-4">
                       <span
-                        className={`text-xs font-mono font-black px-2 py-0.5 rounded-full ${
+                        className={`text-xs font-mono font-black px-2.5 py-1 rounded-full ${
                           isCurrent
                             ? "bg-[#10B981] text-white"
                             : "bg-black/5 text-[#6E6E78]"
@@ -453,7 +458,7 @@ export default function AutomationHero({ onOpenContact }: AutomationHeroProps) {
                         STAGE {step.stepNumber}
                       </span>
                       <span
-                        className={`text-[10px] font-mono font-bold ${
+                        className={`text-xs font-mono font-bold ${
                           isCurrent ? "text-[#10B981]" : "text-[#6E6E78]"
                         }`}
                       >
@@ -461,11 +466,11 @@ export default function AutomationHero({ onOpenContact }: AutomationHeroProps) {
                       </span>
                     </div>
 
-                    <div className="text-base font-sans font-bold leading-tight mb-1">
+                    <div className="text-lg font-sans font-bold leading-snug mb-1.5">
                       {step.title}
                     </div>
                     <div
-                      className={`text-xs font-sans mb-4 ${
+                      className={`text-xs font-sans mb-5 font-medium ${
                         isCurrent ? "text-stone-300" : "text-[#6E6E78]"
                       }`}
                     >
@@ -475,7 +480,7 @@ export default function AutomationHero({ onOpenContact }: AutomationHeroProps) {
 
                   <div className="pt-4 border-t border-current/10">
                     <div
-                      className={`text-[11px] font-mono leading-relaxed ${
+                      className={`text-xs font-mono leading-relaxed ${
                         isCurrent ? "text-stone-400" : "text-[#6E6E78]"
                       }`}
                     >
@@ -487,47 +492,58 @@ export default function AutomationHero({ onOpenContact }: AutomationHeroProps) {
             })}
           </div>
 
-          {/* Interactive Live Dialogue Preview Box (Simulated Output) */}
-          <div className="mt-8 p-5 rounded-2xl bg-[#0E0E10] text-[#FAF9F5] border border-black/10">
-            <div className="flex items-center justify-between pb-3 border-b border-white/10 text-xs font-mono">
+          {/* Real-Time WhatsApp Inference Terminal (Full Width, Spacious) */}
+          <div className="p-6 sm:p-8 rounded-2xl bg-[#0E0E10] text-[#FAF9F5] border border-black/10 space-y-4">
+            <div className="flex items-center justify-between pb-4 border-b border-white/10 text-xs font-mono">
               <span className="text-white/60">LIVE LINGUISTIC & CONVERSATIONAL INFERENCE ENGINE</span>
-              <span className="text-[#10B981] font-bold">● ACTIVE WHATSAPP THREAD</span>
+              <span className="text-[#10B981] font-bold flex items-center gap-1.5">
+                <span className="w-2 h-2 rounded-full bg-[#10B981] animate-pulse" />
+                ACTIVE WHATSAPP THREAD
+              </span>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4 text-xs font-mono">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 pt-2 font-mono text-xs">
               {/* User Inbound */}
-              <div className="p-3.5 rounded-xl bg-white/5 border border-white/10 space-y-1">
-                <div className="text-[10px] text-white/50 uppercase">INBOUND CLIENT QUERY (URDU/ENG):</div>
-                <div className="text-white font-sans text-sm">&quot;{currentData.samplePrompt}&quot;</div>
+              <div className="p-4 sm:p-5 rounded-xl bg-white/5 border border-white/10 space-y-2">
+                <div className="text-[10px] text-white/50 uppercase tracking-wider">
+                  INBOUND CLIENT QUERY (URDU / ENGLISH):
+                </div>
+                <div className="text-white font-sans text-base sm:text-lg leading-relaxed">
+                  &ldquo;{currentData.samplePrompt}&rdquo;
+                </div>
               </div>
 
               {/* Bot Outbound */}
-              <div className="p-3.5 rounded-xl bg-[#10B981]/10 border border-[#10B981]/30 space-y-1">
-                <div className="text-[10px] text-[#10B981] uppercase font-bold">AI SALES AGENT RESPONSE (&lt; 2.8S):</div>
-                <div className="text-white font-sans text-sm">&quot;{currentData.sampleReply}&quot;</div>
+              <div className="p-4 sm:p-5 rounded-xl bg-[#10B981]/15 border border-[#10B981]/30 space-y-2">
+                <div className="text-[10px] text-[#10B981] uppercase font-bold tracking-wider">
+                  AI SALES AGENT RESPONSE (&lt; 2.8 SEC):
+                </div>
+                <div className="text-white font-sans text-base sm:text-lg leading-relaxed">
+                  &ldquo;{currentData.sampleReply}&rdquo;
+                </div>
               </div>
             </div>
           </div>
         </div>
 
-        {/* BOTTOM SECTION: VALUE CALCULATOR & INSTANT ENGAGEMENT BAR */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center bg-[#F4F1EA] rounded-3xl p-6 sm:p-10 border border-black/10">
-          {/* Left: Interactive Volume Slider */}
-          <div className="lg:col-span-6 space-y-4">
-            <div className="flex items-center justify-between">
-              <div>
-                <span className="text-[10px] font-mono uppercase text-[#6E6E78] tracking-widest">
-                  INTERACTIVE IMPACT ESTIMATOR
-                </span>
-                <h3 className="text-xl font-sans font-black text-[#0E0E10]">
-                  Your Estimated Monthly Inbound Volume
-                </h3>
+        {/* 04. EXPANSIVE VALUE & LABOR RECOVERY CALCULATOR */}
+        <div className="w-full bg-[#F4F1EA] rounded-3xl p-8 sm:p-12 lg:p-14 border border-black/10 space-y-8">
+          <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-6 pb-6 border-b border-black/10">
+            <div>
+              <div className="text-xs font-mono uppercase text-[#6E6E78] tracking-widest mb-1">
+                INTERACTIVE ROI ESTIMATOR //
               </div>
-              <span className="text-2xl font-mono font-black text-[#0E0E10]">
-                {monthlyLeads.toLocaleString()} leads/mo
-              </span>
+              <h3 className="text-2xl sm:text-4xl font-sans font-black text-[#0E0E10]">
+                Monthly Inbound Lead Volume
+              </h3>
             </div>
+            <div className="text-3xl sm:text-4xl font-mono font-black text-[#0E0E10]">
+              {monthlyLeads.toLocaleString()} leads/mo
+            </div>
+          </div>
 
+          {/* Big Slider */}
+          <div className="space-y-3">
             <input
               type="range"
               min="200"
@@ -535,9 +551,9 @@ export default function AutomationHero({ onOpenContact }: AutomationHeroProps) {
               step="100"
               value={monthlyLeads}
               onChange={(e) => setMonthlyLeads(Number(e.target.value))}
-              className="w-full accent-[#10B981] cursor-pointer"
+              className="w-full h-3 bg-black/10 rounded-lg appearance-none cursor-pointer accent-[#10B981]"
             />
-            <div className="flex justify-between text-[11px] font-mono text-[#6E6E78]">
+            <div className="flex justify-between text-xs font-mono text-[#6E6E78]">
               <span>200 leads/mo</span>
               <span>1,500</span>
               <span>3,000</span>
@@ -545,32 +561,36 @@ export default function AutomationHero({ onOpenContact }: AutomationHeroProps) {
             </div>
           </div>
 
-          {/* Right: Calculated Yield Metrics */}
-          <div className="lg:col-span-6 grid grid-cols-2 sm:grid-cols-3 gap-3">
-            <div className="p-4 rounded-2xl bg-white border border-black/8 text-center">
-              <div className="text-[10px] font-mono text-[#6E6E78] uppercase">HOURS SAVED</div>
-              <div className="text-2xl font-mono font-black text-[#0E0E10] mt-1">
-                {hoursSavedPerMonth}h
+          {/* 3 Large Spaced Yield Cards */}
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 pt-4">
+            <div className="p-6 rounded-2xl bg-white border border-black/8 text-center sm:text-left shadow-xs">
+              <div className="text-xs font-mono text-[#6E6E78] uppercase">MANUAL HOURS SAVED</div>
+              <div className="text-3xl sm:text-4xl font-mono font-black text-[#0E0E10] mt-2">
+                {hoursSavedPerMonth} hrs
               </div>
-              <div className="text-[9px] font-mono text-[#10B981]">/ month eliminated</div>
+              <div className="text-xs font-mono text-[#10B981] mt-1 font-bold">
+                / month human labor replaced
+              </div>
             </div>
 
-            <div className="p-4 rounded-2xl bg-white border border-black/8 text-center">
-              <div className="text-[10px] font-mono text-[#6E6E78] uppercase">RECOVERED PIPELINE</div>
-              <div className="text-2xl font-mono font-black text-[#10B981] mt-1 truncate">
+            <div className="p-6 rounded-2xl bg-white border border-black/8 text-center sm:text-left shadow-xs">
+              <div className="text-xs font-mono text-[#6E6E78] uppercase">RECOVERED PIPELINE</div>
+              <div className="text-3xl sm:text-4xl font-mono font-black text-[#10B981] mt-2 truncate">
                 ${recoveredRevenue.toLocaleString()}
               </div>
-              <div className="text-[9px] font-mono text-[#6E6E78]">Estimated extra revenue</div>
+              <div className="text-xs font-mono text-[#6E6E78] mt-1 font-bold">
+                extra closed revenue
+              </div>
             </div>
 
-            <div className="p-4 rounded-2xl bg-white border border-black/8 text-center col-span-2 sm:col-span-1 flex flex-col justify-center items-center">
+            <div className="p-6 rounded-2xl bg-white border border-black/8 flex flex-col justify-center items-center sm:items-stretch shadow-xs">
               <button
                 type="button"
                 onClick={onOpenContact}
-                className="w-full h-full py-3 px-4 rounded-xl bg-[#0E0E10] hover:bg-[#10B981] text-white font-mono font-bold text-xs uppercase transition-all duration-300 flex items-center justify-center gap-1.5 shadow-sm"
+                className="w-full py-5 px-6 rounded-xl bg-[#0E0E10] hover:bg-[#10B981] text-white font-mono font-bold text-sm uppercase transition-all duration-300 flex items-center justify-center gap-2 shadow-md hover:scale-[1.02]"
               >
-                <span>AUDIT SYSTEM</span>
-                <ArrowRight className="w-3.5 h-3.5" />
+                <span>AUDIT YOUR SYSTEM</span>
+                <ArrowRight className="w-4 h-4" />
               </button>
             </div>
           </div>
