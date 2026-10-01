@@ -25,7 +25,7 @@ export default function Navbar({ onOpenContact }: NavbarProps) {
 
   const navLinks = [
     { label: "AI & Technology", href: "/ai-technology" },
-    { label: "Growth & Marketing", href: "/#growth" },
+    { label: "Growth & Marketing", href: "/growth-marketing" },
     { label: "What Have We Done", href: "/#work" },
     { label: "How We Work", href: "/#philosophy" },
   ];
