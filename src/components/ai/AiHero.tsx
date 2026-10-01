@@ -2,18 +2,10 @@
 
 import React from "react";
 import { motion } from "framer-motion";
-import {
-  Bot,
-  ArrowRight,
-  ArrowDown,
-} from "lucide-react";
+import { Bot, ArrowDown } from "lucide-react";
 import AiSwarmIllustration from "@/components/ai/AiSwarmIllustration";
 
-interface AiHeroProps {
-  onOpenContact: () => void;
-}
-
-export default function AiHero({ onOpenContact }: AiHeroProps) {
+export default function AiHero() {
   return (
     <section className="relative min-h-[92vh] pt-32 pb-20 site-gutter bg-editorial-grid bg-noise border-b border-black/10 overflow-hidden">
       {/* Main Grid: Headline + Interactive Agent Mesh */}
@@ -42,17 +34,8 @@ export default function AiHero({ onOpenContact }: AiHeroProps) {
 
           {/* Action CTAs */}
           <div className="mt-10 flex flex-wrap items-center gap-4">
-            <button
-              onClick={onOpenContact}
-              data-cursor="start"
-              className="px-8 py-4 rounded-full bg-[#0E0E10] hover:bg-[#0047FF] text-[#FAF9F5] text-xs font-mono font-bold tracking-widest uppercase transition-all duration-300 flex items-center gap-2 shadow-lg hover:shadow-xl active:scale-95 group"
-            >
-              <span>DEPLOY AN AUTONOMOUS AGENT</span>
-              <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-            </button>
-
             <a
-              href="#agent-showcase"
+              href="#signature-offers"
               className="px-6 py-4 rounded-full bg-white hover:bg-black/5 text-[#0E0E10] border border-black/15 text-xs font-mono font-bold tracking-widest uppercase transition-all duration-200 flex items-center gap-2"
             >
               <span>EXPLORE CAPABILITIES</span>

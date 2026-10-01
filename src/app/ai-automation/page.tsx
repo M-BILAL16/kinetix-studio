@@ -28,7 +28,7 @@ export default function AiAutomationPage() {
       <AutomationProblems />
 
       {/* Turnkey Done-For-You Systems (Signature Offers) */}
-      <AutomationOfferSystems onOpenContact={() => setIsContactOpen(true)} />
+      <AutomationOfferSystems />
 
       {/* Niche Industry Blueprints (Real Estate, Clinics, E-Com, Consultants, Recruitment) */}
       <AutomationIndustryBlueprints />

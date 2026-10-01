@@ -23,13 +23,13 @@ export default function AiTechnologyPage() {
       <Navbar onOpenContact={() => setIsContactOpen(true)} />
 
       {/* Hero: Autonomous Intelligence & Multi-Agent Swarm Inspector */}
-      <AiHero onOpenContact={() => setIsContactOpen(true)} />
+      <AiHero />
 
       {/* Cost of manual inefficiency */}
       <AutomationProblems />
 
       {/* Turnkey done-for-you systems */}
-      <AutomationOfferSystems onOpenContact={() => setIsContactOpen(true)} />
+      <AutomationOfferSystems />
 
       {/* Industry-specific automation blueprints */}
       <AutomationIndustryBlueprints />

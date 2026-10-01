@@ -1,8 +1,14 @@
-"use client";
-
-import React, { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
-import { Zap, Check, ArrowRight, ShieldCheck, Clock, Sparkles } from "lucide-react";
+import {
+  CalendarCheck,
+  ClipboardCheck,
+  FileSearch,
+  MessageCircle,
+  Phone,
+  Receipt,
+  Sparkles,
+  Workflow,
+  type LucideIcon,
+} from "lucide-react";
 
 interface OfferSystem {
   id: string;
@@ -20,236 +26,280 @@ interface OfferSystem {
 
 const OFFERS: OfferSystem[] = [
   {
-    id: "revenue-engine",
+    id: "file-analysis",
     number: "01",
-    title: "The AI Revenue Engine",
-    tagline: "A complete AI-powered system to generate, qualify, and convert leads automatically.",
-    badge: "MOST POPULAR",
-    timeline: "3–4 WEEKS TURNKEY",
+    title: "File Analysis Agent",
+    tagline: "Upload documents, sheets, or images. The agent reads them and does the job you ask for.",
+    badge: "FILE ANALYSIS",
+    timeline: "READY TO DEPLOY",
     overview:
-      "Our flagship done-for-you automation system. We architect an intelligent inbound capture pipeline that engages leads on WhatsApp or your website within 5 seconds, answers inquiries, qualifies budget and intent, and deposits ready-to-close discovery calls into your calendar.",
+      "Give the agent a PDF, Word file, spreadsheet, or photo. It reads the file, finds the important details, answers your questions, and completes the task you want.",
     deliverables: [
-      "Custom 24/7 WhatsApp & Web AI Sales Agent",
-      "Sub-5-Second Lead Capture & Verification Funnel",
-      "Multi-Touch Automated Re-engagement Sequences",
-      "Full CRM Synchronization (HubSpot, Salesforce, Zoho)",
-      "Automated Meeting Booking & WhatsApp Reminders",
-      "Dedicated Analytics & Real-Time Performance Dashboard",
+      "Reads PDFs, documents, spreadsheets, and images",
+      "Finds names, prices, dates, and key details",
+      "Answers questions about the file in plain language",
+      "Saves the result in the format your team needs",
     ],
-    bestFor: "High-ticket service businesses, real estate, consultants, and growth agencies.",
-    highlight: "Average 3–5x Increase in Qualified Inbound Appointments",
+    bestFor: "Any business that receives files and still reads them by hand.",
+    highlight: "Hours of file reading done in minutes",
     accent: "#0047FF",
   },
   {
-    id: "acquisition",
+    id: "customer-chat",
     number: "02",
-    title: "AI Client Acquisition System",
-    tagline: "Consistent B2B pipeline generation powered by intelligent enrichment and outreach.",
-    badge: "OUTBOUND & INBOUND",
-    timeline: "2–3 WEEKS TURNKEY",
+    title: "Customer Support Agent",
+    tagline: "Answers customer questions on WhatsApp and your website, then sends hard cases to your team.",
+    badge: "SUPPORT",
+    timeline: "READY TO DEPLOY",
     overview:
-      "Stop waiting for referrals. We build an automated outbound engine that identifies high-intent accounts, enriches decision-maker contact details, drafts hyper-personalized outreach, and routes interested prospects into your sales pipeline automatically.",
+      "This agent handles live chats, not phone calls. It replies on WhatsApp, your website chat, and SMS, shares the right information, collects details, and passes difficult questions to a person.",
     deliverables: [
-      "Target Account Sourcing & Verification Engine",
-      "Automated Multi-Channel Outreach Sequences",
-      "AI Personalization Based on Company News & Hiring",
-      "Spam-Protected Domain & Inbox Infrastructure",
-      "Automated Lead Scoring & Warm Handoff Protocols",
-      "Weekly Pipeline & Response Optimization Audits",
+      "Replies in WhatsApp, website chat, and SMS",
+      "Shares prices, timings, and service details",
+      "Collects the customer's name and contact",
+      "Sends hard chat questions to your team",
     ],
-    bestFor: "B2B companies, tech startups, recruiters, and corporate service providers.",
-    highlight: "Consistent 20–40 Qualified Decision-Maker Inquiries Monthly",
-    accent: "#FF2E93",
+    bestFor: "Shops, clinics, and service businesses that get the same questions in chat.",
+    highlight: "Chat customers get an answer in seconds, not hours",
+    accent: "#0047FF",
   },
   {
-    id: "local-domination",
+    id: "sales-follow-up",
     number: "03",
-    title: "Local Market Domination System",
-    tagline: "Help your business dominate your city or metropolitan area using AI growth systems.",
-    badge: "LOCAL LEADER",
-    timeline: "2 WEEKS TURNKEY",
+    title: "Sales & Follow-Up Agent",
+    tagline: "Talks to new leads, asks useful questions, and books meetings.",
+    badge: "SALES",
+    timeline: "READY TO DEPLOY",
     overview:
-      "Specially designed for clinics, real estate brokerages, aesthetics centers, and local service providers in Pakistan, the UAE, and KSA. Captures local high-intent search traffic, automates WhatsApp consultations, and collects 5-star Google reviews on autopilot.",
+      "When someone shows interest, the agent starts the conversation, asks what they need, follows up if they go quiet, and books a meeting with people who are ready.",
     deliverables: [
-      "AI Google Maps & Local Search Engine (AEO) Optimization",
-      "24/7 WhatsApp Appointment Booking & Rescheduling",
-      "Automated Post-Visit Review & Reputation Engine",
-      "Missed-Call Auto-Reply via WhatsApp & SMS",
-      "Local Competitor Voice & Citation Dominance",
-      "Monthly Local Ranking & Appointment Growth Reports",
+      "Greets every new lead",
+      "Asks about their need and budget",
+      "Sends reminders until they reply",
+      "Books meetings on your calendar",
     ],
-    bestFor: "Clinics, dental practices, real estate brokers, salons, and local consultants.",
-    highlight: "Zero Missed Patients/Clients + Top 3 Local Google Maps Rank",
-    accent: "#CEFF00",
+    bestFor: "Businesses that lose sales because follow-up stops too early.",
+    highlight: "More leads turn into booked meetings",
+    accent: "#0047FF",
   },
   {
-    id: "ops-suite",
+    id: "operations",
     number: "04",
-    title: "AI Business Automation Suite",
-    tagline: "Automate internal operations, eliminate repetitive admin, and streamline team workflows.",
-    badge: "OPERATIONAL SCALE",
-    timeline: "4 WEEKS TURNKEY",
+    title: "Business Operations Agent",
+    tagline: "Handles repeated office work and keeps your tools updated.",
+    badge: "DAILY WORK",
+    timeline: "READY TO DEPLOY",
     overview:
-      "Scale your revenue without hiring an army of administrative staff. We automate your backend: parsing incoming PDFs and receipts, generating invoices, routing project tickets, and sending automated team alerts across Slack, email, and ERP systems.",
+      "The agent takes care of the same tasks your team does every day. It updates records, creates reports, sends reminders, and keeps your business tools in sync.",
     deliverables: [
-      "Automated Invoicing, AP & Financial Reconciliation",
-      "OCR Document Parsing & Data Entry Elimination",
-      "Cross-Platform Workflow Connectors (Zapier, Make, Custom API)",
-      "Automated Client Onboarding & Contract Generation",
-      "Team Task Dispatch & SLA Escalation Triggers",
-      "Comprehensive SOPs & Staff Training Sessions",
+      "Updates customer and order records",
+      "Creates simple daily reports",
+      "Sends reminders to the team",
+      "Connects your apps so nothing is typed twice",
     ],
-    bestFor: "Companies scaling past 10+ employees drowning in administrative overhead.",
-    highlight: "Saves 25–40 Hours of Manual Staff Effort Every Single Week",
-    accent: "#7C3AED",
+    bestFor: "Teams spending the day on copy-paste and reminders.",
+    highlight: "Staff time goes back to real work",
+    accent: "#0047FF",
+  },
+  {
+    id: "invoices",
+    number: "05",
+    title: "Booking and Invoicing Agent",
+    tagline: "Books the job, makes the bill, and reminds the customer to pay.",
+    badge: "BOOKING",
+    timeline: "READY TO DEPLOY",
+    overview:
+      "The agent confirms the booking, creates the invoice, checks the amount and due date, and sends a reminder when the bill is still unpaid.",
+    deliverables: [
+      "Confirms the booking details",
+      "Creates the invoice",
+      "Checks amount, date, and customer",
+      "Sends reminders for unpaid bills",
+    ],
+    bestFor: "Businesses that book work and then chase the bill by hand.",
+    highlight: "Bookings and bills stay in one place",
+    accent: "#0047FF",
+  },
+  {
+    id: "booking",
+    number: "06",
+    title: "Appointments and Scheduling Agent",
+    tagline: "Finds an open time, sets the appointment, and sends a reminder.",
+    badge: "SCHEDULE",
+    timeline: "READY TO DEPLOY",
+    overview:
+      "The agent talks to the customer, checks open times, books the appointment, and helps them change it if plans change.",
+    deliverables: [
+      "Checks your open times",
+      "Books the appointment",
+      "Sends a confirmation",
+      "Handles reschedule requests",
+    ],
+    bestFor: "Clinics, salons, consultants, and any booked service.",
+    highlight: "Fewer empty slots and missed bookings",
+    accent: "#0047FF",
+  },
+  {
+    id: "review",
+    number: "07",
+    title: "Work Review Agent",
+    tagline: "Checks documents and records for missing or wrong details.",
+    badge: "QUALITY",
+    timeline: "READY TO DEPLOY",
+    overview:
+      "The agent reviews a document or record, looks for blank fields and mistakes, and tells your team what to fix before it goes out.",
+    deliverables: [
+      "Checks required fields",
+      "Spots wrong or missing details",
+      "Lists what needs a fix",
+      "Lets a person approve the final version",
+    ],
+    bestFor: "Teams that send quotes, contracts, or reports to customers.",
+    highlight: "Fewer mistakes reach the customer",
+    accent: "#0047FF",
+  },
+  {
+    id: "support-calls",
+    number: "08",
+    title: "Inbound/Outbound Calling Agent",
+    tagline: "Answers incoming calls and makes outgoing calls, then sends hard cases to your team.",
+    badge: "CALLING",
+    timeline: "READY TO DEPLOY",
+    overview:
+      "The agent answers calls that come in and places calls that need to go out. It handles the simple ones and passes the hard ones to your team.",
+    deliverables: [
+      "Answers incoming calls",
+      "Makes follow-up and reminder calls",
+      "Collects the caller's details",
+      "Transfers difficult calls to your team",
+    ],
+    bestFor: "Teams that both answer the phone and need to call customers back.",
+    highlight: "Incoming and outgoing calls are both covered",
+    accent: "#0047FF",
   },
 ];
 
-interface AutomationOfferSystemsProps {
-  onOpenContact: () => void;
-}
+const CARD_LOOK: Record<
+  string,
+  { card: string; badge: string; text: string; number: string; iconWrap: string; icon: LucideIcon }
+> = {
+  "file-analysis": {
+    card: "bg-white text-[#0E0E10] border border-black/10",
+    badge: "bg-[#0047FF] text-white",
+    text: "text-[#6E6E78]",
+    number: "text-[#0047FF]/12",
+    iconWrap: "bg-[#0047FF] text-white",
+    icon: FileSearch,
+  },
+  "customer-chat": {
+    card: "bg-[#0E0E10] text-[#FAF9F5]",
+    badge: "bg-[#CEFF00] text-[#0E0E10]",
+    text: "text-white/70",
+    number: "text-white/10",
+    iconWrap: "bg-[#CEFF00] text-[#0E0E10]",
+    icon: MessageCircle,
+  },
+  "sales-follow-up": {
+    card: "bg-white text-[#0E0E10] border border-black/10",
+    badge: "bg-[#0047FF] text-white",
+    text: "text-[#6E6E78]",
+    number: "text-[#0047FF]/12",
+    iconWrap: "bg-[#0047FF] text-white",
+    icon: Sparkles,
+  },
+  operations: {
+    card: "bg-white text-[#0E0E10] border border-black/10",
+    badge: "bg-[#0047FF] text-white",
+    text: "text-[#6E6E78]",
+    number: "text-[#0047FF]/12",
+    iconWrap: "bg-[#0047FF] text-white",
+    icon: Workflow,
+  },
+  invoices: {
+    card: "bg-white text-[#0E0E10] border border-black/10",
+    badge: "bg-[#0047FF] text-white",
+    text: "text-[#6E6E78]",
+    number: "text-[#0047FF]/12",
+    iconWrap: "bg-[#0047FF] text-white",
+    icon: Receipt,
+  },
+  booking: {
+    card: "bg-white text-[#0E0E10] border border-black/10",
+    badge: "bg-[#0047FF] text-white",
+    text: "text-[#6E6E78]",
+    number: "text-[#0047FF]/12",
+    iconWrap: "bg-[#0047FF] text-white",
+    icon: CalendarCheck,
+  },
+  review: {
+    card: "bg-white text-[#0E0E10] border border-black/10",
+    badge: "bg-[#0047FF] text-white",
+    text: "text-[#6E6E78]",
+    number: "text-[#0047FF]/12",
+    iconWrap: "bg-[#0047FF] text-white",
+    icon: ClipboardCheck,
+  },
+  "support-calls": {
+    card: "bg-[#0E0E10] text-[#FAF9F5]",
+    badge: "bg-[#0047FF] text-white",
+    text: "text-white/70",
+    number: "text-[#CEFF00]/20",
+    iconWrap: "bg-[#0047FF] text-white",
+    icon: Phone,
+  },
+};
 
-export default function AutomationOfferSystems({ onOpenContact }: AutomationOfferSystemsProps) {
-  const [selectedOfferId, setSelectedOfferId] = useState<string>("revenue-engine");
-
-  const activeOffer = OFFERS.find((o) => o.id === selectedOfferId) || OFFERS[0];
-
+export default function AutomationOfferSystems() {
   return (
     <section id="signature-offers" className="py-28 site-gutter bg-[#FAF9F5] border-b border-black/10">
       {/* Header */}
       <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 pb-8 border-b border-black/10 gap-6">
         <div>
           <h2 className="text-4xl sm:text-6xl lg:text-7xl font-black uppercase tracking-tight text-[#0E0E10] font-sans leading-[0.95]">
-            SIGNATURE AI <br />
+            AGENTS FOR THE <br />
             <span className="text-[#0047FF]">
-              growth offers.
+              daily work.
             </span>
           </h2>
         </div>
         <div className="max-w-md text-left md:text-right">
           <p className="text-xs sm:text-sm font-mono text-[#6E6E78] leading-relaxed">
-            TRANSPARENT, HIGH-ROI SYSTEMS TAILORED FOR AMBITIOUS SCALE-UPS AND ENTERPRISES. WE
-            BUILD AND HAND OVER REVENUE ENGINES THAT RUN 24/7.
+            EIGHT AGENTS THAT READ FILES, SUPPORT CUSTOMERS, FOLLOW UP,
+            SCHEDULE APPOINTMENTS, HANDLE BOOKINGS AND BILLS, AND CALL IN OR OUT.
           </p>
         </div>
       </div>
 
       {/* 4 Tabs */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 mb-12">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
         {OFFERS.map((offer) => {
-          const isActive = selectedOfferId === offer.id;
-
+          const look = CARD_LOOK[offer.id];
+          const Icon = look.icon;
           return (
-            <button
+            <article
               key={offer.id}
-              onClick={() => setSelectedOfferId(offer.id)}
-              data-cursor="open"
-              className={`p-6 rounded-2xl text-left border transition-all duration-300 relative overflow-hidden ${
-                isActive
-                  ? "bg-[#0E0E10] text-[#FAF9F5] border-[#0E0E10] shadow-xl scale-[1.02]"
-                  : "bg-white/70 text-[#0E0E10] border-black/10 hover:border-black/30 hover:bg-white"
-              }`}
+              className={`relative flex min-h-[250px] flex-col overflow-hidden rounded-3xl p-6 ${look.card}`}
             >
-              <div className="flex items-center justify-between text-xs font-mono mb-4">
-                <span className={isActive ? "text-[#CEFF00]" : "text-[#0047FF] font-bold"}>
-                  [{offer.number}]
-                </span>
-                <span className="text-[10px] uppercase font-bold tracking-wider opacity-80">
+              <span className={`pointer-events-none absolute -right-1 -top-5 text-7xl font-black leading-none ${look.number}`}>
+                {offer.number}
+              </span>
+              <div className="relative flex items-center justify-between gap-3">
+                <span className={`rounded-full px-3 py-1 text-[10px] font-mono font-bold uppercase tracking-widest ${look.badge}`}>
                   {offer.badge}
                 </span>
+                <span className={`flex h-10 w-10 items-center justify-center rounded-2xl ${look.iconWrap}`}>
+                  <Icon className="h-5 w-5" />
+                </span>
               </div>
-              <h3 className="text-base sm:text-lg font-black font-sans tracking-tight leading-snug">
+              <h3 className="relative mt-auto pt-8 text-xl font-black font-sans leading-tight tracking-tight">
                 {offer.title}
               </h3>
-              <p className="text-xs opacity-70 mt-2 font-mono line-clamp-2">
+              <p className={`relative mt-3 text-sm font-sans leading-snug ${look.text}`}>
                 {offer.tagline}
               </p>
-            </button>
+            </article>
           );
         })}
-      </div>
-
-      {/* Deep-Dive Card */}
-      <div className="bg-white rounded-3xl border border-black/10 p-6 sm:p-10 lg:p-12 shadow-xl">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
-          {/* Left Column: Scope & Overview (7 cols) */}
-          <div className="lg:col-span-7 space-y-6">
-            <h3 className="text-3xl sm:text-4xl font-black font-sans tracking-tight text-[#0E0E10]">
-              {activeOffer.title}
-            </h3>
-
-            <p className="text-lg font-serif italic text-[#0047FF]">
-              &ldquo;{activeOffer.tagline}&rdquo;
-            </p>
-
-            <p className="text-sm sm:text-base text-[#6E6E78] font-sans leading-relaxed">
-              {activeOffer.overview}
-            </p>
-
-            {/* Turnkey Deliverables */}
-            <div className="pt-4 border-t border-black/8 space-y-2.5">
-              <span className="block text-[11px] font-mono tracking-widest uppercase text-[#0E0E10] font-bold mb-2">
-                TURNKEY SYSTEM DELIVERABLES INCLUDED:
-              </span>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
-                {activeOffer.deliverables.map((del) => (
-                  <div
-                    key={del}
-                    className="flex items-center gap-2 p-2.5 rounded-xl bg-[#FAF9F5] border border-black/5 text-xs font-mono text-[#0E0E10]"
-                  >
-                    <Check className="w-3.5 h-3.5 text-[#CEFF00] shrink-0" />
-                    <span>{del}</span>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
-
-          {/* Right Column: Key Highlight & Direct Action Box (5 cols) */}
-          <div className="lg:col-span-5 bg-[#FAF9F5] rounded-2xl border border-black/10 p-6 sm:p-8 flex flex-col justify-between h-full min-h-[380px]">
-            <div>
-              <div className="flex items-center justify-between border-b border-black/8 pb-3 mb-6">
-                <span className="text-[11px] font-mono uppercase tracking-wider text-[#6E6E78]">
-                  TARGET OUTCOME SPEC
-                </span>
-                <span className="text-[10px] font-mono bg-white px-2 py-0.5 rounded-full border border-black/10 text-[#CEFF00] font-bold">
-                  GUARANTEED DEPLOY
-                </span>
-              </div>
-
-              {/* Highlight callout */}
-              <div className="p-5 bg-white rounded-2xl border border-black/8 shadow-xs mb-6">
-                <span className="text-[10px] font-mono text-[#0047FF] uppercase font-bold block mb-1">
-                  CORE VALUE IMPACT:
-                </span>
-                <div className="text-xl sm:text-2xl font-black font-sans text-[#0E0E10]">
-                  {activeOffer.highlight}
-                </div>
-              </div>
-
-              {/* Best for */}
-              <div className="space-y-1.5 text-xs font-mono text-[#6E6E78] mb-6">
-                <span className="text-[#0E0E10] font-bold uppercase block">BEST SUITED FOR:</span>
-                <p>{activeOffer.bestFor}</p>
-              </div>
-            </div>
-
-            {/* CTA button */}
-            <div className="pt-4 border-t border-black/8">
-              <button
-                onClick={onOpenContact}
-                data-cursor="start"
-                className="w-full py-4 bg-[#0E0E10] hover:bg-[#0047FF] text-[#FAF9F5] rounded-full text-xs font-mono font-bold tracking-widest uppercase transition-all duration-300 flex items-center justify-center gap-2 group shadow-md"
-              >
-                <span>CHOOSE THIS SYSTEM</span>
-                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-              </button>
-              <p className="text-[10px] font-mono text-center text-[#9E9EA8] mt-2">
-                INCLUDES 30-DAY POST-DEPLOY GUARANTEE &amp; SUPPORT
-              </p>
-            </div>
-          </div>
-        </div>
       </div>
     </section>
   );

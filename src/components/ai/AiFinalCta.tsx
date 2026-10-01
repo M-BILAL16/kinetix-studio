@@ -52,15 +52,14 @@ export default function AiFinalCta({ onOpenContact }: AiFinalCtaProps) {
       {/* Headline & Magnetic Circle Button */}
       <div className="my-auto py-12 text-center max-w-5xl mx-auto relative z-10 flex flex-col items-center">
         <span className="text-xs sm:text-sm font-mono tracking-widest text-[#6E6E78] uppercase mb-6 block">
-          TIRED OF HUMAN REASONING CHOKEPOINTS?
+          READY TO SAVE HOURS AND MONEY?
         </span>
 
         <h2 className="text-4xl sm:text-7xl lg:text-8xl xl:text-9xl font-black font-sans uppercase tracking-tight text-[#0E0E10] leading-[0.9] mb-12">
-          LET&apos;S BUILD YOUR{" "}
-          <span className="font-serif italic font-normal text-[#0047FF] lowercase inline-block">
-            autonomous
-          </span>{" "}
-          SWARM.
+          LET&apos;S PUT AGENTS{" "}
+          <span className="text-[#0047FF]">
+            to work.
+          </span>
         </h2>
 
         {/* Magnetic Giant Circle Button */}
@@ -83,7 +82,7 @@ export default function AiFinalCta({ onOpenContact }: AiFinalCtaProps) {
               <ArrowUpRight className="w-6 h-6 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
             </div>
             <span className="text-xs sm:text-sm font-mono font-bold tracking-widest uppercase text-center leading-snug">
-              DEPLOY AN<br />AGENT ↗
+              START A<br />PROJECT ↗
             </span>
           </motion.button>
         </div>

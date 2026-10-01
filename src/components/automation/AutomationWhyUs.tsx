@@ -1,38 +1,33 @@
 "use client";
 
 import React from "react";
-import { Check, ShieldCheck, Zap, Globe, HeartHandshake, TrendingUp } from "lucide-react";
+import { Check, Clock, Wallet, PhoneCall, TrendingUp, Users } from "lucide-react";
 
 const REASONS = [
   {
+    icon: Clock,
+    title: "Save hours every week",
+    result: "25+ HOURS BACK EVERY WEEK",
+  },
+  {
+    icon: Wallet,
+    title: "Spend less on daily work",
+    result: "LOWER STAFF AND ADMIN COST",
+  },
+  {
+    icon: PhoneCall,
+    title: "Never miss a customer",
+    result: "EVERY CHAT AND CALL ANSWERED",
+  },
+  {
     icon: TrendingUp,
-    title: "Engineered for Revenue, Not Just Gimmicky Tech",
-    description:
-      "Most agencies install basic chatbot templates that irritate customers. We build deterministic revenue systems focused on one core metric: qualified discovery calls and closed sales.",
+    title: "Turn more leads into sales",
+    result: "MORE BOOKED MEETINGS AND DEALS",
   },
   {
-    icon: Zap,
-    title: "100% Done-For-You Implementation",
-    description:
-      "No prompt engineering, coding, or Zapier maintenance required from your team. We build the architecture, connect your tools, test edge cases, and hand you the keys.",
-  },
-  {
-    icon: Globe,
-    title: "Tailored for Pakistan, UAE, GCC & International",
-    description:
-      "Deep localization: WhatsApp-first architecture, Roman Urdu and Arabic conversational fluency, and direct integration with local payment and delivery systems.",
-  },
-  {
-    icon: ShieldCheck,
-    title: "Enterprise Zero-Hallucination Guardrails",
-    description:
-      "We strictly constrain what the AI can say and do. If an inquiry exceeds its pre-approved knowledge boundary, it gracefully escalates to a human manager.",
-  },
-  {
-    icon: HeartHandshake,
-    title: "Ongoing Monthly Optimization & Support",
-    description:
-      "Launch day is step zero. We continually review chat transcripts, tune conversion prompts, and hold monthly strategy sessions to keep your lead flow compounding.",
+    icon: Users,
+    title: "Grow without hiring more",
+    result: "MORE WORK, SAME TEAM SIZE",
   },
 ];
 
@@ -43,67 +38,62 @@ export default function AutomationWhyUs() {
       <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 pb-8 border-b border-black/10 gap-6">
         <div>
           <h2 className="text-4xl sm:text-6xl lg:text-7xl font-black uppercase tracking-tight text-[#0E0E10] font-sans leading-[0.95]">
-            WHY BUSINESSES CHOOSE <br />
+            WHY CLIENTS <br />
             <span className="text-[#0047FF]">
-              our agency.
+              stay with us.
             </span>
           </h2>
         </div>
         <div className="max-w-xs text-left md:text-right">
           <p className="text-xs font-mono text-[#6E6E78]">
-            WE ELIMINATE HUMAN INEFFICIENCY WITH RELIABLE, ENTERPRISE-GRADE AUTOMATION INFRASTRUCTURE.
+            THEY SAVE HOURS, SPEND LESS, MISS FEWER CUSTOMERS, AND GROW WITHOUT HIRING MORE PEOPLE.
           </p>
         </div>
       </div>
 
-      {/* Grid of Advantages */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div className="flex flex-col gap-3">
         {REASONS.map((r, idx) => {
           const Icon = r.icon;
-
           return (
             <div
-              key={idx}
-              className="bg-white rounded-3xl border border-black/10 p-8 shadow-xl flex flex-col justify-between hover:border-black/30 transition-all duration-300"
+              key={r.title}
+              className="grid grid-cols-1 items-center gap-4 rounded-3xl border border-black/10 bg-white px-6 py-6 sm:px-8 md:grid-cols-[auto_1fr_auto] md:gap-8"
             >
-              <div>
-                <div className="w-12 h-12 rounded-2xl bg-[#CEFF00] flex items-center justify-center text-[#0E0E10] mb-6">
-                  <Icon className="w-6 h-6" />
-                </div>
-                <h3 className="text-xl font-bold font-sans tracking-tight text-[#0E0E10] mb-3">
+              <span className="text-5xl sm:text-6xl font-black leading-none tracking-tight text-[#0047FF]">
+                0{idx + 1}
+              </span>
+              <div className="flex items-center gap-4">
+                <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-[#0E0E10] text-[#CEFF00]">
+                  <Icon className="h-5 w-5" />
+                </span>
+                <h3 className="text-2xl sm:text-4xl font-black font-sans uppercase leading-none tracking-tight text-[#0E0E10]">
                   {r.title}
                 </h3>
-                <p className="text-xs sm:text-sm text-[#6E6E78] font-sans leading-relaxed">
-                  {r.description}
-                </p>
               </div>
-
-              <div className="mt-8 pt-4 border-t border-black/8 flex items-center gap-2 text-[10px] font-mono font-bold text-[#0E0E10]">
-                <Check className="w-3.5 h-3.5 text-[#0047FF]" />
-                <span>INCLUDED IN EVERY DEPLOYMENT</span>
-              </div>
+              <span className="inline-flex w-fit items-center gap-2 rounded-full bg-[#CEFF00] px-4 py-2 text-xs font-mono font-bold text-[#0E0E10]">
+                <Check className="h-4 w-4" />
+                {r.result}
+              </span>
             </div>
           );
         })}
+      </div>
 
-        {/* 6th Tile: Free Audit Banner */}
-        <div className="bg-[#0E0E10] text-white rounded-3xl p-8 shadow-2xl flex flex-col justify-between">
-          <div>
-            <span className="text-[10px] font-mono text-[#CEFF00] font-bold uppercase tracking-wider block mb-2">
-              COMPLIMENTARY REVIEW
-            </span>
-            <h3 className="text-2xl font-black font-sans tracking-tight text-white mb-3">
-              Get Your Free 48-Hour AI Growth Plan
-            </h3>
-            <p className="text-xs text-stone-300 font-sans leading-relaxed">
-              We&apos;ll analyze your current lead handling, secret-shop your competitors, and deliver a personalized automation roadmap within 48 hours.
-            </p>
-          </div>
-
-          <div className="mt-6 pt-4 border-t border-white/10 text-xs font-mono text-[#CEFF00] font-bold">
-            AVERAGE FINDINGS: 3–7 HIGH-IMPACT OPPORTUNITIES
-          </div>
+      <div className="mt-6 flex flex-col gap-6 rounded-3xl bg-[#0E0E10] px-6 py-8 text-[#FAF9F5] sm:px-10 md:flex-row md:items-end md:justify-between">
+        <div className="max-w-xl">
+          <span className="text-xs font-mono font-bold uppercase tracking-widest text-[#CEFF00]">
+            Free savings check
+          </span>
+          <h3 className="mt-3 text-3xl sm:text-5xl font-black font-sans uppercase leading-[0.95] tracking-tight">
+            See how much <br /> you can save
+          </h3>
+          <p className="mt-4 max-w-md text-sm font-sans leading-relaxed text-white/70">
+            In 48 hours we show you how many hours and how much money an agent can save your business.
+          </p>
         </div>
+        <span className="inline-flex w-fit rounded-full bg-[#CEFF00] px-5 py-3 text-xs font-mono font-bold text-[#0E0E10]">
+          HOURS SAVED. MONEY SAVED.
+        </span>
       </div>
     </section>
   );
