@@ -48,7 +48,7 @@ export default function AutomationProblems() {
       <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 pb-8 border-b border-black/10 gap-6">
         <div>
           <h2 className="text-4xl sm:text-6xl lg:text-7xl font-black uppercase tracking-tight text-[#0E0E10] font-sans leading-[0.95]">
-            STOP BUSINESS <br />
+            STOP LOSING BUSINESS <br />
             <span className="text-[#0047FF]">
               to manual friction.
             </span>
