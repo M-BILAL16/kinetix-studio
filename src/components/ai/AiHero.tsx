@@ -77,21 +77,7 @@ export default function AiHero({ onOpenContact }: AiHeroProps) {
   const [selectedNode, setSelectedNode] = useState<AgentNode>(AGENT_NODES[0]);
 
   return (
-    <section className="relative min-h-[92vh] pt-32 pb-20 px-4 sm:px-8 lg:px-12 bg-editorial-grid bg-noise border-b border-black/10 overflow-hidden">
-      {/* Top Editorial Index & Status Bar */}
-      <div className="flex flex-col sm:flex-row sm:items-center justify-between border-b border-black/8 pb-4 mb-12 gap-4">
-        <div className="flex items-center gap-3">
-          <span className="w-2.5 h-2.5 rounded-full bg-[#0047FF] animate-ping" />
-          <span className="text-xs font-mono font-bold tracking-widest uppercase text-[#0E0E10]">
-            AI & TECHNOLOGY LAB // AUTONOMOUS AGENTS & AUTOMATION
-          </span>
-        </div>
-        <div className="flex items-center gap-4 text-xs font-mono text-[#6E6E78]">
-          <span className="hidden sm:inline">ARCHITECTURE: MULTI-AGENT SWARMS</span>
-          <span className="text-[#0047FF] font-semibold">ENGINE: ACTIVE // 2026.1</span>
-        </div>
-      </div>
-
+    <section className="relative min-h-[92vh] pt-32 pb-20 site-gutter bg-editorial-grid bg-noise border-b border-black/10 overflow-hidden">
       {/* Main Grid: Headline + Interactive Agent Mesh */}
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
         {/* Left Column: Monumental Editorial Typography (7 cols) */}
@@ -104,7 +90,7 @@ export default function AiHero({ onOpenContact }: AiHeroProps) {
           <h1 className="text-5xl sm:text-7xl xl:text-8xl font-black uppercase tracking-tight text-[#0E0E10] leading-[0.92] font-sans">
             BUILDING AGENTS <br />
             THAT RUN WORK <br />
-            <span className="font-serif italic font-normal text-[#0047FF] lowercase text-6xl sm:text-8xl xl:text-9xl pr-2">
+            <span className="text-[#0047FF] lowercase">
               without
             </span>{" "}
             BOTTLENECKS.

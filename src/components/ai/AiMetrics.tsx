@@ -37,17 +37,11 @@ export default function AiMetrics() {
   return (
     <section
       ref={containerRef}
-      className="py-24 px-4 sm:px-8 lg:px-12 bg-[#FAF9F5] border-b border-black/10 overflow-hidden"
+      className="py-24 site-gutter bg-[#FAF9F5] border-b border-black/10 overflow-hidden"
     >
       {/* Editorial Marker */}
       <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 pb-6 border-b border-black/8 gap-4">
-        <div className="flex items-center gap-3">
-          <span className="text-xs font-mono font-bold text-[#0047FF]">04 //</span>
-          <span className="text-xs font-mono uppercase tracking-widest text-[#6E6E78]">
-            DOCUMENTED AGENTIC PERFORMANCE
-          </span>
-        </div>
-        <p className="text-xs font-mono text-[#6E6E78] max-w-sm text-left md:text-right">
+        <p className="text-xs font-mono text-[#6E6E78] max-w-sm text-left md:text-right md:ml-auto">
           RIGOROUSLY MEASURED BENCHMARKS ACROSS ACTIVE HIGH-VOLUME PRODUCTION WORKFLOWS.
         </p>
       </div>

@@ -38,7 +38,7 @@ export default function GrowthFinalCta({ onOpenContact }: GrowthFinalCtaProps) {
   };
 
   return (
-    <section className="relative min-h-[80vh] py-32 px-4 sm:px-8 lg:px-16 flex flex-col justify-between bg-[#FAF9F5] overflow-hidden select-none border-b border-black/10">
+    <section className="relative min-h-[80vh] py-32 site-gutter flex flex-col justify-between bg-[#FAF9F5] overflow-hidden select-none border-b border-black/10">
       {/* Dynamic Ambient Glow */}
       <motion.div
         animate={{

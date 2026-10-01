@@ -16,16 +16,10 @@ export default function AiWorkflowSimulator() {
   const speedMultiplier = 42;
 
   return (
-    <section className="py-28 px-4 sm:px-8 lg:px-12 bg-[#FAF9F5] border-b border-black/10">
+    <section className="py-28 site-gutter bg-[#FAF9F5] border-b border-black/10">
       {/* Editorial Header */}
       <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 pb-8 border-b border-black/10 gap-6">
         <div>
-          <div className="flex items-center gap-2 mb-3">
-            <span className="text-xs font-mono font-bold text-[#0047FF]">02 //</span>
-            <span className="text-xs font-mono uppercase tracking-widest text-[#6E6E78]">
-              QUANTIFIED BOTTLENECK ELIMINATION
-            </span>
-          </div>
           <h2 className="text-4xl sm:text-6xl lg:text-7xl font-black uppercase tracking-tight text-[#0E0E10] font-sans leading-[0.95]">
             CALCULATE YOUR <br />
             <span className="font-serif italic font-normal text-[#0047FF] lowercase">

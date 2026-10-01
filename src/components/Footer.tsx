@@ -7,11 +7,11 @@ interface FooterProps {
 }
 
 const solutions = [
-  { label: "AI Agents", href: "#ai-agents" },
-  { label: "Automation Systems", href: "#automation" },
+  { label: "AI Agents", href: "/ai-technology" },
+  { label: "Automation Systems", href: "/ai-automation" },
   { label: "Custom Software", href: "#software" },
   { label: "Internal Dashboards", href: "#dashboards" },
-  { label: "Growth & Marketing", href: "#growth" },
+  { label: "Growth & Marketing", href: "/growth-marketing" },
 ];
 
 export default function Footer({ onOpenContact }: FooterProps) {

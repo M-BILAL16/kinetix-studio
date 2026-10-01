@@ -67,21 +67,7 @@ export default function GrowthHero({ onOpenContact }: GrowthHeroProps) {
   const [activeChannel, setActiveChannel] = useState<ChannelTelemetry>(CHANNELS[0]);
 
   return (
-    <section className="relative min-h-[92vh] pt-32 pb-20 px-4 sm:px-8 lg:px-12 bg-editorial-grid bg-noise border-b border-black/10 overflow-hidden">
-      {/* Top Editorial Index & Status Bar */}
-      <div className="flex flex-col sm:flex-row sm:items-center justify-between border-b border-black/8 pb-4 mb-12 gap-4">
-        <div className="flex items-center gap-3">
-          <span className="w-2.5 h-2.5 rounded-full bg-[#FF2E93] animate-ping" />
-          <span className="text-xs font-mono font-bold tracking-widest uppercase text-[#0E0E10]">
-            GROWTH & ACQUISITION LAB // SCIENTIFIC DEMAND ENGINES
-          </span>
-        </div>
-        <div className="flex items-center gap-4 text-xs font-mono text-[#6E6E78]">
-          <span className="hidden sm:inline">DISCIPLINE: PIPELINE OVER IMPRESSIONS</span>
-          <span className="text-[#FF2E93] font-semibold">ATTRIBUTION: CLOSED-LOOP // 2026</span>
-        </div>
-      </div>
-
+    <section className="relative min-h-[92vh] pt-32 pb-20 site-gutter bg-editorial-grid bg-noise border-b border-black/10 overflow-hidden">
       {/* Main Grid: Headline + Interactive Demand Engine */}
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
         {/* Left Column: Monumental Editorial Typography (7 cols) */}

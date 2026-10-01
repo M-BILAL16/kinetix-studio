@@ -109,7 +109,7 @@ export default function GrowthPillars() {
   const activePillar = PILLARS.find((p) => p.id === selectedPillarId) || PILLARS[0];
 
   return (
-    <section id="growth-pillars" className="py-28 px-4 sm:px-8 lg:px-12 bg-[#FAF9F5] border-b border-black/10">
+    <section id="growth-pillars" className="py-28 site-gutter bg-[#FAF9F5] border-b border-black/10">
       {/* Editorial Header */}
       <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 pb-8 border-b border-black/10 gap-6">
         <div>

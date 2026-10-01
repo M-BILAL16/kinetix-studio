@@ -59,7 +59,7 @@ const CASE_STUDIES = [
 
 export default function GrowthCaseStudies() {
   return (
-    <section className="py-28 px-4 sm:px-8 lg:px-12 bg-[#FAF9F5] border-b border-black/10">
+    <section className="py-28 site-gutter bg-[#FAF9F5] border-b border-black/10">
       {/* Header */}
       <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 pb-8 border-b border-black/10 gap-6">
         <div>
