@@ -81,13 +81,13 @@ export default function GrowthHookSandbox() {
 
   return (
     <section className="py-24 md:py-32 bg-[#FAF9F5] border-b border-black/10 overflow-hidden relative">
-      <div className="site-gutter max-w-7xl mx-auto">
+      <div className="site-gutter">
         {/* Title */}
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 pb-12 border-b border-black/8">
           <div>
             <div className="text-[11px] font-mono uppercase tracking-widest text-[#0047FF] font-bold mb-3 flex items-center gap-2">
               <Sparkles className="w-3.5 h-3.5" />
-              CREATIVE HOOK LAB // ALGORITHM TESTER
+              CREATIVE HOOK LAB ALGORITHM TESTER
             </div>
             <h2 className="text-3xl sm:text-5xl lg:text-6xl font-sans font-black tracking-tight text-[#0E0E10] uppercase leading-[0.95]">
               TEST OUR CREATIVE <br />
@@ -106,7 +106,7 @@ export default function GrowthHookSandbox() {
         {/* 2-Column Interactive Sandbox */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 my-10 items-stretch">
           {/* Left: Hook Selector Tabs */}
-          <div className="lg:col-span-5 space-y-3">
+          <div className="lg:col-span-5 h-full flex flex-col gap-3">
             {HOOKS.map((hook) => {
               const isSelected = selectedHook.id === hook.id;
               return (
@@ -114,7 +114,7 @@ export default function GrowthHookSandbox() {
                   key={hook.id}
                   type="button"
                   onClick={() => setSelectedHook(hook)}
-                  className={`w-full text-left p-5 rounded-2xl transition-all duration-300 border ${
+                  className={`w-full flex-1 text-left p-5 rounded-2xl transition-all duration-300 border flex flex-col justify-center ${
                     isSelected
                       ? "bg-[#0E0E10] text-[#FAF9F5] border-[#0E0E10] shadow-lg scale-[1.01]"
                       : "bg-white hover:bg-[#F4F1EA] text-[#0E0E10] border-black/10"
@@ -144,7 +144,7 @@ export default function GrowthHookSandbox() {
           </div>
 
           {/* Right: Real-Time Retention Visualizer Stage */}
-          <div className="lg:col-span-7 bg-white rounded-3xl p-8 border border-black/10 shadow-xl flex flex-col justify-between">
+          <div className="lg:col-span-7 h-full bg-white rounded-3xl p-8 border border-black/10 shadow-xl flex flex-col justify-between">
             <AnimatePresence mode="wait">
               <motion.div
                 key={selectedHook.id}

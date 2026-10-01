@@ -80,7 +80,7 @@ export default function GrowthHero({ onOpenContact }: GrowthHeroProps) {
         <div className="absolute inset-0 bg-[linear-gradient(to_right,#00000006_1px,transparent_1px),linear-gradient(to_bottom,#00000006_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_40%,#000_70%,transparent_100%)]" />
       </div>
 
-      <div className="site-gutter relative z-10 max-w-7xl mx-auto">
+      <div className="site-gutter relative z-10">
         {/* Main 2-Column Hero Grid with Motion Cockpit */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
           {/* Left Column: Explosive Editorial Typography */}

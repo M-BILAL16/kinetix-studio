@@ -27,7 +27,7 @@ export default function GrowthFinalCta({ onOpenContact }: GrowthFinalCtaProps) {
   };
 
   return (
-    <section className="py-28 md:py-36 bg-[#0E0E10] text-[#FAF9F5] relative overflow-hidden">
+    <section className="py-28 md:py-36 site-gutter bg-[#0E0E10] text-[#FAF9F5] relative overflow-hidden">
       {/* Background Explosive Energy Mesh */}
       <div className="absolute inset-0 pointer-events-none">
         <motion.div
@@ -41,7 +41,7 @@ export default function GrowthFinalCta({ onOpenContact }: GrowthFinalCtaProps) {
         <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff05_1px,transparent_1px),linear-gradient(to_bottom,#ffffff05_1px,transparent_1px)] bg-[size:3rem_3rem]" />
       </div>
 
-      <div className="site-gutter max-w-5xl mx-auto relative z-10 text-center space-y-8">
+      <div className="max-w-5xl mx-auto relative z-10 text-center space-y-8">
         <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/10 border border-white/15 text-xs font-mono font-bold tracking-wider uppercase text-[#0047FF]">
           <Rocket className="w-4 h-4 animate-bounce" />
           Q4 / 2026 ACQUISITION CAPACITY: 2 SLOTS OPEN

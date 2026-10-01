@@ -64,7 +64,7 @@ export default function GrowthTiltWinsWall() {
 
   return (
     <section className="py-24 md:py-32 bg-[#FAF9F5] border-b border-black/10 overflow-hidden relative">
-      <div className="site-gutter max-w-7xl mx-auto">
+      <div className="site-gutter">
         {/* Section Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 pb-12 border-b border-black/8">
           <div>

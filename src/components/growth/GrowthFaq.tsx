@@ -52,8 +52,7 @@ export default function GrowthFaq() {
     selectedFilter === "all" ? FAQS : FAQS.filter((f) => f.category === selectedFilter || f.category === "all");
 
   return (
-    <section className="py-24 md:py-32 bg-[#FAF9F5] border-b border-black/10 overflow-hidden relative">
-      <div className="site-gutter max-w-5xl mx-auto">
+    <section className="py-24 md:py-32 site-gutter bg-[#FAF9F5] border-b border-black/10 overflow-hidden relative">
         {/* Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 pb-12 border-b border-black/8">
           <div>
@@ -107,7 +106,7 @@ export default function GrowthFaq() {
                 >
                   <div className="flex items-center gap-4">
                     <span className="text-xs font-mono font-bold text-[#0047FF]">
-                      0{idx + 1} //
+                      0{idx + 1}
                     </span>
                     <span className="text-lg sm:text-xl font-sans font-bold text-[#0E0E10] group-hover:text-[#0047FF] transition-colors">
                       {faq.q}
@@ -146,7 +145,6 @@ export default function GrowthFaq() {
             );
           })}
         </div>
-      </div>
     </section>
   );
 }

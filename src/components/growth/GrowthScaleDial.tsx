@@ -77,7 +77,7 @@ export default function GrowthScaleDial() {
 
   return (
     <section className="py-24 md:py-32 bg-[#FAF9F5] border-b border-black/10 overflow-hidden relative">
-      <div className="site-gutter max-w-7xl mx-auto">
+      <div className="site-gutter">
         {/* Header */}
         <div className="text-center max-w-3xl mx-auto mb-16 space-y-4">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#FF3B14]/10 text-[#0047FF] text-xs font-mono font-bold uppercase tracking-wider">
@@ -98,7 +98,7 @@ export default function GrowthScaleDial() {
         </div>
 
         {/* Tachometer / Speedometer Dial Stage */}
-        <div className="bg-white rounded-3xl p-8 sm:p-12 border border-black/10 shadow-xl max-w-5xl mx-auto">
+        <div className="bg-white rounded-3xl p-8 sm:p-12 border border-black/10 shadow-xl">
           {/* Top Dial Selector Controls */}
           <div className="flex flex-wrap items-center justify-center gap-3 mb-12">
             {STAGES.map((stage, idx) => (

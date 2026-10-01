@@ -31,7 +31,7 @@ interface EngineData {
 const ENGINES: EngineData[] = [
   {
     id: "creative-matrix",
-    tag: "ENGINE 01 // PAID VELOCITY",
+    tag: "ENGINE 01 PAID VELOCITY",
     title: "Algorithmic Creative Matrix",
     subtitle: "Multivariate video & static hooks built to bypass ad fatigue",
     description:
@@ -52,7 +52,7 @@ const ENGINES: EngineData[] = [
   },
   {
     id: "aeo-engine",
-    tag: "ENGINE 02 // AI SEARCH",
+    tag: "ENGINE 02 AI SEARCH",
     title: "AI Engine Optimization (AEO)",
     subtitle: "Become the #1 recommended answer in ChatGPT & Perplexity",
     description:
@@ -73,7 +73,7 @@ const ENGINES: EngineData[] = [
   },
   {
     id: "cro-funnel",
-    tag: "ENGINE 03 // CONVERSION ARCHITECTURE",
+    tag: "ENGINE 03 CONVERSION ARCHITECTURE",
     title: "Sub-Second Next.js Landers",
     subtitle: "Editorial speed engineered for relentless conversion",
     description:
@@ -94,7 +94,7 @@ const ENGINES: EngineData[] = [
   },
   {
     id: "ltv-flywheel",
-    tag: "ENGINE 04 // RETENTION & WHALES",
+    tag: "ENGINE 04 RETENTION & WHALES",
     title: "Compounding LTV Flywheel",
     subtitle: "Turning one-off acquisitions into predictable compound revenue",
     description:
@@ -123,7 +123,7 @@ export default function GrowthVelocityEngines() {
 
   return (
     <section className="py-24 md:py-32 bg-[#FAF9F5] border-b border-black/10 overflow-hidden relative">
-      <div className="site-gutter max-w-7xl mx-auto">
+      <div className="site-gutter">
         {/* Section Heading */}
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 pb-12 border-b border-black/8">
           <div>
@@ -165,7 +165,7 @@ export default function GrowthVelocityEngines() {
                     className="text-[10px] font-mono uppercase tracking-widest font-bold"
                     style={{ color: isActive ? engine.accentColor : "#6E6E78" }}
                   >
-                    0{idx + 1} // ENGINE
+                    0{idx + 1} ENGINE
                   </span>
                   <span
                     className="w-2 h-2 rounded-full"
@@ -264,7 +264,7 @@ export default function GrowthVelocityEngines() {
                 <div className="space-y-6 relative z-10 my-auto">
                   <div className="flex items-center justify-between pb-4 border-b border-white/10">
                     <span className="text-xs font-mono uppercase text-white/60">
-                      LIVE HOOK MATRIX // META & TIKTOK
+                      LIVE HOOK MATRIX META & TIKTOK
                     </span>
                     <span className="px-2 py-0.5 rounded bg-[#FF3B14]/20 text-[#0047FF] text-[10px] font-mono font-bold">
                       MULTIVARIATE
