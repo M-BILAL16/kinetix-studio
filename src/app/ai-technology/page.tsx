@@ -28,11 +28,11 @@ export default function AiTechnologyPage() {
       {/* Cost of manual inefficiency */}
       <AutomationProblems />
 
-      {/* Turnkey done-for-you systems */}
-      <AutomationOfferSystems />
-
       {/* Industry-specific automation blueprints */}
       <AutomationIndustryBlueprints />
+
+      {/* Turnkey done-for-you systems */}
+      <AutomationOfferSystems />
 
       {/* Interactive Operational Friction & ROI Calculator */}
       <AiWorkflowSimulator />

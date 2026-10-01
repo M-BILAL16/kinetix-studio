@@ -48,7 +48,7 @@ export default function AutomationProblems() {
       <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 pb-8 border-b border-black/10 gap-6">
         <div>
           <h2 className="text-4xl sm:text-6xl lg:text-7xl font-black uppercase tracking-tight text-[#0E0E10] font-sans leading-[0.95]">
-            STOP USING BUSINESS <br />
+            STOP BUSINESS <br />
             <span className="text-[#0047FF]">
               to manual friction.
             </span>
@@ -67,7 +67,7 @@ export default function AutomationProblems() {
           const [cause, effect] = item.problemTitle.split(" = ");
           return (
             <article key={item.problemTitle} className="flex h-full flex-col">
-              <div className="relative flex min-h-[260px] flex-col overflow-hidden rounded-3xl border border-[#0047FF]/15 bg-[#EEF3FF] p-5">
+              <div className="relative flex min-h-[260px] flex-col overflow-hidden rounded-3xl border border-[#0047FF]/15 bg-white p-5">
                 <AlertTriangle
                   aria-hidden="true"
                   strokeWidth={1.5}
