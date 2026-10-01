@@ -16,13 +16,13 @@ export default function AiWorkflowSimulator() {
   const speedMultiplier = 42;
 
   return (
-    <section className="py-28 site-gutter bg-[#FAF9F5] border-b border-black/10">
+    <section className="py-28 site-gutter bg-[#FAF9F5]">
       {/* Editorial Header */}
       <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 pb-8 border-b border-black/10 gap-6">
         <div>
           <h2 className="text-4xl sm:text-6xl lg:text-7xl font-black uppercase tracking-tight text-[#0E0E10] font-sans leading-[0.95]">
             CALCULATE YOUR <br />
-            <span className="font-serif italic font-normal text-[#0047FF] lowercase">
+            <span className="text-[#0047FF]">
               agentic yield.
             </span>
           </h2>
@@ -36,9 +36,9 @@ export default function AiWorkflowSimulator() {
       </div>
 
       {/* Main Interactive Grid */}
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
         {/* Left Column: Interactive Parameters (6 cols) */}
-        <div className="lg:col-span-6 bg-white rounded-3xl border border-black/10 p-6 sm:p-10 shadow-xl space-y-8">
+        <div className="lg:col-span-6 h-full bg-white rounded-3xl border border-black/10 p-6 sm:p-10 shadow-xl flex flex-col gap-8">
           <div>
             <span className="text-xs font-mono uppercase text-[#6E6E78] tracking-widest block mb-2">
               CONFIGURE WORKFORCE PARAMETERS:
@@ -110,20 +110,20 @@ export default function AiWorkflowSimulator() {
           </div>
 
           {/* Context note */}
-          <div className="p-4 rounded-xl bg-[#FAF9F5] border border-black/8 text-xs font-mono text-[#6E6E78] leading-relaxed">
+          <div className="mt-auto p-4 rounded-xl bg-[#FAF9F5] border border-black/8 text-xs font-mono text-[#6E6E78] leading-relaxed">
             Based on empirical client telemetry across 250+ enterprise deployments. Assumes conservative 84% autonomous resolution rate with human-in-the-loop oversight.
           </div>
         </div>
 
         {/* Right Column: Dynamic Yield Output Card (6 cols) */}
-        <div className="lg:col-span-6 bg-[#0E0E10] text-[#FAF9F5] rounded-3xl p-8 sm:p-10 shadow-2xl relative overflow-hidden flex flex-col justify-between">
+        <div className="lg:col-span-6 h-full bg-[#0E0E10] text-[#FAF9F5] rounded-3xl p-8 sm:p-10 shadow-2xl relative overflow-hidden flex flex-col justify-between">
           {/* Background Ambient Flare */}
           <div className="absolute top-0 right-0 w-80 h-80 rounded-full bg-gradient-to-bl from-[#0047FF]/20 via-[#CEFF00]/15 to-transparent blur-3xl pointer-events-none" />
 
           <div>
             <div className="flex items-center justify-between border-b border-white/10 pb-4 mb-8">
               <div className="flex items-center gap-2">
-                <span className="w-2 h-2 rounded-full bg-[#10B981] animate-ping" />
+                <span className="w-2 h-2 rounded-full bg-[#CEFF00] animate-ping" />
                 <span className="text-[11px] font-mono uppercase tracking-widest text-[#9E9EA8]">
                   ESTIMATED AGENTIC VALUE RECOVERED
                 </span>
@@ -153,7 +153,7 @@ export default function AiWorkflowSimulator() {
                 <div className="text-2xl sm:text-3xl font-black font-sans text-white mt-1">
                   {hoursSavedMonthly.toLocaleString()} hrs
                 </div>
-                <div className="text-[10px] font-mono text-[#10B981] mt-1">
+                <div className="text-[10px] font-mono text-[#CEFF00] mt-1">
                   +84% Capacity Freed
                 </div>
               </div>

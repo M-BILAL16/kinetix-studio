@@ -85,13 +85,13 @@ export default function GrowthHookSandbox() {
         {/* Title */}
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 pb-12 border-b border-black/8">
           <div>
-            <div className="text-[11px] font-mono uppercase tracking-widest text-[#FF3B14] font-bold mb-3 flex items-center gap-2">
+            <div className="text-[11px] font-mono uppercase tracking-widest text-[#0047FF] font-bold mb-3 flex items-center gap-2">
               <Sparkles className="w-3.5 h-3.5" />
               CREATIVE HOOK LAB // ALGORITHM TESTER
             </div>
             <h2 className="text-3xl sm:text-5xl lg:text-6xl font-sans font-black tracking-tight text-[#0E0E10] uppercase leading-[0.95]">
               TEST OUR CREATIVE <br />
-              <span className="font-serif italic font-normal text-[#FF3B14] lowercase tracking-normal">
+              <span className="font-serif italic font-normal text-[#0047FF] lowercase tracking-normal">
                 angles
               </span>{" "}
               IN REAL TIME.
@@ -241,7 +241,7 @@ export default function GrowthHookSandbox() {
                   </div>
                   <div className="p-3.5 rounded-2xl bg-[#FAF9F5] border border-black/8">
                     <div className="text-[10px] font-mono text-[#6E6E78] uppercase">FATIGUE RESISTANCE</div>
-                    <div className="text-xs font-mono font-bold text-[#FF3B14] mt-1 truncate">
+                    <div className="text-xs font-mono font-bold text-[#0047FF] mt-1 truncate">
                       {selectedHook.fatigueScore}
                     </div>
                   </div>

@@ -157,7 +157,7 @@ export const AGENCY_DATA = {
         "API & Data Layer",
         "Production Deployment",
       ],
-      accentColor: "#10B981",
+      accentColor: "#CEFF00",
       tag: "OWNERSHIP",
       visualSnippet: "BESPOKE_BUILD — NO_TEMPLATE_COMPROMISE",
     },
@@ -247,7 +247,7 @@ export const AGENCY_DATA = {
       description:
         "Signs NY was tricky, as the customer of the business is not your ordinary street traffic. So we built a unique strategy that delivers ROI without burning thousands in paid marketing. As a result, year on year traffic is seeing a steady rise.",
       impact: "32% organic traffic uplift",
-      accentColor: "#10B981",
+      accentColor: "#CEFF00",
       tagline: "Reach the buyer that matters without paying for the rest.",
       badge: "RETAIL",
       image:
@@ -289,7 +289,7 @@ export const AGENCY_DATA = {
       description:
         "A focused combination built around the opportunity. We deploy tested solutions rather than experiments, ship them into the real business, and stay until the number moves.",
       keyMetric: "Tested Solutions Only",
-      accent: "#10B981",
+      accent: "#CEFF00",
       deliverable: "Live System In Production & Handover",
     },
   ],
@@ -350,7 +350,7 @@ export const AGENCY_DATA = {
         "Team training and handover",
         "Post-launch support window",
       ],
-      accent: "#10B981",
+      accent: "#CEFF00",
       recommended: false,
     },
   ],

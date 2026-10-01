@@ -68,13 +68,13 @@ export default function GrowthTiltWinsWall() {
         {/* Section Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 pb-12 border-b border-black/8">
           <div>
-            <div className="text-[11px] font-mono uppercase tracking-widest text-[#FF3B14] font-bold mb-3 flex items-center gap-2">
+            <div className="text-[11px] font-mono uppercase tracking-widest text-[#0047FF] font-bold mb-3 flex items-center gap-2">
               <Award className="w-3.5 h-3.5" />
               VERIFIED ENTERPRISE TRANSFORMATIONS
             </div>
             <h2 className="text-3xl sm:text-5xl lg:text-6xl font-sans font-black tracking-tight text-[#0E0E10] uppercase leading-[0.95]">
               PROVEN RESULTS. <br />
-              <span className="font-serif italic font-normal text-[#FF3B14] lowercase tracking-normal">
+              <span className="font-serif italic font-normal text-[#0047FF] lowercase tracking-normal">
                 documented
               </span>{" "}
               IMPACT.
@@ -137,7 +137,7 @@ export default function GrowthTiltWinsWall() {
                   <div className="text-4xl sm:text-5xl font-mono font-black text-[#0E0E10] tracking-tight">
                     {study.heroStat}
                   </div>
-                  <div className="text-[10px] font-mono text-[#FF3B14] font-bold uppercase mt-1 tracking-wider">
+                  <div className="text-[10px] font-mono text-[#0047FF] font-bold uppercase mt-1 tracking-wider">
                     {study.heroStatLabel}
                   </div>
                 </div>
@@ -166,7 +166,7 @@ export default function GrowthTiltWinsWall() {
                     </div>
                     <div>
                       <div className="text-[9px] font-mono text-white/50">FUNNEL CVR</div>
-                      <div className="text-xs font-mono font-bold mt-0.5 text-[#FF3B14]">
+                      <div className="text-xs font-mono font-bold mt-0.5 text-[#0047FF]">
                         {viewMode === "after" ? study.after.cvr : study.before.cvr}
                       </div>
                     </div>

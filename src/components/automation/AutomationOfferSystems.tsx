@@ -80,7 +80,7 @@ const OFFERS: OfferSystem[] = [
     ],
     bestFor: "Clinics, dental practices, real estate brokers, salons, and local consultants.",
     highlight: "Zero Missed Patients/Clients + Top 3 Local Google Maps Rank",
-    accent: "#10B981",
+    accent: "#CEFF00",
   },
   {
     id: "ops-suite",
@@ -115,19 +115,13 @@ export default function AutomationOfferSystems({ onOpenContact }: AutomationOffe
   const activeOffer = OFFERS.find((o) => o.id === selectedOfferId) || OFFERS[0];
 
   return (
-    <section id="signature-offers" className="py-28 px-4 sm:px-8 lg:px-12 bg-[#FAF9F5] border-b border-black/10">
+    <section id="signature-offers" className="py-28 site-gutter bg-[#FAF9F5] border-b border-black/10">
       {/* Header */}
       <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 pb-8 border-b border-black/10 gap-6">
         <div>
-          <div className="flex items-center gap-2 mb-3">
-            <span className="text-xs font-mono font-bold text-[#0047FF]">02 //</span>
-            <span className="text-xs font-mono uppercase tracking-widest text-[#6E6E78]">
-              TURNKEY DONE-FOR-YOU SYSTEMS
-            </span>
-          </div>
           <h2 className="text-4xl sm:text-6xl lg:text-7xl font-black uppercase tracking-tight text-[#0E0E10] font-sans leading-[0.95]">
             SIGNATURE AI <br />
-            <span className="font-serif italic font-normal text-[#0047FF] lowercase">
+            <span className="text-[#0047FF]">
               growth offers.
             </span>
           </h2>
@@ -180,14 +174,6 @@ export default function AutomationOfferSystems({ onOpenContact }: AutomationOffe
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
           {/* Left Column: Scope & Overview (7 cols) */}
           <div className="lg:col-span-7 space-y-6">
-            <div className="flex items-center gap-3 text-xs font-mono text-[#6E6E78]">
-              <span className="text-[#0047FF] font-bold">[{activeOffer.number}]</span>
-              <span>//</span>
-              <span className="uppercase">{activeOffer.badge}</span>
-              <span>//</span>
-              <span className="text-[#10B981] font-bold">{activeOffer.timeline}</span>
-            </div>
-
             <h3 className="text-3xl sm:text-4xl font-black font-sans tracking-tight text-[#0E0E10]">
               {activeOffer.title}
             </h3>
@@ -211,7 +197,7 @@ export default function AutomationOfferSystems({ onOpenContact }: AutomationOffe
                     key={del}
                     className="flex items-center gap-2 p-2.5 rounded-xl bg-[#FAF9F5] border border-black/5 text-xs font-mono text-[#0E0E10]"
                   >
-                    <Check className="w-3.5 h-3.5 text-[#10B981] shrink-0" />
+                    <Check className="w-3.5 h-3.5 text-[#CEFF00] shrink-0" />
                     <span>{del}</span>
                   </div>
                 ))}
@@ -226,7 +212,7 @@ export default function AutomationOfferSystems({ onOpenContact }: AutomationOffe
                 <span className="text-[11px] font-mono uppercase tracking-wider text-[#6E6E78]">
                   TARGET OUTCOME SPEC
                 </span>
-                <span className="text-[10px] font-mono bg-white px-2 py-0.5 rounded-full border border-black/10 text-[#10B981] font-bold">
+                <span className="text-[10px] font-mono bg-white px-2 py-0.5 rounded-full border border-black/10 text-[#CEFF00] font-bold">
                   GUARANTEED DEPLOY
                 </span>
               </div>

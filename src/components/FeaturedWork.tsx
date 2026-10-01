@@ -141,7 +141,7 @@ export default function FeaturedWork({ onOpenProject }: FeaturedWorkProps) {
                 {/* Bottom Impact & Action Link */}
                 <div className="pt-6 border-t border-black/8 flex items-center justify-between">
                   <div className="flex items-center gap-2">
-                    <Zap className="w-4 h-4 text-[#10B981]" />
+                    <Zap className="w-4 h-4 text-[#CEFF00]" />
                     <span className="text-xs font-mono font-bold text-[#0E0E10]">
                       IMPACT: {project.impact}
                     </span>

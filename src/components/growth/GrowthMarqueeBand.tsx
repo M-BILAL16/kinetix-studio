@@ -35,8 +35,8 @@ export default function GrowthMarqueeBand() {
             return (
               <div key={idx} className="flex items-center gap-4 group cursor-default">
                 <span className="w-2.5 h-2.5 rounded-full bg-[#FF3B14] group-hover:scale-150 transition-transform" />
-                <span className="font-sans font-black text-sm md:text-base tracking-widest uppercase text-white/90 group-hover:text-[#FF3B14] transition-colors flex items-center gap-2">
-                  <Icon className="w-4 h-4 text-[#FF3B14]" />
+                <span className="font-sans font-black text-sm md:text-base tracking-widest uppercase text-white/90 group-hover:text-[#0047FF] transition-colors flex items-center gap-2">
+                  <Icon className="w-4 h-4 text-[#0047FF]" />
                   {item.text}
                 </span>
                 <span className="px-2.5 py-0.5 rounded-full bg-white/10 text-[#FAF9F5] text-[10px] font-mono font-bold tracking-wider">
@@ -57,7 +57,7 @@ export default function GrowthMarqueeBand() {
         >
           {[...ribbon2, ...ribbon2, ...ribbon2].map((item, idx) => (
             <div key={idx} className="flex items-center gap-4">
-              <ArrowUpRight className="w-3.5 h-3.5 text-[#FF3B14]" />
+              <ArrowUpRight className="w-3.5 h-3.5 text-[#0047FF]" />
               <span
                 className="font-mono font-bold text-xs md:text-sm tracking-wider uppercase"
                 style={{ color: item.color === "#0E0E10" ? "#FAF9F5" : item.color }}

@@ -276,7 +276,7 @@ export default function AiAgentShowcase() {
               <div className="flex items-center gap-2">
                 <span className="w-2.5 h-2.5 rounded-full bg-[#FF3B14]" />
                 <span className="w-2.5 h-2.5 rounded-full bg-[#CEFF00]" />
-                <span className="w-2.5 h-2.5 rounded-full bg-[#10B981]" />
+                <span className="w-2.5 h-2.5 rounded-full bg-[#CEFF00]" />
                 <span className="text-[11px] text-[#9E9EA8] ml-2">
                   autonomous_agent_runtime.sh
                 </span>
@@ -323,10 +323,10 @@ export default function AiAgentShowcase() {
 
               {/* Action Executed */}
               <div>
-                <span className="text-[#10B981] uppercase text-[10px] tracking-wider block mb-1">
+                <span className="text-[#CEFF00] uppercase text-[10px] tracking-wider block mb-1">
                   [DETERMINISTIC ACTION]
                 </span>
-                <div className="p-2.5 bg-[#10B981]/10 border border-[#10B981]/20 rounded-xl text-[#10B981]">
+                <div className="p-2.5 bg-[#CEFF00]/10 border border-[#CEFF00]/20 rounded-xl text-[#CEFF00]">
                   ✓ {activeAgent.simulation.actionExecuted}
                 </div>
               </div>
@@ -341,7 +341,7 @@ export default function AiAgentShowcase() {
 
             <div className="mt-6 pt-3 border-t border-white/10 flex items-center justify-between text-[10px] text-[#9E9EA8]">
               <span>INSPECTOR: ACTIVE MEMORY STREAM</span>
-              <span className="text-[#10B981]">STATUS: 0 ERRORS</span>
+              <span className="text-[#CEFF00]">STATUS: 0 ERRORS</span>
             </div>
           </div>
         </div>

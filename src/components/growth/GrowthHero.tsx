@@ -11,8 +11,6 @@ import {
   Sparkles,
   BarChart2,
   Sliders,
-  DollarSign,
-  Activity,
   Target,
 } from "lucide-react";
 import confetti from "canvas-confetti";
@@ -23,7 +21,6 @@ interface GrowthHeroProps {
 
 export default function GrowthHero({ onOpenContact }: GrowthHeroProps) {
   const [isOverdrive, setIsOverdrive] = useState(false);
-  const [pipelineCount, setPipelineCount] = useState(148200);
   const [activeRadarBlip, setActiveRadarBlip] = useState(0);
 
   // Auto-pulse radar blips
@@ -36,7 +33,6 @@ export default function GrowthHero({ onOpenContact }: GrowthHeroProps) {
 
   const handleSurge = () => {
     setIsOverdrive(true);
-    setPipelineCount((prev) => prev + 18450);
     try {
       confetti({
         particleCount: 80,
@@ -85,38 +81,11 @@ export default function GrowthHero({ onOpenContact }: GrowthHeroProps) {
       </div>
 
       <div className="site-gutter relative z-10 max-w-7xl mx-auto">
-        {/* Top telemetry status pill bar */}
-        <div className="flex flex-wrap items-center justify-between gap-4 pb-8 mb-8 border-b border-black/8">
-          <div className="flex items-center gap-3">
-            <span className="relative flex h-2.5 w-2.5">
-              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#FF3B14] opacity-75"></span>
-              <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-[#FF3B14]"></span>
-            </span>
-            <span className="text-[11px] font-mono uppercase tracking-widest text-[#0E0E10] font-bold">
-              GROWTH VELOCITY SYSTEM // v4.2
-            </span>
-          </div>
-
-          <div className="flex items-center gap-6 text-[11px] font-mono text-[#6E6E78]">
-            <span className="hidden sm:inline-flex items-center gap-1.5">
-              <Activity className="w-3.5 h-3.5 text-[#00D084]" />
-              BLENDED ROAS: <strong className="text-[#0E0E10]">4.6x</strong>
-            </span>
-            <span className="hidden md:inline-flex items-center gap-1.5">
-              <DollarSign className="w-3.5 h-3.5 text-[#FF3B14]" />
-              PIPELINE CLEARED: <strong className="text-[#0E0E10]">${(pipelineCount).toLocaleString()}</strong>
-            </span>
-            <span className="px-2.5 py-1 bg-black/5 rounded-full text-[#0E0E10] font-semibold text-[10px]">
-              ALGORITHM OPTIMIZED
-            </span>
-          </div>
-        </div>
-
         {/* Main 2-Column Hero Grid with Motion Cockpit */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
           {/* Left Column: Explosive Editorial Typography */}
           <div className="lg:col-span-7 space-y-8">
-            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#FF3B14]/10 border border-[#FF3B14]/30 text-[#FF3B14] text-xs font-mono font-bold uppercase tracking-wider">
+            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#FF3B14]/10 border border-[#FF3B14]/30 text-[#0047FF] text-xs font-mono font-bold uppercase tracking-wider">
               <Flame className="w-3.5 h-3.5 animate-bounce" />
               Not Vanity Metrics — Pure Pipeline Velocity
             </div>
@@ -128,7 +97,7 @@ export default function GrowthHero({ onOpenContact }: GrowthHeroProps) {
               className="text-4xl sm:text-6xl lg:text-[76px] font-sans font-black tracking-tight leading-[0.92] text-[#0E0E10] uppercase"
             >
               WE TURN COLD TRAFFIC INTO{" "}
-              <span className="relative inline-block text-[#FF3B14]">
+              <span className="relative inline-block text-[#0047FF]">
                 UNFAIR
                 <motion.span
                   className="absolute left-0 bottom-1 w-full h-[6px] bg-[#FF3B14]/25 rounded-full -z-10"
@@ -181,7 +150,7 @@ export default function GrowthHero({ onOpenContact }: GrowthHeroProps) {
                     : "bg-white/80 hover:bg-white text-[#0E0E10] border-black/15 hover:border-black/30 shadow-sm"
                 }`}
               >
-                <Zap className={`w-4 h-4 ${isOverdrive ? "animate-spin text-white" : "text-[#FF3B14]"}`} />
+                <Zap className={`w-4 h-4 ${isOverdrive ? "animate-spin text-white" : "text-[#0047FF]"}`} />
                 <span>{isOverdrive ? "OVERDRIVE ACTIVE!" : "TRIGGER TRAFFIC SURGE"}</span>
               </button>
             </motion.div>
@@ -197,7 +166,7 @@ export default function GrowthHero({ onOpenContact }: GrowthHeroProps) {
                 </div>
               </div>
               <div>
-                <div className="text-2xl sm:text-3xl font-black font-sans text-[#FF3B14] tracking-tight">
+                <div className="text-2xl sm:text-3xl font-black font-sans text-[#0047FF] tracking-tight">
                   -44%
                 </div>
                 <div className="text-[11px] font-mono text-[#6E6E78] uppercase mt-0.5">
@@ -233,7 +202,7 @@ export default function GrowthHero({ onOpenContact }: GrowthHeroProps) {
                     LIVE SURGE RADAR
                   </div>
                   <div className="text-sm font-sans font-black text-[#0E0E10] mt-0.5 flex items-center gap-2">
-                    <Radio className="w-4 h-4 text-[#FF3B14] animate-pulse" />
+                    <Radio className="w-4 h-4 text-[#0047FF] animate-pulse" />
                     ACQUISITION FLIGHT DECK
                   </div>
                 </div>
@@ -266,7 +235,7 @@ export default function GrowthHero({ onOpenContact }: GrowthHeroProps) {
 
                 {/* Radar Center Hub */}
                 <div className="relative z-10 w-12 h-12 rounded-full bg-[#0E0E10] text-[#FAF9F5] flex items-center justify-center shadow-lg">
-                  <Target className="w-5 h-5 text-[#FF3B14]" />
+                  <Target className="w-5 h-5 text-[#0047FF]" />
                 </div>
 
                 {/* Dynamic Radar Target Pins */}
@@ -314,7 +283,7 @@ export default function GrowthHero({ onOpenContact }: GrowthHeroProps) {
               <div className="p-3.5 rounded-2xl bg-[#FAF9F5] border border-black/8 space-y-2">
                 <div className="flex items-center justify-between text-[11px] font-mono">
                   <span className="text-[#6E6E78]">SIGNAL INGESTION:</span>
-                  <span className="text-[#FF3B14] font-bold">{radarEvents[activeRadarBlip].time}</span>
+                  <span className="text-[#0047FF] font-bold">{radarEvents[activeRadarBlip].time}</span>
                 </div>
                 <div className="flex items-center justify-between">
                   <span className="text-sm font-sans font-bold text-[#0E0E10]">
@@ -350,12 +319,12 @@ export default function GrowthHero({ onOpenContact }: GrowthHeroProps) {
                 <div className="p-3 rounded-xl bg-white border border-black/8 hover:border-black/20 transition-colors">
                   <div className="flex items-center justify-between">
                     <span className="text-[10px] font-mono text-[#6E6E78]">CVR VELOCITY</span>
-                    <BarChart2 className="w-3.5 h-3.5 text-[#FF3B14]" />
+                    <BarChart2 className="w-3.5 h-3.5 text-[#0047FF]" />
                   </div>
                   <div className="text-lg font-mono font-black text-[#0E0E10] mt-1">
                     {isOverdrive ? "11.2%" : "8.6%"}
                   </div>
-                  <div className="text-[10px] font-mono text-[#FF3B14] font-semibold">
+                  <div className="text-[10px] font-mono text-[#0047FF] font-semibold">
                     Sub-second Next.js
                   </div>
                 </div>

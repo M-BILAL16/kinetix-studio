@@ -169,7 +169,7 @@ export default function Engagement({ onOpenContact }: EngagementProps) {
       {/* Bottom editorial bar */}
       <div className="mt-14 pt-6 border-t border-black/8 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs font-mono text-[#6E6E78]">
         <div className="flex items-center gap-2">
-          <span className="w-2 h-2 rounded-full bg-[#10B981]" />
+          <span className="w-2 h-2 rounded-full bg-[#CEFF00]" />
           <span>NO OBLIGATION AT ANY STEP. STOP WHENEVER IT STOPS MAKING SENSE</span>
         </div>
         <span className="text-[#0E0E10] font-bold">IDEA TO LIVE SYSTEM: 60 DAYS</span>

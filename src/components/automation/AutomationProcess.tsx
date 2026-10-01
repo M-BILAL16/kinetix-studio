@@ -116,7 +116,7 @@ export default function AutomationProcess() {
               <div className="pt-4 border-t border-black/8 space-y-1.5">
                 {step.deliverables.map((d) => (
                   <div key={d} className="flex items-center gap-2 text-[11px] font-mono text-[#0E0E10]">
-                    <CheckCircle2 className="w-3.5 h-3.5 text-[#10B981] shrink-0" />
+                    <CheckCircle2 className="w-3.5 h-3.5 text-[#CEFF00] shrink-0" />
                     <span>{d}</span>
                   </div>
                 ))}

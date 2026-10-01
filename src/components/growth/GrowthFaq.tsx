@@ -57,13 +57,13 @@ export default function GrowthFaq() {
         {/* Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 pb-12 border-b border-black/8">
           <div>
-            <div className="text-[11px] font-mono uppercase tracking-widest text-[#FF3B14] font-bold mb-3 flex items-center gap-2">
+            <div className="text-[11px] font-mono uppercase tracking-widest text-[#0047FF] font-bold mb-3 flex items-center gap-2">
               <HelpCircle className="w-3.5 h-3.5" />
               GROWTH ARCHITECTURE FAQ
             </div>
             <h2 className="text-3xl sm:text-5xl font-sans font-black tracking-tight text-[#0E0E10] uppercase leading-[0.95]">
               FREQUENTLY ASKED <br />
-              <span className="font-serif italic font-normal text-[#FF3B14] lowercase tracking-normal">
+              <span className="font-serif italic font-normal text-[#0047FF] lowercase tracking-normal">
                 growth
               </span>{" "}
               QUESTIONS.
@@ -106,10 +106,10 @@ export default function GrowthFaq() {
                   className="w-full flex items-center justify-between text-left gap-4 group"
                 >
                   <div className="flex items-center gap-4">
-                    <span className="text-xs font-mono font-bold text-[#FF3B14]">
+                    <span className="text-xs font-mono font-bold text-[#0047FF]">
                       0{idx + 1} //
                     </span>
-                    <span className="text-lg sm:text-xl font-sans font-bold text-[#0E0E10] group-hover:text-[#FF3B14] transition-colors">
+                    <span className="text-lg sm:text-xl font-sans font-bold text-[#0E0E10] group-hover:text-[#0047FF] transition-colors">
                       {faq.q}
                     </span>
                   </div>
@@ -133,7 +133,7 @@ export default function GrowthFaq() {
                       transition={{ duration: 0.3 }}
                       className="overflow-hidden pt-4 pl-10 pr-4"
                     >
-                      <span className="inline-block text-[10px] font-mono font-bold px-2 py-0.5 rounded bg-[#FF3B14]/10 text-[#FF3B14] mb-2 uppercase">
+                      <span className="inline-block text-[10px] font-mono font-bold px-2 py-0.5 rounded bg-[#FF3B14]/10 text-[#0047FF] mb-2 uppercase">
                         {faq.tag}
                       </span>
                       <p className="text-sm sm:text-base text-[#6E6E78] font-sans leading-relaxed">

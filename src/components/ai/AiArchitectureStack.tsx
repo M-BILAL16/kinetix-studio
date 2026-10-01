@@ -30,7 +30,7 @@ const STACK_LAYERS = [
       "Human-In-The-Loop Breakpoints",
     ],
     highlight: "Zero Orphaned Tasks // 100% Traceability",
-    accent: "#10B981",
+    accent: "#CEFF00",
   },
   {
     layer: "03",
@@ -124,7 +124,7 @@ export default function AiArchitectureStack() {
                     key={comp}
                     className="flex items-center gap-2.5 text-xs font-mono text-[#0E0E10] bg-[#FAF9F5] p-2.5 rounded-xl border border-black/5"
                   >
-                    <Check className="w-3.5 h-3.5 text-[#10B981] shrink-0" />
+                    <Check className="w-3.5 h-3.5 text-[#CEFF00] shrink-0" />
                     <span>{comp}</span>
                   </div>
                 ))}

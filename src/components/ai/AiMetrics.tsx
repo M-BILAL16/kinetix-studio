@@ -39,13 +39,6 @@ export default function AiMetrics() {
       ref={containerRef}
       className="py-24 site-gutter bg-[#FAF9F5] border-b border-black/10 overflow-hidden"
     >
-      {/* Editorial Marker */}
-      <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 pb-6 border-b border-black/8 gap-4">
-        <p className="text-xs font-mono text-[#6E6E78] max-w-sm text-left md:text-right md:ml-auto">
-          RIGOROUSLY MEASURED BENCHMARKS ACROSS ACTIVE HIGH-VOLUME PRODUCTION WORKFLOWS.
-        </p>
-      </div>
-
       {/* Spanning 4 Column Metric Spread with 1px border lines */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-0 border-l border-r border-black/10">
         {METRICS.map((metric, idx) => (

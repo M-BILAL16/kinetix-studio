@@ -103,14 +103,14 @@ export default function AutomationHero({ onOpenContact }: AutomationHeroProps) {
       {/* Top Editorial Index & Status Bar */}
       <div className="flex flex-col sm:flex-row sm:items-center justify-between border-b border-black/8 pb-4 mb-12 gap-4">
         <div className="flex items-center gap-3">
-          <span className="w-2.5 h-2.5 rounded-full bg-[#10B981] animate-ping" />
+          <span className="w-2.5 h-2.5 rounded-full bg-[#CEFF00] animate-ping" />
           <span className="text-xs font-mono font-bold tracking-widest uppercase text-[#0E0E10]">
             AI AUTOMATION AGENCY // PREMIER GROWTH SYSTEMS
           </span>
         </div>
         <div className="flex items-center gap-4 text-xs font-mono text-[#6E6E78]">
           <span className="hidden sm:inline">SERVING PAKISTAN • UAE • SAUDI ARABIA • GLOBAL</span>
-          <span className="text-[#10B981] font-semibold">STATUS: SYSTEMS LIVE // 2026</span>
+          <span className="text-[#CEFF00] font-semibold">STATUS: SYSTEMS LIVE // 2026</span>
         </div>
       </div>
 
@@ -119,7 +119,7 @@ export default function AutomationHero({ onOpenContact }: AutomationHeroProps) {
         {/* Left Column: Monumental Editorial Typography (7 cols) */}
         <div className="lg:col-span-7 flex flex-col z-10">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white border border-black/10 text-xs font-mono text-[#0E0E10] font-semibold mb-6 w-fit shadow-xs">
-            <Sparkles className="w-3.5 h-3.5 text-[#10B981]" />
+            <Sparkles className="w-3.5 h-3.5 text-[#CEFF00]" />
             <span>DONE-FOR-YOU REVENUE AUTOMATIONS</span>
           </div>
 
@@ -143,7 +143,7 @@ export default function AutomationHero({ onOpenContact }: AutomationHeroProps) {
             <button
               onClick={onOpenContact}
               data-cursor="start"
-              className="px-8 py-4 rounded-full bg-[#0E0E10] hover:bg-[#10B981] text-[#FAF9F5] text-xs font-mono font-bold tracking-widest uppercase transition-all duration-300 flex items-center gap-2 shadow-lg hover:shadow-xl active:scale-95 group"
+              className="px-8 py-4 rounded-full bg-[#0E0E10] hover:bg-[#CEFF00] text-[#FAF9F5] text-xs font-mono font-bold tracking-widest uppercase transition-all duration-300 flex items-center gap-2 shadow-lg hover:shadow-xl active:scale-95 group"
             >
               <span>CLAIM YOUR FREE AI AUDIT</span>
               <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
@@ -193,20 +193,20 @@ export default function AutomationHero({ onOpenContact }: AutomationHeroProps) {
             {/* WhatsApp Header bar */}
             <div className="bg-[#0B141A] text-white p-4 sm:p-5 flex items-center justify-between">
               <div className="flex items-center gap-3">
-                <div className="w-10 h-10 rounded-full bg-[#10B981] flex items-center justify-center text-white font-bold">
+                <div className="w-10 h-10 rounded-full bg-[#CEFF00] flex items-center justify-center text-white font-bold">
                   <Bot className="w-5 h-5" />
                 </div>
                 <div>
                   <div className="flex items-center gap-2">
                     <span className="font-bold text-sm">Kinetix AI Sales Agent</span>
-                    <span className="w-2 h-2 rounded-full bg-[#10B981]" />
+                    <span className="w-2 h-2 rounded-full bg-[#CEFF00]" />
                   </div>
                   <div className="text-[10px] text-white/70 font-mono">
                     Official WhatsApp Business Verified
                   </div>
                 </div>
               </div>
-              <span className="text-[10px] font-mono bg-white/10 px-2 py-0.5 rounded text-[#10B981] font-semibold">
+              <span className="text-[10px] font-mono bg-white/10 px-2 py-0.5 rounded text-[#CEFF00] font-semibold">
                 ONLINE 24/7
               </span>
             </div>
@@ -243,9 +243,9 @@ export default function AutomationHero({ onOpenContact }: AutomationHeroProps) {
 
               {isTyping && (
                 <div className="flex items-center gap-1.5 p-2.5 bg-white rounded-xl w-fit shadow-xs">
-                  <span className="w-1.5 h-1.5 rounded-full bg-[#10B981] animate-bounce" />
-                  <span className="w-1.5 h-1.5 rounded-full bg-[#10B981] animate-bounce [animation-delay:0.2s]" />
-                  <span className="w-1.5 h-1.5 rounded-full bg-[#10B981] animate-bounce [animation-delay:0.4s]" />
+                  <span className="w-1.5 h-1.5 rounded-full bg-[#CEFF00] animate-bounce" />
+                  <span className="w-1.5 h-1.5 rounded-full bg-[#CEFF00] animate-bounce [animation-delay:0.2s]" />
+                  <span className="w-1.5 h-1.5 rounded-full bg-[#CEFF00] animate-bounce [animation-delay:0.4s]" />
                   <span className="text-[10px] font-mono text-[#6E6E78] ml-1">AI agent typing...</span>
                 </div>
               )}
@@ -288,7 +288,7 @@ export default function AutomationHero({ onOpenContact }: AutomationHeroProps) {
                     "✓ Cal.com Booked"
                   )
                 }
-                className="px-2.5 py-1 rounded-full bg-[#10B981]/15 text-[#065F46] font-bold shrink-0"
+                className="px-2.5 py-1 rounded-full bg-[#CEFF00]/15 text-[#065F46] font-bold shrink-0"
               >
                 + Book Call Demo
               </button>
@@ -301,11 +301,11 @@ export default function AutomationHero({ onOpenContact }: AutomationHeroProps) {
                 value={inputVal}
                 onChange={(e) => setInputVal(e.target.value)}
                 placeholder="Type a test message to the AI bot..."
-                className="flex-1 bg-[#FAF9F5] px-3.5 py-2 text-xs rounded-full border border-black/10 focus:outline-none focus:border-[#10B981]"
+                className="flex-1 bg-[#FAF9F5] px-3.5 py-2 text-xs rounded-full border border-black/10 focus:outline-none focus:border-[#CEFF00]"
               />
               <button
                 type="submit"
-                className="w-8 h-8 rounded-full bg-[#10B981] hover:bg-[#059669] text-white flex items-center justify-center shrink-0"
+                className="w-8 h-8 rounded-full bg-[#CEFF00] hover:bg-[#059669] text-white flex items-center justify-center shrink-0"
               >
                 <Send className="w-3.5 h-3.5" />
               </button>

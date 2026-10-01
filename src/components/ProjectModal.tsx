@@ -110,7 +110,7 @@ export default function ProjectModal({
                 {project.description}
               </p>
               <div className="flex items-center gap-2 pt-2">
-                <Zap className="w-4 h-4 text-[#10B981]" />
+                <Zap className="w-4 h-4 text-[#CEFF00]" />
                 <span className="text-sm font-mono font-bold text-[#0E0E10]">
                   DOCUMENTED RESULT: {project.impact}
                 </span>

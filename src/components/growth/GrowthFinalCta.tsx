@@ -42,14 +42,14 @@ export default function GrowthFinalCta({ onOpenContact }: GrowthFinalCtaProps) {
       </div>
 
       <div className="site-gutter max-w-5xl mx-auto relative z-10 text-center space-y-8">
-        <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/10 border border-white/15 text-xs font-mono font-bold tracking-wider uppercase text-[#FF3B14]">
+        <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/10 border border-white/15 text-xs font-mono font-bold tracking-wider uppercase text-[#0047FF]">
           <Rocket className="w-4 h-4 animate-bounce" />
           Q4 / 2026 ACQUISITION CAPACITY: 2 SLOTS OPEN
         </div>
 
         <h2 className="text-4xl sm:text-6xl lg:text-[76px] font-sans font-black tracking-tight leading-[0.92] uppercase max-w-4xl mx-auto">
           READY TO STOP GUESSING AND{" "}
-          <span className="text-[#FF3B14] underline decoration-[#FF3B14]/40">
+          <span className="text-[#0047FF] underline decoration-[#FF3B14]/40">
             IGNITE
           </span>{" "}
           YOUR PIPELINE?
@@ -90,7 +90,7 @@ export default function GrowthFinalCta({ onOpenContact }: GrowthFinalCtaProps) {
             Strict Performance Benchmarks
           </span>
           <span className="flex items-center gap-2">
-            <Sparkles className="w-4 h-4 text-[#FF3B14]" />
+            <Sparkles className="w-4 h-4 text-[#0047FF]" />
             Full Attribution Transparency
           </span>
           <span className="flex items-center gap-2">

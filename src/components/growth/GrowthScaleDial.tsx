@@ -80,13 +80,13 @@ export default function GrowthScaleDial() {
       <div className="site-gutter max-w-7xl mx-auto">
         {/* Header */}
         <div className="text-center max-w-3xl mx-auto mb-16 space-y-4">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#FF3B14]/10 text-[#FF3B14] text-xs font-mono font-bold uppercase tracking-wider">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#FF3B14]/10 text-[#0047FF] text-xs font-mono font-bold uppercase tracking-wider">
             <Gauge className="w-3.5 h-3.5" />
             THE VELOCITY SCALE DIAL
           </div>
           <h2 className="text-3xl sm:text-5xl lg:text-6xl font-sans font-black tracking-tight text-[#0E0E10] uppercase leading-[0.95]">
             REV THE DIAL TO YOUR{" "}
-            <span className="font-serif italic font-normal text-[#FF3B14] lowercase tracking-normal">
+            <span className="font-serif italic font-normal text-[#0047FF] lowercase tracking-normal">
               target
             </span>{" "}
             TIER.
@@ -125,7 +125,7 @@ export default function GrowthScaleDial() {
                 <div className="absolute inset-4 rounded-full border border-dashed border-black/15" />
 
                 {/* Dial Range Indicator Marks */}
-                <div className="absolute top-6 text-[10px] font-mono font-bold text-[#FF3B14]">
+                <div className="absolute top-6 text-[10px] font-mono font-bold text-[#0047FF]">
                   OVERDRIVE (1M+)
                 </div>
                 <div className="absolute left-6 text-[10px] font-mono font-bold text-[#00D084]">
@@ -148,7 +148,7 @@ export default function GrowthScaleDial() {
 
                 {/* Center Hub */}
                 <div className="relative z-10 w-20 h-20 rounded-full bg-[#0E0E10] text-[#FAF9F5] border-4 border-white shadow-xl flex flex-col items-center justify-center">
-                  <Flame className="w-5 h-5 text-[#FF3B14] animate-pulse" />
+                  <Flame className="w-5 h-5 text-[#0047FF] animate-pulse" />
                   <span className="text-[9px] font-mono font-bold uppercase mt-0.5 text-white/70">
                     TIER 0{activeStageIndex + 1}
                   </span>
@@ -208,7 +208,7 @@ export default function GrowthScaleDial() {
                     </div>
                     <div className="p-3.5 rounded-2xl bg-[#FAF9F5] border border-black/8">
                       <div className="text-[10px] font-mono text-[#6E6E78] uppercase">90D PIPELINE</div>
-                      <div className="text-sm sm:text-base font-mono font-black text-[#FF3B14] mt-1">
+                      <div className="text-sm sm:text-base font-mono font-black text-[#0047FF] mt-1">
                         {currentStage.projectedPipeline}
                       </div>
                     </div>

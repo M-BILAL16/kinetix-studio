@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import { Clock, RefreshCcw, UserX, AlertTriangle, ArrowRight, CheckCircle2 } from "lucide-react";
+import { ArrowRight, AlertTriangle, CheckCircle2 } from "lucide-react";
 
 const BOTTLENECK_COMPARISONS = [
   {
@@ -44,19 +44,12 @@ const BOTTLENECK_COMPARISONS = [
 
 export default function AutomationProblems() {
   return (
-    <section className="py-28 px-4 sm:px-8 lg:px-12 bg-[#FAF9F5] border-b border-black/10">
-      {/* Header */}
+    <section className="py-28 site-gutter bg-[#FAF9F5] border-b border-black/10">
       <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 pb-8 border-b border-black/10 gap-6">
         <div>
-          <div className="flex items-center gap-2 mb-3">
-            <span className="text-xs font-mono font-bold text-[#FF3B14]">01 //</span>
-            <span className="text-xs font-mono uppercase tracking-widest text-[#6E6E78]">
-              THE COST OF MANUAL INEFFICIENCY
-            </span>
-          </div>
           <h2 className="text-4xl sm:text-6xl lg:text-7xl font-black uppercase tracking-tight text-[#0E0E10] font-sans leading-[0.95]">
             STOP LOSING LEADS <br />
-            <span className="font-serif italic font-normal text-[#FF3B14] lowercase">
+            <span className="text-[#0047FF]">
               to manual friction.
             </span>
           </h2>
@@ -69,53 +62,62 @@ export default function AutomationProblems() {
         </div>
       </div>
 
-      {/* Before vs After Cards Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+      <div className="hidden lg:grid grid-cols-[1fr_auto_1fr] gap-5 px-2 mb-4">
+        <span className="text-[10px] font-mono uppercase tracking-widest text-[#0047FF]">
+          Manual bottleneck
+        </span>
+        <span className="w-10" />
+        <span className="text-[10px] font-mono uppercase tracking-widest text-[#CEFF00] text-right">
+          Automation fix
+        </span>
+      </div>
+
+      <div className="space-y-5">
         {BOTTLENECK_COMPARISONS.map((item, idx) => (
-          <div
-            key={idx}
-            className="bg-white rounded-3xl border border-black/10 p-8 shadow-xl flex flex-col justify-between group hover:border-black/30 transition-all duration-300"
+          <article
+            key={item.problemTitle}
+            className="grid grid-cols-1 lg:grid-cols-[1fr_auto_1fr] gap-4 lg:gap-5 items-stretch"
           >
-            <div>
-              {/* Problem Section (Top) */}
-              <div className="pb-6 border-b border-black/8">
-                <div className="flex items-center gap-2 text-xs font-mono text-[#FF3B14] font-bold uppercase mb-2">
-                  <AlertTriangle className="w-3.5 h-3.5" />
-                  <span>MANUAL BOTTLENECK [0{idx + 1}]</span>
-                </div>
-                <h3 className="text-xl sm:text-2xl font-black font-sans tracking-tight text-[#0E0E10] mb-2">
-                  {item.problemTitle}
-                </h3>
-                <p className="text-xs sm:text-sm text-[#6E6E78] font-sans leading-relaxed">
-                  {item.problemDesc}
-                </p>
+            <div className="rounded-3xl border border-dashed border-[#FF3B14]/35 bg-white p-6 sm:p-8">
+              <div className="flex items-center gap-2 text-[11px] font-mono font-bold uppercase tracking-widest text-[#0047FF] mb-4">
+                <AlertTriangle className="w-3.5 h-3.5" />
+                <span>Manual bottleneck [0{idx + 1}]</span>
               </div>
+              <h3 className="text-xl sm:text-2xl font-black font-sans tracking-tight text-[#0E0E10] leading-tight">
+                {item.problemTitle}
+              </h3>
+              <p className="mt-3 text-sm text-[#6E6E78] font-sans leading-relaxed">
+                {item.problemDesc}
+              </p>
+            </div>
 
-              {/* Automated Solution Section (Bottom) */}
-              <div className="pt-6">
-                <div className="flex items-center gap-2 text-xs font-mono text-[#10B981] font-bold uppercase mb-2">
-                  <CheckCircle2 className="w-3.5 h-3.5" />
-                  <span>KINETIX AI AUTOMATION FIX</span>
-                </div>
-                <h4 className="text-lg sm:text-xl font-bold font-sans tracking-tight text-[#0E0E10] mb-2">
-                  {item.fixTitle}
-                </h4>
-                <p className="text-xs sm:text-sm text-[#6E6E78] font-sans leading-relaxed">
-                  {item.fixDesc}
-                </p>
+            <div className="flex lg:flex-col items-center justify-center">
+              <div className="w-10 h-10 rounded-full bg-[#0E0E10] text-[#FAF9F5] flex items-center justify-center">
+                <ArrowRight className="w-4 h-4 lg:rotate-0 rotate-90" />
               </div>
             </div>
 
-            {/* Impact Metric Pill */}
-            <div className="mt-8 pt-4 border-t border-black/8 flex items-center justify-between">
-              <span className="text-[10px] font-mono text-[#6E6E78] uppercase">
-                DOCUMENTED PERFORMANCE DELTA:
-              </span>
-              <span className="px-3 py-1 rounded-full bg-[#FAF9F5] border border-black/10 text-xs font-mono font-bold text-[#0E0E10]">
-                ★ {item.metric}
-              </span>
+            <div className="rounded-3xl bg-[#0E0E10] text-[#FAF9F5] p-6 sm:p-8 flex flex-col">
+              <div className="flex items-center gap-2 text-[11px] font-mono font-bold uppercase tracking-widest text-[#CEFF00] mb-4">
+                <CheckCircle2 className="w-3.5 h-3.5" />
+                <span>AI automation fix</span>
+              </div>
+              <h3 className="text-xl sm:text-2xl font-black font-sans tracking-tight leading-tight">
+                {item.fixTitle}
+              </h3>
+              <p className="mt-3 text-sm text-white/65 font-sans leading-relaxed">
+                {item.fixDesc}
+              </p>
+              <div className="mt-6 pt-5 border-t border-white/10 flex items-center justify-between gap-4">
+                <span className="text-[10px] font-mono uppercase tracking-widest text-white/45">
+                  Documented result
+                </span>
+                <span className="shrink-0 px-3 py-1.5 rounded-full bg-[#CEFF00] text-[#0E0E10] text-xs font-mono font-bold">
+                  ★ {item.metric}
+                </span>
+              </div>
             </div>
-          </div>
+          </article>
         ))}
       </div>
     </section>

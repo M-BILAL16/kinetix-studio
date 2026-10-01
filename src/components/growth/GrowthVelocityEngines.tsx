@@ -127,13 +127,13 @@ export default function GrowthVelocityEngines() {
         {/* Section Heading */}
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 pb-12 border-b border-black/8">
           <div>
-            <div className="text-[11px] font-mono uppercase tracking-widest text-[#FF3B14] font-bold mb-3 flex items-center gap-2">
+            <div className="text-[11px] font-mono uppercase tracking-widest text-[#0047FF] font-bold mb-3 flex items-center gap-2">
               <Zap className="w-3.5 h-3.5" />
               THE 4-PART VELOCITY ENGINE
             </div>
             <h2 className="text-3xl sm:text-5xl lg:text-6xl font-sans font-black tracking-tight text-[#0E0E10] uppercase leading-[0.95]">
               ARCHITECTED FOR <br />
-              <span className="font-serif italic font-normal lowercase tracking-normal text-[#FF3B14]">
+              <span className="font-serif italic font-normal lowercase tracking-normal text-[#0047FF]">
                 relentless
               </span>{" "}
               MOMENTUM.
@@ -206,7 +206,7 @@ export default function GrowthVelocityEngines() {
                 <h3 className="text-2xl sm:text-3xl font-sans font-black text-[#0E0E10] tracking-tight mb-2">
                   {currentEngine.title}
                 </h3>
-                <p className="text-sm font-sans font-medium text-[#FF3B14] mb-4">
+                <p className="text-sm font-sans font-medium text-[#0047FF] mb-4">
                   {currentEngine.subtitle}
                 </p>
                 <p className="text-sm sm:text-base text-[#6E6E78] font-sans leading-relaxed mb-8">
@@ -266,7 +266,7 @@ export default function GrowthVelocityEngines() {
                     <span className="text-xs font-mono uppercase text-white/60">
                       LIVE HOOK MATRIX // META & TIKTOK
                     </span>
-                    <span className="px-2 py-0.5 rounded bg-[#FF3B14]/20 text-[#FF3B14] text-[10px] font-mono font-bold">
+                    <span className="px-2 py-0.5 rounded bg-[#FF3B14]/20 text-[#0047FF] text-[10px] font-mono font-bold">
                       MULTIVARIATE
                     </span>
                   </div>
@@ -274,7 +274,7 @@ export default function GrowthVelocityEngines() {
                   <div className="space-y-3">
                     <div className="p-4 rounded-xl bg-white/5 border border-white/10 flex items-center justify-between">
                       <div>
-                        <div className="text-xs font-mono text-[#FF3B14] font-bold">
+                        <div className="text-xs font-mono text-[#0047FF] font-bold">
                           HOOK A: "CONTRARIAN QUESTION"
                         </div>
                         <div className="text-sm font-sans font-bold text-white mt-0.5">
@@ -318,7 +318,7 @@ export default function GrowthVelocityEngines() {
                     </div>
                   </div>
 
-                  <div className="p-3.5 rounded-xl bg-[#FF3B14]/10 border border-[#FF3B14]/30 text-xs font-mono text-[#FF3B14] flex items-center gap-2">
+                  <div className="p-3.5 rounded-xl bg-[#FF3B14]/10 border border-[#FF3B14]/30 text-xs font-mono text-[#0047FF] flex items-center gap-2">
                     <Flame className="w-4 h-4 shrink-0" />
                     <span>ALGO INSIGHT: Hook A scales profitably at $5,000/day ad spend.</span>
                   </div>

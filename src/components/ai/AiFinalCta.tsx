@@ -2,7 +2,7 @@
 
 import React, { useRef, useState } from "react";
 import { motion, useMotionValue, useSpring } from "framer-motion";
-import { ArrowUpRight, Bot, Sparkles } from "lucide-react";
+import { ArrowUpRight, Sparkles } from "lucide-react";
 
 interface AiFinalCtaProps {
   onOpenContact: () => void;
@@ -46,16 +46,8 @@ export default function AiFinalCta({ onOpenContact }: AiFinalCtaProps) {
           opacity: isHovered ? 0.35 : 0.18,
         }}
         transition={{ duration: 0.6 }}
-        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] rounded-full bg-gradient-to-tr from-[#0047FF] via-[#10B981] to-[#CEFF00] blur-3xl pointer-events-none -z-0"
+        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] rounded-full bg-gradient-to-tr from-[#0047FF] via-[#CEFF00] to-[#CEFF00] blur-3xl pointer-events-none -z-0"
       />
-
-      {/* Top Marker */}
-      <div className="flex items-center justify-between border-b border-black/8 pb-4 relative z-10">
-        <div className="flex items-center gap-2 text-xs font-mono text-[#6E6E78] ml-auto">
-          <Bot className="w-3.5 h-3.5 text-[#0047FF]" />
-          <span>PILOT SLOTS: 2 AVAILABLE THIS SPRINT</span>
-        </div>
-      </div>
 
       {/* Headline & Magnetic Circle Button */}
       <div className="my-auto py-12 text-center max-w-5xl mx-auto relative z-10 flex flex-col items-center">
@@ -97,11 +89,6 @@ export default function AiFinalCta({ onOpenContact }: AiFinalCtaProps) {
         </div>
       </div>
 
-      {/* Bottom Sub-bar */}
-      <div className="flex flex-col sm:flex-row items-center justify-between pt-8 border-t border-black/8 text-xs font-mono text-[#6E6E78] relative z-10 gap-3">
-        <span>GUARANTEED ZERO-DATA RETENTION & FULL SOC2 AUDIT TRAIL</span>
-        <span className="text-[#0E0E10] font-bold">DISCOVERY & REASONING AUDIT INCLUDED</span>
-      </div>
     </section>
   );
 }

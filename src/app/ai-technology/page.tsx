@@ -5,12 +5,14 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import ContactDrawer from "@/components/ContactDrawer";
 import AiHero from "@/components/ai/AiHero";
-import AiAgentShowcase from "@/components/ai/AiAgentShowcase";
 import AiWorkflowSimulator from "@/components/ai/AiWorkflowSimulator";
-import AiArchitectureStack from "@/components/ai/AiArchitectureStack";
 import AiMetrics from "@/components/ai/AiMetrics";
 import AiFaq from "@/components/ai/AiFaq";
 import AiFinalCta from "@/components/ai/AiFinalCta";
+import AutomationProblems from "@/components/automation/AutomationProblems";
+import AutomationOfferSystems from "@/components/automation/AutomationOfferSystems";
+import AutomationIndustryBlueprints from "@/components/automation/AutomationIndustryBlueprints";
+import AutomationWhyUs from "@/components/automation/AutomationWhyUs";
 
 export default function AiTechnologyPage() {
   const [isContactOpen, setIsContactOpen] = useState(false);
@@ -23,20 +25,26 @@ export default function AiTechnologyPage() {
       {/* Hero: Autonomous Intelligence & Multi-Agent Swarm Inspector */}
       <AiHero onOpenContact={() => setIsContactOpen(true)} />
 
-      {/* Production-Tested Agent Architectures & Simulated Terminal */}
-      <AiAgentShowcase />
+      {/* Cost of manual inefficiency */}
+      <AutomationProblems />
+
+      {/* Turnkey done-for-you systems */}
+      <AutomationOfferSystems onOpenContact={() => setIsContactOpen(true)} />
+
+      {/* Industry-specific automation blueprints */}
+      <AutomationIndustryBlueprints />
 
       {/* Interactive Operational Friction & ROI Calculator */}
       <AiWorkflowSimulator />
-
-      {/* Technical Architecture & Governance Layers */}
-      <AiArchitectureStack />
 
       {/* Empirical Agentic Performance Metrics */}
       <AiMetrics />
 
       {/* Frequently Examined Specifications & Guardrails FAQ */}
       <AiFaq />
+
+      {/* The automation advantage */}
+      <AutomationWhyUs />
 
       {/* Final Dramatic Agent CTA */}
       <AiFinalCta onOpenContact={() => setIsContactOpen(true)} />
