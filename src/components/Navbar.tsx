@@ -1,6 +1,8 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { motion } from "framer-motion";
 import { ArrowUpRight } from "lucide-react";
 
@@ -11,6 +13,7 @@ interface NavbarProps {
 export default function Navbar({ onOpenContact }: NavbarProps) {
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const pathname = usePathname();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -21,10 +24,10 @@ export default function Navbar({ onOpenContact }: NavbarProps) {
   }, []);
 
   const navLinks = [
-    { label: "AI & Technology", href: "#ai-agents" },
-    { label: "Growth & Marketing", href: "#growth" },
-    { label: "What Have We Done", href: "#work" },
-    { label: "How We Work", href: "#philosophy" },
+    { label: "AI & Technology", href: "/ai-technology" },
+    { label: "Growth & Marketing", href: "/#growth" },
+    { label: "What Have We Done", href: "/#work" },
+    { label: "How We Work", href: "/#philosophy" },
   ];
 
   return (
@@ -41,8 +44,8 @@ export default function Navbar({ onOpenContact }: NavbarProps) {
           } flex items-center justify-between`}
         >
           {/* Brand Mark */}
-          <a
-            href="#"
+          <Link
+            href="/"
             className="flex items-center gap-2.5 group"
             data-cursor="home"
           >
@@ -52,19 +55,26 @@ export default function Navbar({ onOpenContact }: NavbarProps) {
             <span className="font-sans font-black tracking-tight text-sm text-[#0E0E10] leading-none">
               Single Solution
             </span>
-          </a>
+          </Link>
 
           {/* Desktop Nav Links */}
           <div className="hidden lg:flex items-center gap-1 bg-black/3 p-1 rounded-full border border-black/5">
-            {navLinks.map((link) => (
-              <a
-                key={link.label}
-                href={link.href}
-                className="px-3 py-1.5 rounded-full text-[11px] font-mono font-medium text-[#0E0E10] hover:text-[#0047FF] hover:bg-white/80 transition-all duration-200 whitespace-nowrap"
-              >
-                {link.label}
-              </a>
-            ))}
+            {navLinks.map((link) => {
+              const isActive = pathname === link.href;
+              return (
+                <Link
+                  key={link.label}
+                  href={link.href}
+                  className={`px-3.5 py-1.5 rounded-full text-[11px] font-mono font-medium transition-all duration-200 whitespace-nowrap ${
+                    isActive
+                      ? "bg-[#0E0E10] text-white shadow-xs font-bold"
+                      : "text-[#0E0E10] hover:text-[#0047FF] hover:bg-white/80"
+                  }`}
+                >
+                  {link.label}
+                </Link>
+              );
+            })}
           </div>
 
           {/* Right Action */}
@@ -115,14 +125,16 @@ export default function Navbar({ onOpenContact }: NavbarProps) {
         >
           <div className="flex flex-col gap-3">
             {navLinks.map((link) => (
-              <a
+              <Link
                 key={link.label}
                 href={link.href}
                 onClick={() => setMobileMenuOpen(false)}
-                className="text-lg font-sans font-bold text-[#0E0E10] py-2 border-b border-black/5 hover:text-[#0047FF]"
+                className={`text-lg font-sans font-bold py-2 border-b border-black/5 hover:text-[#0047FF] ${
+                  pathname === link.href ? "text-[#0047FF]" : "text-[#0E0E10]"
+                }`}
               >
                 {link.label}
-              </a>
+              </Link>
             ))}
             <button
               onClick={() => {
