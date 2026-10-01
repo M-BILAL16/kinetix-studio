@@ -3,7 +3,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { Bot, ArrowDown } from "lucide-react";
-import AiSwarmIllustration from "@/components/ai/AiSwarmIllustration";
+import AiHeroImageShowcase from "@/components/ai/AiHeroImageShowcase";
 
 export default function AiHero() {
   return (
@@ -27,9 +27,8 @@ export default function AiHero() {
           </h1>
 
           <p className="mt-8 text-base sm:text-xl text-[#6E6E78] leading-relaxed max-w-2xl font-sans">
-            We architect, fine-tune, and deploy bespoke multi-agent AI systems and deterministic
-            workflows that replace manual hours with sub-second execution — fully compliant,
-            secure, and integrated into your core stack.
+            We build secure AI agents that handle repetitive work and connect with your existing
+            tools.
           </p>
 
           {/* Action CTAs */}
@@ -42,39 +41,11 @@ export default function AiHero() {
               <ArrowDown className="w-3.5 h-3.5" />
             </a>
           </div>
-
-          {/* Core Trust Badges */}
-          <div className="mt-12 pt-8 border-t border-black/8 grid grid-cols-3 gap-4 text-left">
-            <div>
-              <div className="text-2xl sm:text-3xl font-black font-sans text-[#0E0E10]">
-                &lt;180ms
-              </div>
-              <div className="text-[10px] font-mono text-[#6E6E78] uppercase mt-0.5">
-                Reasoning Latency
-              </div>
-            </div>
-            <div>
-              <div className="text-2xl sm:text-3xl font-black font-sans text-[#0E0E10]">
-                99.94%
-              </div>
-              <div className="text-[10px] font-mono text-[#6E6E78] uppercase mt-0.5">
-                Deterministic Accuracy
-              </div>
-            </div>
-            <div>
-              <div className="text-2xl sm:text-3xl font-black font-sans text-[#0E0E10]">
-                Zero-Retention
-              </div>
-              <div className="text-[10px] font-mono text-[#6E6E78] uppercase mt-0.5">
-                Enterprise Privacy
-              </div>
-            </div>
-          </div>
         </div>
 
-        {/* Right Column: High-Motion 3D Kinetic Neural Swarm Illustration (5 cols) */}
+        {/* Right Column: 3D AI Agents Swarm Artwork & Interactive Inspector (5 cols) */}
         <div className="lg:col-span-5">
-          <AiSwarmIllustration />
+          <AiHeroImageShowcase />
         </div>
       </div>
     </section>
