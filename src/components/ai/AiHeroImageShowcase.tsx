@@ -4,87 +4,132 @@ import React, { useState, useRef } from "react";
 import Image from "next/image";
 import { motion, useMotionValue, useSpring, useTransform, AnimatePresence } from "framer-motion";
 import {
-  Layers,
-  Database,
-  Zap,
-  ShieldCheck,
-  Cpu,
+  FileText,
+  MessageSquare,
+  TrendingUp,
+  Settings,
+  CreditCard,
+  Calendar,
+  CheckCircle,
+  PhoneCall,
   Sparkles,
   Activity,
-  CheckCircle2,
-  Maximize2,
-  Scan,
+  Layers,
 } from "lucide-react";
 
 interface AgentPin {
   id: string;
+  number: string;
+  category: string;
   name: string;
-  role: string;
-  model: string;
+  description: string;
   latency: string;
   position: { top: string; left: string };
   icon: React.ElementType;
   color: string;
-  detail: string;
 }
 
-const AGENT_PINS: AgentPin[] = [
+const AGENTS_LIST: AgentPin[] = [
   {
-    id: "orchestrator",
-    name: "Swarm Orchestrator",
-    role: "Intent Parsing & Sub-Task Planning",
-    model: "Claude 3.7 Sonnet (Hybrid)",
-    latency: "142ms",
-    position: { top: "16%", left: "18%" },
-    icon: Layers,
+    id: "file-analysis",
+    number: "01",
+    category: "FILE ANALYSIS",
+    name: "File Analysis Agent",
+    description: "Upload documents, sheets, or images. The agent reads them and does the job you ask for.",
+    latency: "320ms",
+    position: { top: "25%", left: "25%" },
+    icon: FileText,
     color: "#0047FF",
-    detail: "Decomposes unstructured requests into parallel deterministic workflows.",
   },
   {
-    id: "memory",
-    name: "Vector Memory Hub",
-    role: "Semantic Retrieval & GraphDB",
-    model: "Custom Hybrid RAG",
+    id: "support",
+    number: "02",
+    category: "SUPPORT",
+    name: "Customer Support Agent",
+    description: "Answers customer questions on WhatsApp and your website, then sends hard cases to your team.",
+    latency: "12ms",
+    position: { top: "18%", left: "50%" },
+    icon: MessageSquare,
+    color: "#10B981",
+  },
+  {
+    id: "sales",
+    number: "03",
+    category: "SALES",
+    name: "Sales & Follow-Up Agent",
+    description: "Talks to new leads, asks useful questions, and books meetings automatically.",
+    latency: "84ms",
+    position: { top: "25%", left: "75%" },
+    icon: TrendingUp,
+    color: "#0047FF",
+  },
+  {
+    id: "ops",
+    number: "04",
+    category: "DAILY WORK",
+    name: "Business Operations Agent",
+    description: "Handles repeated office work and keeps your internal tools and CRM updated.",
+    latency: "45ms",
+    position: { top: "50%", left: "84%" },
+    icon: Settings,
+    color: "#6E6E78",
+  },
+  {
+    id: "booking",
+    number: "05",
+    category: "BOOKING",
+    name: "Booking and Invoicing Agent",
+    description: "Books the job, makes the bill, and reminds the customer to pay without human intervention.",
+    latency: "60ms",
+    position: { top: "74%", left: "76%" },
+    icon: CreditCard,
+    color: "#FF8A00",
+  },
+  {
+    id: "schedule",
+    number: "06",
+    category: "SCHEDULE",
+    name: "Appointments & Scheduling Agent",
+    description: "Finds an open time, sets the appointment, and sends calendar invites and reminders.",
     latency: "18ms",
-    position: { top: "16%", left: "80%" },
-    icon: Database,
+    position: { top: "82%", left: "50%" },
+    icon: Calendar,
     color: "#10B981",
-    detail: "Queries 4,096 high-dimensional vectors with zero context hallucination.",
   },
   {
-    id: "execution",
-    name: "Deterministic Tool Agent",
-    role: "API Calls & System Execution",
-    model: "Fine-Tuned Function Caller",
-    latency: "89ms",
-    position: { top: "74%", left: "18%" },
-    icon: Zap,
+    id: "quality",
+    number: "07",
+    category: "QUALITY",
+    name: "Work Review Agent",
+    description: "Checks documents, invoices, and records for missing or wrong details with strict guardrails.",
+    latency: "28ms",
+    position: { top: "74%", left: "25%" },
+    icon: CheckCircle,
     color: "#0047FF",
-    detail: "Safely fires verified REST/GraphQL mutations directly to CRM & ERP.",
   },
   {
-    id: "sentry",
-    name: "Reflexion Sentry",
-    role: "Safety & Schema Invariant Guard",
-    model: "Deterministic Logic Engine",
-    latency: "24ms",
-    position: { top: "74%", left: "82%" },
-    icon: ShieldCheck,
+    id: "calling",
+    number: "08",
+    category: "CALLING",
+    name: "Inbound / Outbound Calling Agent",
+    description: "Answers incoming voice calls and makes outgoing calls, then routes complex cases to your staff.",
+    latency: "110ms",
+    position: { top: "50%", left: "16%" },
+    icon: PhoneCall,
     color: "#10B981",
-    detail: "Validates every output against SOC2/HIPAA guardrails before dispatch.",
   },
 ];
 
 export default function AiHeroImageShowcase() {
   const containerRef = useRef<HTMLDivElement>(null);
-  const [activePin, setActivePin] = useState<AgentPin | null>(AGENT_PINS[0]);
+  const [activePin, setActivePin] = useState<AgentPin>(AGENTS_LIST[1]); // Default to WhatsApp support
 
   // Interactive 3D mouse tilt physics
   const mouseX = useMotionValue(0);
   const mouseY = useMotionValue(0);
   const springConfig = { damping: 25, stiffness: 200 };
-  const rotateX = useSpring(useTransform(mouseY, [-0.5, 0.5], [8, -8]), springConfig);
-  const rotateY = useSpring(useTransform(mouseX, [-0.5, 0.5], [-10, 10]), springConfig);
+  const rotateX = useSpring(useTransform(mouseY, [-0.5, 0.5], [7, -7]), springConfig);
+  const rotateY = useSpring(useTransform(mouseX, [-0.5, 0.5], [-9, 9]), springConfig);
 
   const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
     if (!containerRef.current) return;
@@ -116,7 +161,7 @@ export default function AiHeroImageShowcase() {
             opacity: [0.15, 0.3, 0.15],
           }}
           transition={{ duration: 7, repeat: Infinity, ease: "easeInOut" }}
-          className="absolute -top-20 -right-20 w-80 h-80 rounded-full bg-[#0047FF]/25 blur-3xl"
+          className="absolute -top-20 -right-20 w-80 h-80 rounded-full bg-[#10B981]/20 blur-3xl"
         />
         <motion.div
           animate={{
@@ -124,7 +169,7 @@ export default function AiHeroImageShowcase() {
             opacity: [0.12, 0.25, 0.12],
           }}
           transition={{ duration: 9, repeat: Infinity, ease: "easeInOut" }}
-          className="absolute -bottom-20 -left-20 w-80 h-80 rounded-full bg-[#10B981]/20 blur-3xl"
+          className="absolute -bottom-20 -left-20 w-80 h-80 rounded-full bg-[#0047FF]/20 blur-3xl"
         />
       </div>
 
@@ -136,13 +181,13 @@ export default function AiHeroImageShowcase() {
             <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-[#10B981]"></span>
           </span>
           <span className="text-[11px] font-mono font-bold tracking-widest text-[#0E0E10] uppercase">
-            AUTONOMOUS SWARM ARCHITECTURE
+            8-AGENT AUTONOMOUS ECOSYSTEM
           </span>
         </div>
 
         <div className="flex items-center gap-2">
           <span className="px-2.5 py-1 rounded-full bg-[#FAF9F5] border border-black/8 text-[10px] font-mono text-[#0047FF] font-bold">
-            LATENCY: &lt;180MS
+            CLUSTER: 8 AGENTS
           </span>
         </div>
       </div>
@@ -156,10 +201,10 @@ export default function AiHeroImageShowcase() {
         }}
         className="relative w-full aspect-square rounded-2xl overflow-hidden border border-black/10 bg-[#FAF9F5] shadow-inner group"
       >
-        {/* The 3D High-Res Generated Artwork */}
+        {/* The 3D 8-Agent Artwork */}
         <Image
-          src="/images/ai-agents-hero.jpg"
-          alt="Autonomous AI Agent Swarm Core Architecture"
+          src="/images/ai-agent-ecosystem.jpg"
+          alt="8-Agent Autonomous AI Ecosystem Architecture"
           fill
           priority
           sizes="(max-width: 768px) 100vw, 50vw"
@@ -167,98 +212,87 @@ export default function AiHeroImageShowcase() {
         />
 
         {/* Subtle Frosted Vignette Overlay */}
-        <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent pointer-events-none" />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/35 via-transparent to-transparent pointer-events-none" />
 
-        {/* Interactive Holographic Pins on the 4 Satellite Agent Cubes */}
-        {AGENT_PINS.map((pin) => {
-          const isSelected = activePin?.id === pin.id;
-          const Icon = pin.icon;
+        {/* Interactive Holographic Click Pins for all 8 Agents */}
+        {AGENTS_LIST.map((agent) => {
+          const isSelected = activePin.id === agent.id;
+          const Icon = agent.icon;
 
           return (
             <div
-              key={pin.id}
+              key={agent.id}
               style={{
-                top: pin.position.top,
-                left: pin.position.left,
+                top: agent.position.top,
+                left: agent.position.left,
                 transform: "translate(-50%, -50%)",
               }}
               className="absolute z-20"
             >
               <button
                 type="button"
-                onClick={() => setActivePin(pin)}
+                onClick={() => setActivePin(agent)}
                 className={`relative flex items-center justify-center p-2 rounded-xl transition-all duration-300 backdrop-blur-md border ${
                   isSelected
-                    ? "bg-[#0E0E10] text-[#FAF9F5] border-[#0E0E10] scale-110 shadow-xl ring-2 ring-[#0047FF]"
-                    : "bg-white/80 hover:bg-white text-[#0E0E10] border-black/20 shadow-md hover:scale-105"
+                    ? "bg-[#0E0E10] text-[#FAF9F5] border-[#0E0E10] scale-110 shadow-xl ring-2 ring-[#10B981]"
+                    : "bg-white/85 hover:bg-white text-[#0E0E10] border-black/20 shadow-md hover:scale-105"
                 }`}
               >
-                {/* Pulse ring when not selected */}
                 {!isSelected && (
                   <span
-                    className="animate-ping absolute inline-flex h-full w-full rounded-xl opacity-40"
-                    style={{ backgroundColor: pin.color }}
+                    className="animate-ping absolute inline-flex h-full w-full rounded-xl opacity-35"
+                    style={{ backgroundColor: agent.color }}
                   />
                 )}
-                <Icon className="w-4 h-4" style={{ color: isSelected ? "#FAF9F5" : pin.color }} />
+                <Icon className="w-3.5 h-3.5" style={{ color: isSelected ? "#FAF9F5" : agent.color }} />
               </button>
             </div>
           );
         })}
 
-        {/* Center Quantum Core Badge */}
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none">
-          <div className="w-20 h-20 rounded-full border border-white/40 bg-white/10 backdrop-blur-md flex items-center justify-center shadow-lg">
-            <div className="w-4 h-4 rounded-full bg-[#0047FF] animate-pulse shadow-md" />
-          </div>
-        </div>
-
-        {/* Instruction Chip on Image */}
+        {/* Floating Instruction Chip on Image */}
         <div className="absolute bottom-3 left-3 z-10 px-3 py-1.5 rounded-full bg-white/85 backdrop-blur-md border border-black/10 text-[10px] font-mono text-[#0E0E10] font-bold shadow-xs flex items-center gap-1.5">
-          <Sparkles className="w-3.5 h-3.5 text-[#0047FF]" />
-          <span>CLICK ANY AGENT CUBE TO INSPECT</span>
+          <Sparkles className="w-3.5 h-3.5 text-[#10B981]" />
+          <span>CLICK ANY OF THE 8 AGENTS TO INSPECT</span>
         </div>
       </motion.div>
 
       {/* Selected Agent Telemetry Inspector Console */}
       <AnimatePresence mode="wait">
-        {activePin && (
-          <motion.div
-            key={activePin.id}
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -10 }}
-            transition={{ duration: 0.2 }}
-            className="mt-4 p-4 rounded-2xl bg-[#0E0E10] text-[#FAF9F5] font-mono border border-black/10 shadow-lg space-y-2"
-          >
-            <div className="flex items-center justify-between text-[11px] pb-2 border-b border-white/10">
-              <div className="flex items-center gap-2">
-                <span
-                  className="w-2 h-2 rounded-full"
-                  style={{ backgroundColor: activePin.color }}
-                />
-                <span className="font-bold text-white uppercase">{activePin.name}</span>
-              </div>
-              <span className="text-[#10B981] font-bold">LATENCY: {activePin.latency}</span>
+        <motion.div
+          key={activePin.id}
+          initial={{ opacity: 0, y: 8 }}
+          animate={{ opacity: 1, y: 0 }}
+          exit={{ opacity: 0, y: -8 }}
+          transition={{ duration: 0.2 }}
+          className="mt-4 p-4 rounded-2xl bg-[#0E0E10] text-[#FAF9F5] font-mono border border-black/10 shadow-lg space-y-2"
+        >
+          <div className="flex items-center justify-between text-[11px] pb-2 border-b border-white/10">
+            <div className="flex items-center gap-2">
+              <span className="text-[10px] px-2 py-0.5 rounded-full bg-white/10 text-white font-bold">
+                {activePin.number} // {activePin.category}
+              </span>
+              <span className="font-bold text-white uppercase">{activePin.name}</span>
             </div>
+            <span className="text-[#10B981] font-bold text-[10px]">RESPONSE: &lt; {activePin.latency}</span>
+          </div>
 
-            <div className="text-xs text-white/90 leading-relaxed font-sans pt-1">
-              {activePin.detail}
-            </div>
+          <div className="text-xs text-white/90 leading-relaxed font-sans pt-1">
+            {activePin.description}
+          </div>
 
-            <div className="flex flex-wrap items-center justify-between pt-2 border-t border-white/10 text-[10px] text-white/60">
-              <span>MODEL: <strong className="text-white">{activePin.model}</strong></span>
-              <span className="text-[#10B981] font-bold">● ACTIVE IN SWARM</span>
-            </div>
-          </motion.div>
-        )}
+          <div className="flex flex-wrap items-center justify-between pt-2 border-t border-white/10 text-[10px] text-white/60">
+            <span>STATUS: <strong className="text-white">ONLINE // 24/7</strong></span>
+            <span className="text-[#10B981] font-bold">● ZERO-HALLUCINATION RUNTIME</span>
+          </div>
+        </motion.div>
       </AnimatePresence>
 
       {/* Bottom Security / Certification Bar */}
       <div className="mt-3 pt-2.5 border-t border-black/8 flex items-center justify-between text-[10px] font-mono text-[#6E6E78]">
         <span className="flex items-center gap-1.5">
           <Activity className="w-3 h-3 text-[#10B981]" />
-          ZERO-HALLUCINATION RUNTIME
+          SEAMLESS TOOL & CRM INTEGRATION
         </span>
         <span className="text-[#0E0E10] font-bold">SOC2 & HIPAA READY</span>
       </div>
