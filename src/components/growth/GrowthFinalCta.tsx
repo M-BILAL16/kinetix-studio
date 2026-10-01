@@ -1,112 +1,103 @@
 "use client";
 
-import React, { useRef, useState } from "react";
-import { motion, useMotionValue, useSpring } from "framer-motion";
-import { ArrowUpRight, Target, Sparkles } from "lucide-react";
+import React, { useState } from "react";
+import { motion } from "framer-motion";
+import { Rocket, ArrowRight, Zap, Shield, Sparkles } from "lucide-react";
+import confetti from "canvas-confetti";
 
 interface GrowthFinalCtaProps {
   onOpenContact: () => void;
 }
 
 export default function GrowthFinalCta({ onOpenContact }: GrowthFinalCtaProps) {
-  const buttonRef = useRef<HTMLDivElement>(null);
   const [isHovered, setIsHovered] = useState(false);
 
-  // Magnetic cursor interaction
-  const x = useMotionValue(0);
-  const y = useMotionValue(0);
-
-  const springConfig = { damping: 20, stiffness: 180 };
-  const smoothX = useSpring(x, springConfig);
-  const smoothY = useSpring(y, springConfig);
-
-  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
-    if (!buttonRef.current) return;
-    const rect = buttonRef.current.getBoundingClientRect();
-    const centerX = rect.left + rect.width / 2;
-    const centerY = rect.top + rect.height / 2;
-    const distanceX = (e.clientX - centerX) * 0.35;
-    const distanceY = (e.clientY - centerY) * 0.35;
-    x.set(distanceX);
-    y.set(distanceY);
-  };
-
-  const handleMouseLeave = () => {
-    x.set(0);
-    y.set(0);
-    setIsHovered(false);
+  const handleIgnite = () => {
+    try {
+      confetti({
+        particleCount: 100,
+        spread: 80,
+        origin: { y: 0.6 },
+        colors: ["#FF3B14", "#FF8A00", "#00D084", "#0E0E10", "#CEFF00"],
+      });
+    } catch {
+      // safe fallback
+    }
+    onOpenContact();
   };
 
   return (
-    <section className="relative min-h-[80vh] py-32 site-gutter flex flex-col justify-between bg-[#FAF9F5] overflow-hidden select-none border-b border-black/10">
-      {/* Dynamic Ambient Glow */}
-      <motion.div
-        animate={{
-          scale: isHovered ? 1.3 : 1,
-          opacity: isHovered ? 0.35 : 0.18,
-        }}
-        transition={{ duration: 0.6 }}
-        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] rounded-full bg-gradient-to-tr from-[#FF2E93] via-[#0047FF] to-[#CEFF00] blur-3xl pointer-events-none -z-0"
-      />
-
-      {/* Top Marker */}
-      <div className="flex items-center justify-between border-b border-black/8 pb-4 relative z-10">
-        <div className="flex items-center gap-3">
-          <span className="w-2 h-2 rounded-full bg-[#FF2E93]" />
-          <span className="text-xs font-mono tracking-widest uppercase text-[#0E0E10] font-semibold">
-            06 // INITIALIZE DEMAND SPRINT
-          </span>
-        </div>
-        <div className="flex items-center gap-2 text-xs font-mono text-[#6E6E78]">
-          <Target className="w-3.5 h-3.5 text-[#FF2E93]" />
-          <span>CURRENT STATUS: ACCEPTING Q3/Q4 AUDITS</span>
-        </div>
+    <section className="py-28 md:py-36 bg-[#0E0E10] text-[#FAF9F5] relative overflow-hidden">
+      {/* Background Explosive Energy Mesh */}
+      <div className="absolute inset-0 pointer-events-none">
+        <motion.div
+          animate={{
+            scale: [1, 1.25, 1],
+            opacity: [0.2, 0.35, 0.2],
+          }}
+          transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
+          className="absolute -top-40 left-1/2 -translate-x-1/2 w-[800px] h-[500px] rounded-full bg-gradient-to-b from-[#FF3B14]/30 via-[#FF6B00]/20 to-transparent blur-3xl"
+        />
+        <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff05_1px,transparent_1px),linear-gradient(to_bottom,#ffffff05_1px,transparent_1px)] bg-[size:3rem_3rem]" />
       </div>
 
-      {/* Headline & Magnetic Circle Button */}
-      <div className="my-auto py-12 text-center max-w-5xl mx-auto relative z-10 flex flex-col items-center">
-        <span className="text-xs sm:text-sm font-mono tracking-widest text-[#6E6E78] uppercase mb-6 block">
-          TIRED OF BLEEDING CAPITAL ON VANITY IMPRESSIONS?
-        </span>
+      <div className="site-gutter max-w-5xl mx-auto relative z-10 text-center space-y-8">
+        <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/10 border border-white/15 text-xs font-mono font-bold tracking-wider uppercase text-[#FF3B14]">
+          <Rocket className="w-4 h-4 animate-bounce" />
+          Q4 / 2026 ACQUISITION CAPACITY: 2 SLOTS OPEN
+        </div>
 
-        <h2 className="text-4xl sm:text-7xl lg:text-8xl xl:text-9xl font-black font-sans uppercase tracking-tight text-[#0E0E10] leading-[0.9] mb-12">
-          LET&apos;S BUILD YOUR{" "}
-          <span className="font-serif italic font-normal text-[#FF2E93] lowercase inline-block">
-            pipeline
+        <h2 className="text-4xl sm:text-6xl lg:text-[76px] font-sans font-black tracking-tight leading-[0.92] uppercase max-w-4xl mx-auto">
+          READY TO STOP GUESSING AND{" "}
+          <span className="text-[#FF3B14] underline decoration-[#FF3B14]/40">
+            IGNITE
           </span>{" "}
-          ENGINE.
+          YOUR PIPELINE?
         </h2>
 
-        {/* Magnetic Giant Circle Button */}
-        <div
-          ref={buttonRef}
-          onMouseMove={handleMouseMove}
-          onMouseEnter={() => setIsHovered(true)}
-          onMouseLeave={handleMouseLeave}
-          className="relative inline-block p-10 cursor-pointer"
-        >
+        <p className="text-base sm:text-lg text-white/70 font-sans max-w-2xl mx-auto leading-relaxed">
+          No 40-page fluff audits. We analyze your customer acquisition economics, pinpoint your
+          highest-leverage creative angle, and design a bespoke scaling roadmap in under 48 hours.
+        </p>
+
+        {/* Ignition Launchpad Button */}
+        <div className="pt-6 flex flex-col sm:flex-row items-center justify-center gap-4">
           <motion.button
-            style={{ x: smoothX, y: smoothY }}
-            onClick={onOpenContact}
-            data-cursor="start"
-            whileHover={{ scale: 1.06 }}
-            whileTap={{ scale: 0.94 }}
-            className="w-48 h-48 sm:w-60 sm:h-60 rounded-full bg-[#0E0E10] hover:bg-[#FF2E93] text-[#FAF9F5] p-6 shadow-2xl flex flex-col items-center justify-center gap-3 transition-colors duration-300 group border-4 border-white/40"
+            type="button"
+            onClick={handleIgnite}
+            onMouseEnter={() => setIsHovered(true)}
+            onMouseLeave={() => setIsHovered(false)}
+            whileHover={{ scale: 1.04 }}
+            whileTap={{ scale: 0.98 }}
+            className="relative group px-10 py-5 rounded-full bg-[#FF3B14] text-white font-sans font-black text-base uppercase tracking-wider shadow-2xl hover:shadow-[#FF3B14]/50 transition-all flex items-center gap-3 overflow-hidden"
           >
-            <div className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center group-hover:bg-white group-hover:text-[#FF2E93] transition-all duration-300">
-              <ArrowUpRight className="w-6 h-6 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
-            </div>
-            <span className="text-xs sm:text-sm font-mono font-bold tracking-widest uppercase text-center leading-snug">
-              SCALE YOUR<br />PIPELINE ↗
-            </span>
+            {/* Shimmer sweep */}
+            <motion.div
+              animate={{ x: ["-100%", "200%"] }}
+              transition={{ duration: 2.5, repeat: Infinity, ease: "linear" }}
+              className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent skew-x-12 pointer-events-none"
+            />
+            <Zap className="w-5 h-5" />
+            <span>CLAIM REVENUE AUDIT</span>
+            <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-1.5" />
           </motion.button>
         </div>
-      </div>
 
-      {/* Bottom Sub-bar */}
-      <div className="flex flex-col sm:flex-row items-center justify-between pt-8 border-t border-black/8 text-xs font-mono text-[#6E6E78] relative z-10 gap-3">
-        <span>COMPLIMENTARY 48-HOUR FUNNEL & AEO AUDIT INCLUDED</span>
-        <span className="text-[#0E0E10] font-bold">100% CLOSED-LOOP REVENUE ATTRIBUTION</span>
+        {/* Security / SLAs Badges */}
+        <div className="pt-10 flex flex-wrap items-center justify-center gap-8 text-xs font-mono text-white/50 border-t border-white/10 max-w-2xl mx-auto">
+          <span className="flex items-center gap-2">
+            <Shield className="w-4 h-4 text-[#00D084]" />
+            Strict Performance Benchmarks
+          </span>
+          <span className="flex items-center gap-2">
+            <Sparkles className="w-4 h-4 text-[#FF3B14]" />
+            Full Attribution Transparency
+          </span>
+          <span className="flex items-center gap-2">
+            <Zap className="w-4 h-4 text-[#0047FF]" />
+            14-Day Deployment Speed
+          </span>
+        </div>
       </div>
     </section>
   );

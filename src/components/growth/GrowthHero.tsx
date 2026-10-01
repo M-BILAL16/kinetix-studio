@@ -1,248 +1,381 @@
 "use client";
 
-import React, { useState } from "react";
-import { motion } from "framer-motion";
+import React, { useState, useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import {
-  TrendingUp,
-  Target,
-  ArrowRight,
-  ArrowDown,
-  Sparkles,
-  BarChart3,
-  Search,
   Zap,
+  TrendingUp,
+  ArrowRight,
+  Flame,
+  Radio,
+  Sparkles,
+  BarChart2,
+  Sliders,
   DollarSign,
   Activity,
+  Target,
 } from "lucide-react";
+import confetti from "canvas-confetti";
 
 interface GrowthHeroProps {
   onOpenContact: () => void;
 }
 
-interface ChannelTelemetry {
-  id: string;
-  channel: string;
-  status: string;
-  metric: string;
-  lift: string;
-  detail: string;
-}
-
-const CHANNELS: ChannelTelemetry[] = [
-  {
-    id: "aeo",
-    channel: "AI Search & AEO Domination",
-    status: "OPTIMIZED",
-    metric: "#1 Citation Share",
-    lift: "+410%",
-    detail: "Direct recommendations across Perplexity, ChatGPT Search, and Google Gemini.",
-  },
-  {
-    id: "paid",
-    channel: "Algorithmic Paid Acquisition",
-    status: "SCALING",
-    metric: "3.9x Blended ROAS",
-    lift: "-42% CAC",
-    detail: "High-velocity multivariate ad creative with real-time conversion feedback loops.",
-  },
-  {
-    id: "cro",
-    channel: "High-Conversion Landers",
-    status: "ACTIVE",
-    metric: "8.4% Median CVR",
-    lift: "+64% Inbound",
-    detail: "Editorial 60fps landing experiences built with Next.js and sub-second load times.",
-  },
-  {
-    id: "lifecycle",
-    channel: "Compounding LTV Engine",
-    status: "AUTOMATED",
-    metric: "92% Retention",
-    lift: "+32% Expansion",
-    detail: "Automated account expansion signals and automated reactivation sequences.",
-  },
-];
-
 export default function GrowthHero({ onOpenContact }: GrowthHeroProps) {
-  const [activeChannel, setActiveChannel] = useState<ChannelTelemetry>(CHANNELS[0]);
+  const [isOverdrive, setIsOverdrive] = useState(false);
+  const [pipelineCount, setPipelineCount] = useState(148200);
+  const [activeRadarBlip, setActiveRadarBlip] = useState(0);
+
+  // Auto-pulse radar blips
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setActiveRadarBlip((prev) => (prev + 1) % 4);
+    }, 2800);
+    return () => clearInterval(timer);
+  }, []);
+
+  const handleSurge = () => {
+    setIsOverdrive(true);
+    setPipelineCount((prev) => prev + 18450);
+    try {
+      confetti({
+        particleCount: 80,
+        spread: 70,
+        origin: { y: 0.6 },
+        colors: ["#FF3B14", "#FF6B00", "#00D084", "#0047FF", "#CEFF00"],
+      });
+    } catch {
+      // fallback safe
+    }
+    setTimeout(() => setIsOverdrive(false), 3500);
+  };
+
+  const radarEvents = [
+    { title: "Meta Advantage+ Breakout", stat: "6.2x ROAS", time: "Just now", color: "#FF3B14" },
+    { title: "AI Search / ChatGPT Citation #1", stat: "+480% Inbound", time: "12s ago", color: "#00D084" },
+    { title: "High-Ticket SaaS Discovery", stat: "$42k Pipeline", time: "34s ago", color: "#0047FF" },
+    { title: "TikTok Pulse Scaled", stat: "-52% CAC", time: "1m ago", color: "#FF6B00" },
+  ];
 
   return (
-    <section className="relative min-h-[92vh] pt-32 pb-20 site-gutter bg-editorial-grid bg-noise border-b border-black/10 overflow-hidden">
-      {/* Main Grid: Headline + Interactive Demand Engine */}
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
-        {/* Left Column: Monumental Editorial Typography (7 cols) */}
-        <div className="lg:col-span-7 flex flex-col z-10">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white border border-black/10 text-xs font-mono text-[#0E0E10] font-semibold mb-6 w-fit shadow-xs">
-            <Target className="w-3.5 h-3.5 text-[#FF2E93]" />
-            <span>FULL-FUNNEL HIGH-VELOCITY SCALE</span>
+    <section className="relative pt-32 pb-24 md:pt-40 md:pb-32 overflow-hidden bg-[#FAF9F5] border-b border-black/10">
+      {/* Background kinetic ambient mesh */}
+      <div className="absolute inset-0 pointer-events-none overflow-hidden">
+        <motion.div
+          animate={{
+            scale: [1, 1.25, 1],
+            x: [0, 40, 0],
+            y: [0, -30, 0],
+            opacity: [0.15, 0.28, 0.15],
+          }}
+          transition={{ duration: 14, repeat: Infinity, ease: "easeInOut" }}
+          className="absolute -top-40 right-[-10%] w-[650px] h-[650px] rounded-full bg-gradient-to-br from-[#FF3B14]/20 via-[#FF8A00]/15 to-transparent blur-3xl"
+        />
+        <motion.div
+          animate={{
+            scale: [1.2, 1, 1.2],
+            x: [0, -50, 0],
+            y: [0, 40, 0],
+            opacity: [0.1, 0.2, 0.1],
+          }}
+          transition={{ duration: 18, repeat: Infinity, ease: "easeInOut" }}
+          className="absolute top-1/2 left-[-15%] w-[550px] h-[550px] rounded-full bg-gradient-to-tr from-[#00D084]/15 via-[#0047FF]/10 to-transparent blur-3xl"
+        />
+        <div className="absolute inset-0 bg-[linear-gradient(to_right,#00000006_1px,transparent_1px),linear-gradient(to_bottom,#00000006_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_40%,#000_70%,transparent_100%)]" />
+      </div>
+
+      <div className="site-gutter relative z-10 max-w-7xl mx-auto">
+        {/* Top telemetry status pill bar */}
+        <div className="flex flex-wrap items-center justify-between gap-4 pb-8 mb-8 border-b border-black/8">
+          <div className="flex items-center gap-3">
+            <span className="relative flex h-2.5 w-2.5">
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#FF3B14] opacity-75"></span>
+              <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-[#FF3B14]"></span>
+            </span>
+            <span className="text-[11px] font-mono uppercase tracking-widest text-[#0E0E10] font-bold">
+              GROWTH VELOCITY SYSTEM // v4.2
+            </span>
           </div>
 
-          <h1 className="text-5xl sm:text-7xl xl:text-8xl font-black uppercase tracking-tight text-[#0E0E10] leading-[0.92] font-sans">
-            ACQUISITION SYSTEMS <br />
-            BUILT FOR <br />
-            <span className="font-serif italic font-normal text-[#FF2E93] lowercase text-6xl sm:text-8xl xl:text-9xl pr-2">
-              pipeline,
-            </span>{" "}
-            NOT VANITY.
-          </h1>
-
-          <p className="mt-8 text-base sm:text-xl text-[#6E6E78] leading-relaxed max-w-2xl font-sans">
-            We engineer high-leverage growth engines combining AI Search Optimization (AEO/GEO),
-            precision paid media, and bespoke high-converting Next.js landing experiences — measured
-            strictly against qualified pipeline and contracted revenue.
-          </p>
-
-          {/* Action CTAs */}
-          <div className="mt-10 flex flex-wrap items-center gap-4">
-            <button
-              onClick={onOpenContact}
-              data-cursor="start"
-              className="px-8 py-4 rounded-full bg-[#0E0E10] hover:bg-[#FF2E93] text-[#FAF9F5] text-xs font-mono font-bold tracking-widest uppercase transition-all duration-300 flex items-center gap-2 shadow-lg hover:shadow-xl active:scale-95 group"
-            >
-              <span>ENGINEER YOUR GROWTH ENGINE</span>
-              <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-            </button>
-
-            <a
-              href="#growth-pillars"
-              className="px-6 py-4 rounded-full bg-white hover:bg-black/5 text-[#0E0E10] border border-black/15 text-xs font-mono font-bold tracking-widest uppercase transition-all duration-200 flex items-center gap-2"
-            >
-              <span>EXPLORE PILLARS</span>
-              <ArrowDown className="w-3.5 h-3.5" />
-            </a>
-          </div>
-
-          {/* Trust Telemetry */}
-          <div className="mt-12 pt-8 border-t border-black/8 grid grid-cols-3 gap-4 text-left">
-            <div>
-              <div className="text-2xl sm:text-3xl font-black font-sans text-[#0E0E10]">
-                $48M+
-              </div>
-              <div className="text-[10px] font-mono text-[#6E6E78] uppercase mt-0.5">
-                Client Pipeline Generated
-              </div>
-            </div>
-            <div>
-              <div className="text-2xl sm:text-3xl font-black font-sans text-[#0E0E10]">
-                -44%
-              </div>
-              <div className="text-[10px] font-mono text-[#6E6E78] uppercase mt-0.5">
-                Median CAC Reduction
-              </div>
-            </div>
-            <div>
-              <div className="text-2xl sm:text-3xl font-black font-sans text-[#0E0E10]">
-                3.8x
-              </div>
-              <div className="text-[10px] font-mono text-[#6E6E78] uppercase mt-0.5">
-                Average Paid ROAS
-              </div>
-            </div>
+          <div className="flex items-center gap-6 text-[11px] font-mono text-[#6E6E78]">
+            <span className="hidden sm:inline-flex items-center gap-1.5">
+              <Activity className="w-3.5 h-3.5 text-[#00D084]" />
+              BLENDED ROAS: <strong className="text-[#0E0E10]">4.6x</strong>
+            </span>
+            <span className="hidden md:inline-flex items-center gap-1.5">
+              <DollarSign className="w-3.5 h-3.5 text-[#FF3B14]" />
+              PIPELINE CLEARED: <strong className="text-[#0E0E10]">${(pipelineCount).toLocaleString()}</strong>
+            </span>
+            <span className="px-2.5 py-1 bg-black/5 rounded-full text-[#0E0E10] font-semibold text-[10px]">
+              ALGORITHM OPTIMIZED
+            </span>
           </div>
         </div>
 
-        {/* Right Column: Live Interactive Demand Channel Stage (5 cols) */}
-        <div className="lg:col-span-5">
-          <div className="bg-white rounded-3xl border border-black/10 p-6 sm:p-8 shadow-2xl relative overflow-hidden">
-            {/* Header Telemetry */}
-            <div className="flex items-center justify-between border-b border-black/8 pb-4 mb-6">
-              <div className="flex items-center gap-2">
-                <span className="w-2.5 h-2.5 rounded-full bg-[#FF2E93] animate-pulse" />
-                <span className="text-[11px] font-mono font-bold tracking-widest text-[#0E0E10] uppercase">
-                  DEMAND ENGINE ATTRIBUTION
-                </span>
-              </div>
-              <span className="text-[10px] font-mono bg-[#FAF9F5] px-2.5 py-1 rounded-full text-[#FF2E93] font-semibold border border-black/5">
-                REAL-TIME TELEMETRY
-              </span>
+        {/* Main 2-Column Hero Grid with Motion Cockpit */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
+          {/* Left Column: Explosive Editorial Typography */}
+          <div className="lg:col-span-7 space-y-8">
+            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#FF3B14]/10 border border-[#FF3B14]/30 text-[#FF3B14] text-xs font-mono font-bold uppercase tracking-wider">
+              <Flame className="w-3.5 h-3.5 animate-bounce" />
+              Not Vanity Metrics — Pure Pipeline Velocity
             </div>
 
-            {/* Interactive Channel Buttons */}
-            <div className="space-y-3 mb-6">
-              <div className="text-[10px] font-mono uppercase text-[#6E6E78] tracking-wider mb-2">
-                SELECT ACQUISITION CHANNEL TO INSPECT:
+            <motion.h1
+              initial={{ opacity: 0, y: 24 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+              className="text-4xl sm:text-6xl lg:text-[76px] font-sans font-black tracking-tight leading-[0.92] text-[#0E0E10] uppercase"
+            >
+              WE TURN COLD TRAFFIC INTO{" "}
+              <span className="relative inline-block text-[#FF3B14]">
+                UNFAIR
+                <motion.span
+                  className="absolute left-0 bottom-1 w-full h-[6px] bg-[#FF3B14]/25 rounded-full -z-10"
+                  initial={{ scaleX: 0 }}
+                  animate={{ scaleX: 1 }}
+                  transition={{ duration: 1, delay: 0.4 }}
+                />
+              </span>{" "}
+              <span className="font-serif italic font-normal text-[#0E0E10] lowercase tracking-normal">
+                market
+              </span>{" "}
+              DOMINANCE.
+            </motion.h1>
+
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
+              className="text-lg sm:text-xl text-[#6E6E78] font-sans leading-relaxed max-w-2xl"
+            >
+              Most marketing agencies burn budgets on vanity clicks and static slides. We engineer{" "}
+              <strong className="text-[#0E0E10] font-semibold">
+                algorithmic paid acquisition, AI search citations (AEO), and high-converting Next.js funnels
+              </strong>{" "}
+              that compound your enterprise pipeline month over month.
+            </motion.p>
+
+            {/* CTAs + Interactive Overdrive Trigger */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.25 }}
+              className="flex flex-wrap items-center gap-4 pt-2"
+            >
+              <button
+                type="button"
+                onClick={onOpenContact}
+                className="relative group inline-flex items-center gap-3 px-8 py-4 rounded-full bg-[#0E0E10] text-[#FAF9F5] font-sans font-bold text-sm tracking-wide uppercase hover:bg-[#FF3B14] transition-all duration-300 shadow-lg hover:shadow-[#FF3B14]/30 hover:scale-[1.02] active:scale-[0.98]"
+              >
+                <span>Scale Your Revenue</span>
+                <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
+              </button>
+
+              <button
+                type="button"
+                onClick={handleSurge}
+                className={`inline-flex items-center gap-2.5 px-6 py-4 rounded-full border text-xs font-mono font-bold tracking-wider uppercase transition-all duration-300 ${
+                  isOverdrive
+                    ? "bg-[#FF3B14] text-white border-[#FF3B14] shadow-xl scale-105"
+                    : "bg-white/80 hover:bg-white text-[#0E0E10] border-black/15 hover:border-black/30 shadow-sm"
+                }`}
+              >
+                <Zap className={`w-4 h-4 ${isOverdrive ? "animate-spin text-white" : "text-[#FF3B14]"}`} />
+                <span>{isOverdrive ? "OVERDRIVE ACTIVE!" : "TRIGGER TRAFFIC SURGE"}</span>
+              </button>
+            </motion.div>
+
+            {/* Quick Proof Badges */}
+            <div className="grid grid-cols-3 gap-4 pt-6 border-t border-black/8">
+              <div>
+                <div className="text-2xl sm:text-3xl font-black font-sans text-[#0E0E10] tracking-tight">
+                  $48M+
+                </div>
+                <div className="text-[11px] font-mono text-[#6E6E78] uppercase mt-0.5">
+                  Pipeline Generated
+                </div>
               </div>
-
-              {CHANNELS.map((ch) => {
-                const isSelected = activeChannel.id === ch.id;
-                return (
-                  <button
-                    key={ch.id}
-                    onClick={() => setActiveChannel(ch)}
-                    className={`w-full text-left p-3.5 rounded-xl border transition-all duration-200 flex items-center justify-between ${
-                      isSelected
-                        ? "bg-[#0E0E10] text-[#FAF9F5] border-[#0E0E10] shadow-md"
-                        : "bg-[#FAF9F5] text-[#0E0E10] border-black/8 hover:border-black/20 hover:bg-white"
-                    }`}
-                  >
-                    <div className="flex items-center gap-3">
-                      <div
-                        className={`w-8 h-8 rounded-lg flex items-center justify-center ${
-                          isSelected ? "bg-white/10 text-white" : "bg-black/5 text-[#FF2E93]"
-                        }`}
-                      >
-                        {ch.id === "aeo" && <Search className="w-4 h-4" />}
-                        {ch.id === "paid" && <Zap className="w-4 h-4" />}
-                        {ch.id === "cro" && <Activity className="w-4 h-4" />}
-                        {ch.id === "lifecycle" && <TrendingUp className="w-4 h-4" />}
-                      </div>
-                      <div>
-                        <div className="text-xs font-bold font-sans tracking-tight">
-                          {ch.channel}
-                        </div>
-                        <div
-                          className={`text-[10px] font-mono truncate max-w-[190px] sm:max-w-[240px] ${
-                            isSelected ? "text-stone-300" : "text-[#6E6E78]"
-                          }`}
-                        >
-                          {ch.detail}
-                        </div>
-                      </div>
-                    </div>
-
-                    <div className="text-right shrink-0">
-                      <span
-                        className={`text-[9px] font-mono px-2 py-0.5 rounded-full font-bold uppercase ${
-                          isSelected
-                            ? "bg-[#FF2E93] text-white"
-                            : "bg-black/5 text-[#10B981]"
-                        }`}
-                      >
-                        {ch.lift}
-                      </span>
-                    </div>
-                  </button>
-                );
-              })}
+              <div>
+                <div className="text-2xl sm:text-3xl font-black font-sans text-[#FF3B14] tracking-tight">
+                  -44%
+                </div>
+                <div className="text-[11px] font-mono text-[#6E6E78] uppercase mt-0.5">
+                  Median CAC Drop
+                </div>
+              </div>
+              <div>
+                <div className="text-2xl sm:text-3xl font-black font-sans text-[#00D084] tracking-tight">
+                  3.9x
+                </div>
+                <div className="text-[11px] font-mono text-[#6E6E78] uppercase mt-0.5">
+                  Blended ROAS
+                </div>
+              </div>
             </div>
+          </div>
 
-            {/* Selected Channel Inspector Console */}
-            <div className="bg-[#FAF9F5] rounded-2xl border border-black/8 p-5 font-mono">
-              <div className="flex items-center justify-between text-[10px] text-[#6E6E78] pb-2 border-b border-black/6">
-                <span>INSPECTOR: {activeChannel.channel.toUpperCase()}</span>
-                <span className="text-[#FF2E93] font-bold">METRIC: {activeChannel.metric}</span>
-              </div>
-
-              <div className="mt-3 text-xs text-[#0E0E10] space-y-2">
+          {/* Right Column: Live Interactive Growth Cockpit & Radar */}
+          <div className="lg:col-span-5 relative">
+            {/* Outer Cockpit Container */}
+            <motion.div
+              initial={{ opacity: 0, scale: 0.95 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.9, delay: 0.2 }}
+              className={`relative rounded-3xl p-6 sm:p-8 bg-white border border-black/10 shadow-2xl transition-all duration-500 overflow-hidden ${
+                isOverdrive ? "ring-4 ring-[#FF3B14]/40 shadow-[#FF3B14]/20" : ""
+              }`}
+            >
+              {/* Cockpit Header */}
+              <div className="flex items-center justify-between pb-6 border-b border-black/8">
                 <div>
-                  <span className="text-[#6E6E78]">PERFORMANCE GAIN: </span>
-                  <span className="font-bold text-[#10B981]">{activeChannel.lift} vs Baseline</span>
+                  <div className="text-[10px] font-mono uppercase tracking-widest text-[#6E6E78]">
+                    LIVE SURGE RADAR
+                  </div>
+                  <div className="text-sm font-sans font-black text-[#0E0E10] mt-0.5 flex items-center gap-2">
+                    <Radio className="w-4 h-4 text-[#FF3B14] animate-pulse" />
+                    ACQUISITION FLIGHT DECK
+                  </div>
                 </div>
-                <div className="text-[11px] leading-relaxed text-[#6E6E78]">
-                  &gt; {activeChannel.detail}
-                </div>
-                <div className="flex items-center gap-2 pt-2 text-[10px] text-[#10B981]">
-                  <span className="w-1.5 h-1.5 rounded-full bg-[#10B981]" />
-                  <span>CLOSED-LOOP ATTRIBUTION TO CONTRACTED REVENUE</span>
+                <div className="px-3 py-1 rounded-full bg-[#00D084]/10 text-[#00A86B] text-[10px] font-mono font-bold">
+                  24/7 AUTONOMOUS
                 </div>
               </div>
-            </div>
 
-            {/* Bottom Callout */}
-            <div className="mt-5 pt-3 border-t border-black/8 flex items-center justify-between text-[10px] font-mono text-[#6E6E78]">
-              <span>ZERO CLICKBAIT // ZERO INFLATION</span>
-              <span className="text-[#0E0E10] font-bold">100% AUDITABLE ROI</span>
-            </div>
+              {/* Interactive Radar Visualizer */}
+              <div className="relative my-6 aspect-square max-h-[260px] mx-auto rounded-full bg-[#FAF9F5] border border-black/10 flex items-center justify-center overflow-hidden">
+                {/* Concentric rings */}
+                <div className="absolute inset-4 rounded-full border border-black/8" />
+                <div className="absolute inset-14 rounded-full border border-black/8" />
+                <div className="absolute inset-24 rounded-full border border-black/8" />
+                <div className="absolute inset-0 flex items-center justify-center">
+                  <div className="w-full h-[1px] bg-black/6" />
+                </div>
+                <div className="absolute inset-0 flex items-center justify-center">
+                  <div className="h-full w-[1px] bg-black/6" />
+                </div>
+
+                {/* Rotating Radar Sweep Line */}
+                <motion.div
+                  animate={{ rotate: 360 }}
+                  transition={{ duration: 5, repeat: Infinity, ease: "linear" }}
+                  className="absolute inset-0 origin-center pointer-events-none"
+                >
+                  <div className="w-1/2 h-1/2 ml-auto bg-gradient-to-bl from-[#FF3B14]/25 via-[#FF3B14]/5 to-transparent rounded-tr-full" />
+                </motion.div>
+
+                {/* Radar Center Hub */}
+                <div className="relative z-10 w-12 h-12 rounded-full bg-[#0E0E10] text-[#FAF9F5] flex items-center justify-center shadow-lg">
+                  <Target className="w-5 h-5 text-[#FF3B14]" />
+                </div>
+
+                {/* Dynamic Radar Target Pins */}
+                <motion.div
+                  animate={{ scale: activeRadarBlip === 0 ? [1, 1.4, 1] : 1 }}
+                  transition={{ duration: 0.6 }}
+                  className="absolute top-12 left-16 z-20"
+                >
+                  <span className="relative flex h-4 w-4 cursor-pointer">
+                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#FF3B14] opacity-75"></span>
+                    <span className="relative inline-flex rounded-full h-4 w-4 bg-[#FF3B14] text-[8px] font-mono text-white items-center justify-center font-bold">
+                      A
+                    </span>
+                  </span>
+                </motion.div>
+
+                <motion.div
+                  animate={{ scale: activeRadarBlip === 1 ? [1, 1.4, 1] : 1 }}
+                  transition={{ duration: 0.6 }}
+                  className="absolute bottom-14 right-14 z-20"
+                >
+                  <span className="relative flex h-4 w-4 cursor-pointer">
+                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#00D084] opacity-75"></span>
+                    <span className="relative inline-flex rounded-full h-4 w-4 bg-[#00D084] text-[8px] font-mono text-white items-center justify-center font-bold">
+                      B
+                    </span>
+                  </span>
+                </motion.div>
+
+                <motion.div
+                  animate={{ scale: activeRadarBlip === 2 ? [1, 1.4, 1] : 1 }}
+                  transition={{ duration: 0.6 }}
+                  className="absolute top-16 right-20 z-20"
+                >
+                  <span className="relative flex h-4 w-4 cursor-pointer">
+                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#0047FF] opacity-75"></span>
+                    <span className="relative inline-flex rounded-full h-4 w-4 bg-[#0047FF] text-[8px] font-mono text-white items-center justify-center font-bold">
+                      C
+                    </span>
+                  </span>
+                </motion.div>
+              </div>
+
+              {/* Active Radar Feed Event Card */}
+              <div className="p-3.5 rounded-2xl bg-[#FAF9F5] border border-black/8 space-y-2">
+                <div className="flex items-center justify-between text-[11px] font-mono">
+                  <span className="text-[#6E6E78]">SIGNAL INGESTION:</span>
+                  <span className="text-[#FF3B14] font-bold">{radarEvents[activeRadarBlip].time}</span>
+                </div>
+                <div className="flex items-center justify-between">
+                  <span className="text-sm font-sans font-bold text-[#0E0E10]">
+                    {radarEvents[activeRadarBlip].title}
+                  </span>
+                  <span
+                    className="text-xs font-mono font-extrabold px-2 py-0.5 rounded-full"
+                    style={{
+                      backgroundColor: `${radarEvents[activeRadarBlip].color}15`,
+                      color: radarEvents[activeRadarBlip].color,
+                    }}
+                  >
+                    {radarEvents[activeRadarBlip].stat}
+                  </span>
+                </div>
+              </div>
+
+              {/* Dynamic Telemetry Mini-Cards */}
+              <div className="grid grid-cols-2 gap-3 mt-4">
+                <div className="p-3 rounded-xl bg-white border border-black/8 hover:border-black/20 transition-colors">
+                  <div className="flex items-center justify-between">
+                    <span className="text-[10px] font-mono text-[#6E6E78]">ALGO ROAS</span>
+                    <TrendingUp className="w-3.5 h-3.5 text-[#00D084]" />
+                  </div>
+                  <div className="text-lg font-mono font-black text-[#0E0E10] mt-1">
+                    {isOverdrive ? "6.84x" : "4.92x"}
+                  </div>
+                  <div className="text-[10px] font-mono text-[#00A86B] font-semibold">
+                    ↑ +28% vs standard
+                  </div>
+                </div>
+
+                <div className="p-3 rounded-xl bg-white border border-black/8 hover:border-black/20 transition-colors">
+                  <div className="flex items-center justify-between">
+                    <span className="text-[10px] font-mono text-[#6E6E78]">CVR VELOCITY</span>
+                    <BarChart2 className="w-3.5 h-3.5 text-[#FF3B14]" />
+                  </div>
+                  <div className="text-lg font-mono font-black text-[#0E0E10] mt-1">
+                    {isOverdrive ? "11.2%" : "8.6%"}
+                  </div>
+                  <div className="text-[10px] font-mono text-[#FF3B14] font-semibold">
+                    Sub-second Next.js
+                  </div>
+                </div>
+              </div>
+            </motion.div>
+
+            {/* Floating Kinetic Notification Pill */}
+            <motion.div
+              animate={{ y: [0, -8, 0] }}
+              transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+              className="hidden sm:flex absolute -bottom-6 -left-6 z-30 p-3.5 rounded-2xl bg-[#0E0E10] text-white shadow-xl border border-white/10 items-center gap-3"
+            >
+              <div className="w-8 h-8 rounded-full bg-[#FF3B14] flex items-center justify-center font-mono font-bold text-xs">
+                ⚡
+              </div>
+              <div className="text-xs font-sans">
+                <div className="font-bold text-[#FAF9F5]">High-Value Deal Closed</div>
+                <div className="text-[10px] font-mono text-[#FAF9F5]/70">$28,500 via AEO Referral</div>
+              </div>
+            </motion.div>
           </div>
         </div>
       </div>

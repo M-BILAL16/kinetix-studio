@@ -5,10 +5,11 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import ContactDrawer from "@/components/ContactDrawer";
 import GrowthHero from "@/components/growth/GrowthHero";
-import GrowthPillars from "@/components/growth/GrowthPillars";
-import GrowthFunnelSimulator from "@/components/growth/GrowthFunnelSimulator";
-import GrowthCaseStudies from "@/components/growth/GrowthCaseStudies";
-import GrowthMetrics from "@/components/growth/GrowthMetrics";
+import GrowthMarqueeBand from "@/components/growth/GrowthMarqueeBand";
+import GrowthVelocityEngines from "@/components/growth/GrowthVelocityEngines";
+import GrowthScaleDial from "@/components/growth/GrowthScaleDial";
+import GrowthHookSandbox from "@/components/growth/GrowthHookSandbox";
+import GrowthTiltWinsWall from "@/components/growth/GrowthTiltWinsWall";
 import GrowthFaq from "@/components/growth/GrowthFaq";
 import GrowthFinalCta from "@/components/growth/GrowthFinalCta";
 
@@ -16,39 +17,39 @@ export default function GrowthMarketingPage() {
   const [isContactOpen, setIsContactOpen] = useState(false);
 
   return (
-    <main className="min-h-screen bg-[#FAF9F5] text-[#0E0E10] relative">
+    <main className="min-h-screen bg-[#FAF9F5] text-[#0E0E10] relative selection:bg-[#FF3B14] selection:text-white">
       {/* Floating Navigation Rail */}
       <Navbar onOpenContact={() => setIsContactOpen(true)} />
 
-      {/* Hero: Acquisition Architecture & Real-Time Demand Engine */}
+      {/* Hero: High-Velocity Growth Radar & Live Traffic Surge Cockpit */}
       <GrowthHero onOpenContact={() => setIsContactOpen(true)} />
 
-      {/* The 4 Core Pillars of High-Velocity Growth */}
-      <GrowthPillars />
+      {/* Kinetic Dual-Track Velocity Marquee Ribbon */}
+      <GrowthMarqueeBand />
 
-      {/* Interactive Demand & Pipeline ROI Simulator */}
-      <GrowthFunnelSimulator />
+      {/* The 4-Part Interactive Velocity Engines Reel (A/B Slider, Hook Matrix, AEO Scanner) */}
+      <GrowthVelocityEngines />
 
-      {/* Verified Enterprise Case Studies */}
-      <GrowthCaseStudies />
+      {/* The Interactive Tachometer Scale Dial (Bootstrap -> Hyper-Growth -> Monopoly) */}
+      <GrowthScaleDial />
 
-      {/* Empirical Benchmarks */}
-      <GrowthMetrics />
+      {/* Interactive Creative Hook Lab & 30-Second Retention Curve Sandbox */}
+      <GrowthHookSandbox />
 
-      {/* Acquisition Strategy & Governance FAQ */}
+      {/* 3D Kinetic Wall of Wins with Before vs After Engine Toggle */}
+      <GrowthTiltWinsWall />
+
+      {/* Growth Architecture FAQ with Topic Filters */}
       <GrowthFaq />
 
-      {/* Final Dramatic Demand CTA */}
+      {/* High-Octane Launchpad Ignition CTA */}
       <GrowthFinalCta onOpenContact={() => setIsContactOpen(true)} />
 
-      {/* Oversized Editorial Footer */}
+      {/* Unified Footer */}
       <Footer onOpenContact={() => setIsContactOpen(true)} />
 
-      {/* Slide-out Interactive Contact Drawer */}
-      <ContactDrawer
-        isOpen={isContactOpen}
-        onClose={() => setIsContactOpen(false)}
-      />
+      {/* Interactive Contact & Audit Drawer */}
+      <ContactDrawer isOpen={isContactOpen} onClose={() => setIsContactOpen(false)} />
     </main>
   );
 }
