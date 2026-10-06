@@ -74,10 +74,7 @@ export default function AutomationProblems() {
                   className="pointer-events-none absolute -bottom-6 -right-6 h-36 w-36 text-[#0047FF]/[0.07]"
                 />
                 <div className="relative flex items-center justify-between gap-3">
-                  <span className="inline-flex items-center gap-2 text-[10px] font-mono font-bold uppercase tracking-widest text-[#0047FF]">
-                    <span className="flex h-6 w-6 items-center justify-center rounded-full bg-[#0047FF] text-xs font-black text-white">
-                      !
-                    </span>
+                  <span className="inline-flex items-center text-[10px] font-mono font-bold uppercase tracking-widest text-[#0047FF]">
                     The problem
                   </span>
                   <span className="text-[11px] font-mono font-bold tracking-widest text-[#0047FF]/50">
