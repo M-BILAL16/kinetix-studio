@@ -7,9 +7,9 @@ import ContactDrawer from "@/components/ContactDrawer";
 import GrowthHero from "@/components/growth/GrowthHero";
 import GrowthMarqueeBand from "@/components/growth/GrowthMarqueeBand";
 import GrowthVelocityEngines from "@/components/growth/GrowthVelocityEngines";
-import GrowthScaleDial from "@/components/growth/GrowthScaleDial";
-import GrowthHookSandbox from "@/components/growth/GrowthHookSandbox";
-import GrowthTiltWinsWall from "@/components/growth/GrowthTiltWinsWall";
+import GrowthServiceScroller from "@/components/growth/GrowthServiceScroller";
+import GrowthMonth from "@/components/growth/GrowthMonth";
+import GrowthFit from "@/components/growth/GrowthFit";
 import GrowthFaq from "@/components/growth/GrowthFaq";
 import GrowthFinalCta from "@/components/growth/GrowthFinalCta";
 
@@ -27,17 +27,17 @@ export default function GrowthMarketingPage() {
       {/* Kinetic Dual-Track Velocity Marquee Ribbon */}
       <GrowthMarqueeBand />
 
-      {/* The 4-Part Interactive Velocity Engines Reel (A/B Slider, Hook Matrix, AEO Scanner) */}
-      <GrowthVelocityEngines />
+      {/* Scroll-locked service story: image and card change together */}
+      <GrowthServiceScroller />
 
-      {/* The Interactive Tachometer Scale Dial (Bootstrap -> Hyper-Growth -> Monopoly) */}
-      <GrowthScaleDial />
+      {/* The 11 growth services */}
+      <GrowthVelocityEngines onOpenContact={() => setIsContactOpen(true)} />
 
-      {/* Interactive Creative Hook Lab & 30-Second Retention Curve Sandbox */}
-      <GrowthHookSandbox />
+      {/* How a month with us works */}
+      <GrowthMonth />
 
-      {/* 3D Kinetic Wall of Wins with Before vs After Engine Toggle */}
-      <GrowthTiltWinsWall />
+      {/* Who this work is a good fit for */}
+      <GrowthFit />
 
       {/* Growth Architecture FAQ with Topic Filters */}
       <GrowthFaq />
