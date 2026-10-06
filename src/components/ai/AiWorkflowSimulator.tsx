@@ -122,7 +122,7 @@ export default function AiWorkflowSimulator() {
             <input
               type="range"
               min="20"
-              max="90"
+              max="100"
               step="5"
               value={agentShare}
               onChange={(e) => setAgentShare(Number(e.target.value))}
@@ -130,7 +130,7 @@ export default function AiWorkflowSimulator() {
             />
             <div className="flex justify-between text-[10px] font-mono text-[#9E9EA8]">
               <span>20%</span>
-              <span>90%</span>
+              <span>100%</span>
             </div>
           </div>
 
