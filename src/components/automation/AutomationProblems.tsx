@@ -11,7 +11,7 @@ const BOTTLENECK_COMPARISONS = [
     fixTitle: "Reply to Every Customer in Seconds",
     fixDesc:
       "AI answers every message on WhatsApp, SMS, or your website right away, asks their budget, and books a meeting.",
-    metric: "9x Higher Connection Rate",
+    metric: "3x Higher Connection Rate",
   },
   {
     problemTitle: "Manual Follow-ups = Poor Conversions",
@@ -20,7 +20,7 @@ const BOTTLENECK_COMPARISONS = [
     fixTitle: "Automatic Follow-ups That Never Stop",
     fixDesc:
       "AI sends 5 friendly reminders with reviews and a booking link until the customer says yes.",
-    metric: "+64% Re-engagement Yield",
+    metric: "24% Re-engagement Yield",
   },
   {
     problemTitle: "No Automation = Burned Staff Hours",
@@ -29,7 +29,7 @@ const BOTTLENECK_COMPARISONS = [
     fixTitle: "Let AI Do the Daily Busy Work",
     fixDesc:
       "AI answers common questions, saves customer details, and makes bills and bookings for you.",
-    metric: "25+ Hours Returned Weekly",
+    metric: "15–20 Hours Returned Weekly",
   },
   {
     problemTitle: "No Systems = Scaling Becomes Chaos",
