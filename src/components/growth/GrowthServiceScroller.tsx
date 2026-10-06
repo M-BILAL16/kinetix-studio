@@ -140,11 +140,11 @@ export default function GrowthServiceScroller() {
       style={{ height: `${SERVICES.length * 85}vh` }}
     >
       <div
-        className={`flex h-screen flex-col justify-center pt-20 ${
+        className={`pointer-events-none flex h-screen flex-col justify-center pt-20 ${
           pin === "fixed" ? "fixed inset-x-0 top-0 z-10" : pin === "bottom" ? "absolute inset-x-0 bottom-0" : "absolute inset-x-0 top-0"
         }`}
       >
-        <div className="site-gutter mb-8 flex w-full flex-col justify-between gap-4 md:flex-row md:items-end">
+        <div className="pointer-events-auto site-gutter mb-8 flex w-full flex-col justify-between gap-4 md:flex-row md:items-end">
           <h2 className="font-sans text-4xl font-black uppercase leading-[0.95] tracking-tight text-[#0E0E10] sm:text-5xl lg:text-6xl">
             ELEVEN WAYS <br />
             <span className="text-[#0047FF]">to get found.</span>
@@ -153,7 +153,7 @@ export default function GrowthServiceScroller() {
             KEEP SCROLLING. EACH SERVICE SHOWS WHAT WE DO AND HOW IT BRINGS YOU CUSTOMERS.
           </p>
         </div>
-        <div className="site-gutter grid w-full grid-cols-1 items-center gap-8 lg:grid-cols-[minmax(0,1fr)_minmax(0,1fr)_auto] lg:gap-10">
+        <div className="pointer-events-auto site-gutter grid w-full grid-cols-1 items-center gap-8 lg:grid-cols-[minmax(0,1fr)_minmax(0,1fr)_auto] lg:gap-10">
           <div className="relative aspect-[4/3] max-h-[55vh] overflow-hidden rounded-3xl bg-white">
             <AnimatePresence mode="wait">
               <motion.div

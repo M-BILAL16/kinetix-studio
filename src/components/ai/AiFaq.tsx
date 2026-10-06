@@ -65,7 +65,7 @@ export default function AiFaq() {
       </div>
 
       {/* Accordion List */}
-      <div className="max-w-4xl mx-auto divide-y divide-black/10 border-t border-b border-black/10">
+      <div className="w-full divide-y divide-black/10 border-b border-black/10">
         {FAQS.map((faq, idx) => {
           const isOpen = openIndex === idx;
 

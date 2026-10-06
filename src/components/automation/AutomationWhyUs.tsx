@@ -52,16 +52,13 @@ export default function AutomationWhyUs() {
       </div>
 
       <div className="flex flex-col gap-3">
-        {REASONS.map((r, idx) => {
+        {REASONS.map((r) => {
           const Icon = r.icon;
           return (
             <div
               key={r.title}
-              className="grid grid-cols-1 items-center gap-4 rounded-3xl border border-black/10 bg-white px-6 py-6 sm:px-8 md:grid-cols-[auto_1fr_auto] md:gap-8"
+              className="grid grid-cols-1 items-center gap-4 rounded-3xl border border-black/10 bg-white px-6 py-6 sm:px-8 md:grid-cols-[1fr_auto] md:gap-8"
             >
-              <span className="text-5xl sm:text-6xl font-black leading-none tracking-tight text-[#0047FF]">
-                0{idx + 1}
-              </span>
               <div className="flex items-center gap-4">
                 <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-[#0E0E10] text-[#CEFF00]">
                   <Icon className="h-5 w-5" />

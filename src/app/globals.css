@@ -58,7 +58,7 @@ html,
 body {
   background-color: #FAF9F5;
   color: #0E0E10;
-  overflow-x: hidden;
+  overflow-x: clip;
   font-feature-settings: "cv02", "cv03", "cv04", "cv11";
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
