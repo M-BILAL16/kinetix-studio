@@ -46,7 +46,7 @@ export default function AiFaq() {
   };
 
   return (
-    <section className="py-28 site-gutter bg-[#FAF9F5] border-b border-black/10">
+    <section className="py-28 site-gutter bg-[#FAF9F5]">
       {/* Header */}
       <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 pb-8 border-b border-black/10 gap-6">
         <div>
@@ -65,7 +65,7 @@ export default function AiFaq() {
       </div>
 
       {/* Accordion List */}
-      <div className="w-full divide-y divide-black/10 border-b border-black/10">
+      <div className="w-full divide-y divide-black/10">
         {FAQS.map((faq, idx) => {
           const isOpen = openIndex === idx;
 

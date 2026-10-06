@@ -18,7 +18,7 @@ export default function FeaturedWork({ onOpenProject }: FeaturedWorkProps) {
           <h2 className="text-4xl sm:text-6xl lg:text-7xl font-black uppercase tracking-tight text-[#0E0E10] font-sans leading-[0.95]">
             OUTCOMES THAT MOVED <br />
             THE{" "}
-            <span className="text-[#0047FF] lowercase">
+            <span className="text-[#0047FF]">
               number.
             </span>
           </h2>

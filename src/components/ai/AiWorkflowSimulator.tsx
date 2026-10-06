@@ -19,7 +19,7 @@ export default function AiWorkflowSimulator() {
   const fullTimeEquivalent = hoursSavedWeekly / FULL_TIME_HOURS_PER_WEEK;
 
   return (
-    <section className="py-28 site-gutter bg-[#FAF9F5]">
+    <section className="border-b border-black/10 bg-[#FAF9F5] py-28 site-gutter">
       <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 pb-8 border-b border-black/10 gap-6">
         <div>
           <h2 className="text-4xl sm:text-6xl lg:text-7xl font-black uppercase tracking-tight text-[#0E0E10] font-sans leading-[0.95]">

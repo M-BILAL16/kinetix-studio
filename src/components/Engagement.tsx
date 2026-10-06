@@ -3,13 +3,23 @@
 import React, { useRef } from "react";
 import { motion, useInView } from "framer-motion";
 import { AGENCY_DATA, EngagementTier } from "@/lib/data";
-import { ArrowRight, Check, Clock, Star } from "lucide-react";
+import { ArrowRight, Check, Star } from "lucide-react";
 
 interface EngagementProps {
   onOpenContact: () => void;
+  tiers?: EngagementTier[];
+  headingLine?: string;
+  headingBeforeAccent?: string;
+  headingAccent?: string;
 }
 
-export default function Engagement({ onOpenContact }: EngagementProps) {
+export default function Engagement({
+  onOpenContact,
+  tiers = AGENCY_DATA.engagement,
+  headingLine = "THE MAP BEFORE",
+  headingBeforeAccent = "THE ",
+  headingAccent = "miles.",
+}: EngagementProps) {
   const containerRef = useRef<HTMLDivElement>(null);
   const isInView = useInView(containerRef, { once: true, margin: "-100px" });
 
@@ -17,17 +27,15 @@ export default function Engagement({ onOpenContact }: EngagementProps) {
     <section
       id="start"
       ref={containerRef}
-      className="py-32 site-gutter bg-[#FAF9F5] border-t border-black/10 relative overflow-hidden"
+      className="py-32 site-gutter bg-[#FAF9F5] border-y border-black/10 relative overflow-hidden"
     >
       {/* Editorial Header */}
       <div className="flex flex-col md:flex-row md:items-end justify-between mb-20 pb-8 border-b border-black/10 gap-6">
         <div>
           <h2 className="text-4xl sm:text-6xl lg:text-7xl font-black uppercase tracking-tight text-[#0E0E10] font-sans leading-[0.95]">
-            THE MAP BEFORE <br />
-            THE{" "}
-            <span className="text-[#0047FF] lowercase">
-              miles.
-            </span>
+            {headingLine} <br />
+            {headingBeforeAccent}
+            <span className="text-[#0047FF]">{headingAccent}</span>
           </h2>
         </div>
         <div className="max-w-md text-left md:text-right">
@@ -40,7 +48,7 @@ export default function Engagement({ onOpenContact }: EngagementProps) {
 
       {/* Three Engagement Cards */}
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 lg:gap-8 items-stretch">
-        {AGENCY_DATA.engagement.map((tier: EngagementTier, idx: number) => {
+        {tiers.map((tier: EngagementTier, idx: number) => {
           const isFeatured = tier.recommended;
 
           return (
@@ -135,19 +143,7 @@ export default function Engagement({ onOpenContact }: EngagementProps) {
                 ))}
               </ul>
 
-              {/* Duration + CTA pinned to bottom */}
               <div className="mt-auto">
-                <div
-                  className={`flex items-center gap-2 text-[11px] font-mono uppercase tracking-wider mb-5 pt-5 border-t ${
-                    isFeatured
-                      ? "border-white/15 text-white/60"
-                      : "border-black/8 text-[#6E6E78]"
-                  }`}
-                >
-                  <Clock className="w-3.5 h-3.5" />
-                  <span>Duration — {tier.duration}</span>
-                </div>
-
                 <button
                   onClick={onOpenContact}
                   data-cursor="start"
@@ -170,7 +166,7 @@ export default function Engagement({ onOpenContact }: EngagementProps) {
       <div className="mt-14 pt-6 border-t border-black/8 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs font-mono text-[#6E6E78]">
         <div className="flex items-center gap-2">
           <span className="w-2 h-2 rounded-full bg-[#CEFF00]" />
-          <span>NO OBLIGATION AT ANY STEP. STOP WHENEVER IT STOPS MAKING SENSE</span>
+          <span>OUR TAILOR-MADE SOLUTION PACKAGES PROVIDE 30% MORE VALUE FOR MONEY COMPARED TO INDUSTRY STANDARDS</span>
         </div>
         <span className="text-[#0E0E10] font-bold">IDEA TO LIVE SYSTEM: 60 DAYS</span>
       </div>

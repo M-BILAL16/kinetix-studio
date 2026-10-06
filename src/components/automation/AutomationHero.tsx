@@ -339,7 +339,7 @@ export default function AutomationHero({ onOpenContact }: AutomationHeroProps) {
               </div>
               <h1 className="text-4xl sm:text-6xl lg:text-7xl xl:text-8xl font-sans font-black tracking-tight text-[#0E0E10] uppercase leading-[0.92]">
                 YOUR ENTIRE SALES &amp; OPS PIPELINE. <br />
-                <span className="font-serif italic font-normal text-[#0047FF] lowercase tracking-normal">
+                <span className="font-serif italic font-normal text-[#0047FF] tracking-normal">
                   autonomous.
                 </span>{" "}
                 24/7/365.

@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import { AlertTriangle, ArrowDown, CheckCircle2, TrendingDown, TrendingUp } from "lucide-react";
+import { ArrowDown, CheckCircle2, TrendingDown, TrendingUp } from "lucide-react";
 
 const BOTTLENECK_COMPARISONS = [
   {
@@ -68,11 +68,6 @@ export default function AutomationProblems() {
           return (
             <article key={item.problemTitle} className="flex h-full flex-col">
               <div className="relative flex min-h-[260px] flex-col overflow-hidden rounded-3xl border border-[#0047FF]/15 bg-white p-5">
-                <AlertTriangle
-                  aria-hidden="true"
-                  strokeWidth={1.5}
-                  className="pointer-events-none absolute -bottom-6 -right-6 h-36 w-36 text-[#0047FF]/[0.07]"
-                />
                 <div className="relative flex items-center justify-between gap-3">
                   <span className="inline-flex items-center text-[10px] font-mono font-bold uppercase tracking-widest text-[#0047FF]">
                     The problem

@@ -166,7 +166,7 @@ export default function AiAgentShowcase() {
         <div>
           <h2 className="text-4xl sm:text-6xl lg:text-7xl font-black uppercase tracking-tight text-[#0E0E10] font-sans leading-[0.95]">
             SPECIALIZED AGENTS. <br />
-            <span className="font-serif italic font-normal text-[#0047FF] lowercase">
+            <span className="font-serif italic font-normal text-[#0047FF]">
               hyper-leverage.
             </span>
           </h2>

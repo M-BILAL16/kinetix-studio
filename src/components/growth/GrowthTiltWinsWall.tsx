@@ -74,7 +74,7 @@ export default function GrowthTiltWinsWall() {
             </div>
             <h2 className="text-3xl sm:text-5xl lg:text-6xl font-sans font-black tracking-tight text-[#0E0E10] uppercase leading-[0.95]">
               PROVEN RESULTS. <br />
-              <span className="font-serif italic font-normal text-[#0047FF] lowercase tracking-normal">
+              <span className="font-serif italic font-normal text-[#0047FF] tracking-normal">
                 documented
               </span>{" "}
               IMPACT.

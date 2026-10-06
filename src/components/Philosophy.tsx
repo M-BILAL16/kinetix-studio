@@ -45,7 +45,7 @@ export default function Philosophy() {
       <div className="max-w-4xl mb-20">
         <h2 className="text-4xl sm:text-6xl lg:text-7xl font-black uppercase tracking-tight text-[#0E0E10] font-sans leading-[0.95]">
           FIND THE{" "}
-          <span className="lowercase text-[#0047FF]">
+          <span className="text-[#0047FF]">
             leverage
           </span>{" "}
           FIRST.

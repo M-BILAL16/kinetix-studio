@@ -17,7 +17,7 @@ export default function Process() {
         <div>
           <h2 className="text-4xl sm:text-6xl lg:text-7xl font-black uppercase tracking-tight text-[#0E0E10] font-sans leading-[0.95]">
             FROM DIAGNOSTIC <br />
-            <span className="text-[#0047FF] lowercase">
+            <span className="text-[#0047FF]">
               to dominance.
             </span>
           </h2>

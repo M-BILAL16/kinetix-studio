@@ -62,7 +62,7 @@ export default function AutomationProcess() {
           </div>
           <h2 className="text-4xl sm:text-6xl lg:text-7xl font-black uppercase tracking-tight text-[#0E0E10] font-sans leading-[0.95]">
             FROM AUDIT TO <br />
-            <span className="font-serif italic font-normal text-[#0047FF] lowercase">
+            <span className="font-serif italic font-normal text-[#0047FF]">
               autopilot.
             </span>
           </h2>

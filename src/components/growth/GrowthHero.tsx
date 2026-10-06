@@ -42,14 +42,15 @@ export default function GrowthHero({ onOpenContact }: GrowthHeroProps) {
           </div>
 
           <div className="lg:col-span-5">
-            <div className="relative aspect-[4/3] overflow-hidden rounded-3xl">
+            <div className="relative aspect-[4/3]">
               <Image
-                src="/images/growth/hero.jpg"
+                src="/images/growth/hero.png"
                 alt="Ads, search, email, and reports working together"
                 fill
                 priority
+                unoptimized
                 sizes="(max-width: 1024px) 100vw, 40vw"
-                className="object-cover"
+                className="object-contain"
               />
             </div>
           </div>

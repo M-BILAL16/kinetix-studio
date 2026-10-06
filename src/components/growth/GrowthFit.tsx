@@ -19,6 +19,16 @@ const FITS = [
     title: "You want one partner, not five",
     text: "Search, ads, words, and the monthly numbers should sit with the same team.",
   },
+  {
+    number: "05",
+    title: "Paying for campaigns with no results",
+    text: "You keep spending on ads and posts, but you cannot show a clear return in calls, bookings, or sales.",
+  },
+  {
+    number: "06",
+    title: "Getting leads that never convert",
+    text: "Inquiries come in, then go quiet. The people reaching out are not the ones who actually buy.",
+  },
 ];
 
 export default function GrowthFit() {
