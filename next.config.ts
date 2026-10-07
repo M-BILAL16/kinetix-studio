@@ -7,8 +7,9 @@ function localDevOrigins() {
   for (const addrs of Object.values(os.networkInterfaces())) {
     for (const addr of addrs ?? []) {
       if (addr.internal) continue;
-      // Node types string "IPv4"; older runtimes may still report numeric 4.
-      if (addr.family === "IPv4" || (addr.family as string | number) === 4) {
+      // Normalize family: modern Node uses "IPv4", older builds used 4.
+      const family = String(addr.family);
+      if (family === "IPv4" || family === "4") {
         hosts.add(addr.address);
       }
     }
