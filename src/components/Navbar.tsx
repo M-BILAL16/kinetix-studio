@@ -3,7 +3,6 @@
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { motion } from "framer-motion";
 import { ArrowUpRight } from "lucide-react";
 
 interface NavbarProps {
@@ -41,10 +40,7 @@ export default function Navbar({ onOpenContact }: NavbarProps) {
   return (
     <>
       <header className="fixed top-0 left-0 right-0 z-50 flex justify-center site-gutter pt-4 sm:pt-6 pointer-events-none">
-        <motion.nav
-          initial={{ y: -60, opacity: 0 }}
-          animate={{ y: 0, opacity: 1 }}
-          transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] as const }}
+        <nav
           className={`pointer-events-auto w-full transition-all duration-300 rounded-full border ${
             scrolled
               ? "bg-[#FAF9F5]/85 backdrop-blur-xl border-black/10 py-2.5 px-4 sm:px-6 shadow-sm shadow-black/5"
@@ -108,16 +104,11 @@ export default function Navbar({ onOpenContact }: NavbarProps) {
               />
             </button>
           </div>
-        </motion.nav>
+        </nav>
       </header>
 
       {mobileMenuOpen && (
-        <motion.div
-          initial={{ opacity: 0, y: -20 }}
-          animate={{ opacity: 1, y: 0 }}
-          exit={{ opacity: 0, y: -20 }}
-          className="fixed top-24 left-4 right-4 z-40 lg:hidden bg-[#FAF9F5] border border-black/10 rounded-2xl p-6 shadow-xl"
-        >
+        <div className="fixed top-24 left-4 right-4 z-40 lg:hidden bg-[#FAF9F5] border border-black/10 rounded-2xl p-6 shadow-xl">
           <div className="flex flex-col gap-3">
             {navLinks.map((link) => (
               <Link
@@ -141,7 +132,7 @@ export default function Navbar({ onOpenContact }: NavbarProps) {
               Start a Project ↗
             </button>
           </div>
-        </motion.div>
+        </div>
       )}
     </>
   );

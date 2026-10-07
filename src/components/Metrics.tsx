@@ -11,7 +11,7 @@ export default function Metrics() {
   return (
     <section
       ref={containerRef}
-      className="relative py-24 site-gutter bg-[#FAF9F5] border-t border-b border-black/10 overflow-hidden"
+      className="relative py-24 site-gutter bg-[#FAF9F5] border-b border-black/10 overflow-hidden"
     >
       {/* Editorial Header */}
       <div className="flex flex-col md:flex-row md:items-end justify-end mb-16 pb-6 border-b border-black/8 gap-4">
