@@ -7,19 +7,21 @@ import ContactDrawer from "@/components/ContactDrawer";
 import ProjectModal from "@/components/ProjectModal";
 import WorkHero from "@/components/work/WorkHero";
 import WorkOutcomeStrip from "@/components/work/WorkOutcomeStrip";
+import WorkArchiveIndex from "@/components/work/WorkArchiveIndex";
 import WorkCaseStack from "@/components/work/WorkCaseStack";
 import WorkFinalCta from "@/components/work/WorkFinalCta";
 import { Project } from "@/lib/data";
 
-export default function WhatWeHaveDoneStoriesPage() {
+export default function WhatWeHaveDonePage() {
   const [isContactOpen, setIsContactOpen] = useState(false);
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
 
   return (
     <main className="relative min-h-screen bg-[#FAF9F5] text-[#0E0E10] selection:bg-[#FF3B14] selection:text-white">
       <Navbar onOpenContact={() => setIsContactOpen(true)} />
-      <WorkHero onOpenContact={() => setIsContactOpen(true)} variant="stories" />
+      <WorkHero onOpenContact={() => setIsContactOpen(true)} />
       <WorkOutcomeStrip />
+      <WorkArchiveIndex onOpenProject={setSelectedProject} />
       <WorkCaseStack onOpenProject={setSelectedProject} />
       <WorkFinalCta onOpenContact={() => setIsContactOpen(true)} />
       <Footer onOpenContact={() => setIsContactOpen(true)} />

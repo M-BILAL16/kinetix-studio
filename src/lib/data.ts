@@ -218,8 +218,7 @@ export const AGENCY_DATA = {
       accentColor: "#0047FF",
       tagline: "Retention is a product problem before it is a sales problem.",
       badge: "FINTECH",
-      image:
-        "https://images.unsplash.com/photo-1634017839464-5c339ebe3cb4?q=80&w=1600&auto=format&fit=crop",
+      image: "/images/work/phoenix-trader-funding.jpg",
       stats: [
         { label: "Revenue Increase", value: "62%" },
         { label: "Platform Release", value: "2.0" },
@@ -252,8 +251,7 @@ export const AGENCY_DATA = {
       accentColor: "#FF3B14",
       tagline: "Know exactly who is buying, then go and reach them.",
       badge: "EDUCATION",
-      image:
-        "https://images.unsplash.com/photo-1497633762265-9d179a990aa6?q=80&w=1600&auto=format&fit=crop",
+      image: "/images/work/united-school-supplies.jpg",
       stats: [
         { label: "New Clients", value: "17%" },
         { label: "Enterprise Accounts", value: "4" },
@@ -286,8 +284,7 @@ export const AGENCY_DATA = {
       accentColor: "#CEFF00",
       tagline: "Stop paying people to copy the same update.",
       badge: "LOGISTICS",
-      image:
-        "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?q=80&w=1600&auto=format&fit=crop",
+      image: "/images/work/harbor-ops-desk.jpg",
       stats: [
         { label: "Hours Saved / Week", value: "31" },
         { label: "Manual Steps Cut", value: "64%" },
@@ -320,8 +317,7 @@ export const AGENCY_DATA = {
       accentColor: "#0047FF",
       tagline: "Get found by the patient who is ready to book.",
       badge: "HEALTHCARE",
-      image:
-        "https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?q=80&w=1600&auto=format&fit=crop",
+      image: "/images/work/northline-clinic.jpg",
       stats: [
         { label: "Bookings Lift", value: "3.2x" },
         { label: "Cost Per Lead", value: "-41%" },
@@ -354,8 +350,7 @@ export const AGENCY_DATA = {
       accentColor: "#FF3B14",
       tagline: "Let agents clear the inbox so partners can close.",
       badge: "PROFESSIONAL SERVICES",
-      image:
-        "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?q=80&w=1600&auto=format&fit=crop",
+      image: "/images/work/ledger-intake-agents.jpg",
       stats: [
         { label: "Partner Hours Saved", value: "19/wk" },
         { label: "Intake Speed", value: "4x" },

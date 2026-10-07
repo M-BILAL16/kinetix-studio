@@ -46,13 +46,13 @@ export default function Hero({ onOpenContact }: HeroProps) {
   };
 
   return (
-    <section className="relative min-h-[92vh] lg:min-h-screen pt-28 pb-16 site-gutter flex flex-col overflow-hidden bg-editorial-grid bg-noise">
+    <section className="relative flex min-h-[min(88vh,820px)] flex-col overflow-hidden bg-noise pt-28 pb-16 site-gutter lg:pb-20">
       {/* Main Asymmetric Grid */}
       <motion.div
         variants={containerVariants}
         initial="hidden"
         animate="visible"
-        className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-8 items-center my-auto"
+        className="grid grid-cols-1 items-start gap-10 lg:grid-cols-12 lg:items-center lg:gap-8"
       >
         {/* Left / Center Headline: Massive Typographic Graphic (7 cols) */}
         <div className="lg:col-span-7 flex flex-col z-10">

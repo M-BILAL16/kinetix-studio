@@ -7,9 +7,9 @@ import AiHeroImageShowcase from "@/components/ai/AiHeroImageShowcase";
 
 export default function AiHero() {
   return (
-    <section className="relative flex min-h-[92vh] items-center py-28 site-gutter bg-noise border-b border-black/10 overflow-hidden">
+    <section className="relative flex min-h-[min(88vh,820px)] flex-col overflow-hidden border-b border-black/10 bg-noise py-28 site-gutter">
       {/* Main Grid: Headline + Interactive Agent Mesh */}
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
+      <div className="grid grid-cols-1 items-start gap-12 lg:grid-cols-12 lg:items-center lg:gap-8">
         {/* Left Column: Monumental Editorial Typography (7 cols) */}
         <div className="lg:col-span-7 flex flex-col z-10">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white border border-black/10 text-xs font-mono text-[#0E0E10] font-semibold mb-6 w-fit shadow-xs">

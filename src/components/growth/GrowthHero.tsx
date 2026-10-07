@@ -10,9 +10,9 @@ interface GrowthHeroProps {
 
 export default function GrowthHero({ onOpenContact }: GrowthHeroProps) {
   return (
-    <section className="relative flex min-h-[92vh] items-center overflow-hidden border-b border-black/10 bg-[#FAF9F5] py-28">
+    <section className="relative flex min-h-[min(88vh,820px)] flex-col overflow-hidden border-b border-black/10 bg-[#FAF9F5] py-28">
       <div className="site-gutter relative z-10 w-full">
-        <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-12 lg:gap-8">
+        <div className="grid grid-cols-1 items-start gap-12 lg:grid-cols-12 lg:items-center lg:gap-8">
           <div className="lg:col-span-7">
             <div className="mb-6 inline-flex w-fit items-center gap-2 rounded-full border border-black/10 bg-white px-3 py-1 text-xs font-mono font-semibold text-[#0E0E10] shadow-xs">
               <Megaphone className="h-3.5 w-3.5 text-[#0047FF]" />

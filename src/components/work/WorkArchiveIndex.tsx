@@ -76,7 +76,7 @@ export default function WorkArchiveIndex({ onOpenProject }: WorkArchiveIndexProp
         </div>
       </div>
 
-      <div className="site-gutter grid grid-cols-1 gap-6 lg:grid-cols-12 lg:gap-8">
+      <div className="site-gutter grid grid-cols-1 items-stretch gap-6 lg:grid-cols-12 lg:gap-8">
         <div className="space-y-3 lg:col-span-5">
           {projects.map((project) => {
             const isActive = project.id === active.id;
@@ -170,93 +170,91 @@ export default function WorkArchiveIndex({ onOpenProject }: WorkArchiveIndexProp
           })}
         </div>
 
-        <div className="relative lg:col-span-7">
-          <div className="lg:sticky lg:top-28">
-            <div className="relative h-[58vh] overflow-hidden rounded-[2rem] border border-black/10 shadow-2xl lg:h-[calc(100vh-9rem)] lg:min-h-[34rem]">
-              <AnimatePresence mode="wait">
-                <motion.div
-                  key={active.id}
-                  initial={{ opacity: 0, scale: 1.04 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  exit={{ opacity: 0, scale: 0.98 }}
-                  transition={{ duration: 0.45, ease: [0.16, 1, 0.3, 1] }}
-                  className="absolute inset-0"
-                >
-                  <img
-                    src={active.image}
-                    alt={active.title}
-                    className="h-full w-full object-cover"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#0E0E10] via-[#0E0E10]/35 to-[#0E0E10]/10" />
-                </motion.div>
-              </AnimatePresence>
+        <div className="relative min-h-[52vh] lg:col-span-7 lg:min-h-0">
+          <div className="relative h-full min-h-[52vh] overflow-hidden rounded-[2rem] border border-black/10 shadow-2xl lg:absolute lg:inset-0 lg:min-h-0">
+            <AnimatePresence mode="wait">
+              <motion.div
+                key={active.id}
+                initial={{ opacity: 0, scale: 1.04 }}
+                animate={{ opacity: 1, scale: 1 }}
+                exit={{ opacity: 0, scale: 0.98 }}
+                transition={{ duration: 0.45, ease: [0.16, 1, 0.3, 1] }}
+                className="absolute inset-0"
+              >
+                <img
+                  src={active.image}
+                  alt={active.title}
+                  className="h-full w-full object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#0E0E10] via-[#0E0E10]/35 to-[#0E0E10]/10" />
+              </motion.div>
+            </AnimatePresence>
 
-              <div className="absolute inset-0 flex flex-col justify-between p-6 sm:p-8 lg:p-10">
-                <div className="flex items-start justify-between gap-4">
-                  <div className="flex flex-wrap gap-2">
-                    {active.services?.map((service) => (
-                      <span
-                        key={service}
-                        className="rounded-full border border-white/25 bg-white/10 px-3 py-1.5 font-mono text-[10px] uppercase tracking-widest text-white/80 backdrop-blur-sm"
-                      >
-                        {service}
-                      </span>
-                    ))}
-                  </div>
-                  <span className="rounded-full bg-[#0E0E10]/50 px-3 py-1.5 font-mono text-xs font-bold tracking-widest text-white/70 backdrop-blur-md">
-                    {active.year}
-                  </span>
-                </div>
-
-                <div className="max-w-xl">
-                  <AnimatePresence mode="wait">
-                    <motion.div
-                      key={`${active.id}-copy`}
-                      initial={{ opacity: 0, y: 16 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      exit={{ opacity: 0, y: -8 }}
-                      transition={{ duration: 0.35 }}
+            <div className="absolute inset-0 flex flex-col justify-between overflow-hidden p-6 sm:p-8 lg:p-10">
+              <div className="flex items-start justify-between gap-4">
+                <div className="flex flex-wrap gap-2">
+                  {active.services?.map((service) => (
+                    <span
+                      key={service}
+                      className="rounded-full border border-white/25 bg-white/10 px-3 py-1.5 font-mono text-[10px] uppercase tracking-widest text-white/80 backdrop-blur-sm"
                     >
-                      <p className="font-mono text-[11px] uppercase tracking-[0.2em] text-white/50">
-                        Now viewing
-                      </p>
-                      <h3 className="mt-3 font-sans text-3xl font-black uppercase leading-[0.92] tracking-tight text-white sm:text-5xl">
-                        {active.title}
-                      </h3>
-                      <p className="mt-4 font-sans text-base leading-relaxed text-white/70 sm:text-lg">
-                        {active.tagline}
-                      </p>
-
-                      <div className="mt-8 grid max-w-md grid-cols-2 gap-3">
-                        <div className="rounded-2xl bg-white/10 px-4 py-3 backdrop-blur-md">
-                          <p className="font-mono text-[10px] uppercase tracking-widest text-white/40">
-                            Time saved
-                          </p>
-                          <p className="mt-2 font-sans text-2xl font-black text-[#CEFF00] sm:text-3xl">
-                            {active.timeSaved}
-                          </p>
-                        </div>
-                        <div className="rounded-2xl bg-white/10 px-4 py-3 backdrop-blur-md">
-                          <p className="font-mono text-[10px] uppercase tracking-widest text-white/40">
-                            Revenue lift
-                          </p>
-                          <p className="mt-2 font-sans text-2xl font-black text-white sm:text-3xl">
-                            {active.revenueLift}
-                          </p>
-                        </div>
-                      </div>
-
-                      <button
-                        type="button"
-                        onClick={() => onOpenProject(active)}
-                        className="group mt-8 inline-flex items-center gap-3 rounded-full bg-[#FAF9F5] px-6 py-4 text-xs font-mono font-bold uppercase tracking-widest text-[#0E0E10] transition-colors hover:bg-[#CEFF00]"
-                      >
-                        <span>Open case study</span>
-                        <ArrowUpRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-                      </button>
-                    </motion.div>
-                  </AnimatePresence>
+                      {service}
+                    </span>
+                  ))}
                 </div>
+                <span className="rounded-full bg-[#0E0E10]/50 px-3 py-1.5 font-mono text-xs font-bold tracking-widest text-white/70 backdrop-blur-md">
+                  {active.year}
+                </span>
+              </div>
+
+              <div className="max-w-xl">
+                <AnimatePresence mode="wait">
+                  <motion.div
+                    key={`${active.id}-copy`}
+                    initial={{ opacity: 0, y: 16 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: -8 }}
+                    transition={{ duration: 0.35 }}
+                  >
+                    <p className="font-mono text-[11px] uppercase tracking-[0.2em] text-white/50">
+                      Now viewing
+                    </p>
+                    <h3 className="mt-3 font-sans text-3xl font-black uppercase leading-[0.92] tracking-tight text-white sm:text-4xl xl:text-5xl">
+                      {active.title}
+                    </h3>
+                    <p className="mt-4 font-sans text-base leading-relaxed text-white/70 sm:text-lg">
+                      {active.tagline}
+                    </p>
+
+                    <div className="mt-6 grid max-w-md grid-cols-2 gap-3 sm:mt-8">
+                      <div className="rounded-2xl bg-white/10 px-4 py-3 backdrop-blur-md">
+                        <p className="font-mono text-[10px] uppercase tracking-widest text-white/40">
+                          Time saved
+                        </p>
+                        <p className="mt-2 font-sans text-2xl font-black text-[#CEFF00] sm:text-3xl">
+                          {active.timeSaved}
+                        </p>
+                      </div>
+                      <div className="rounded-2xl bg-white/10 px-4 py-3 backdrop-blur-md">
+                        <p className="font-mono text-[10px] uppercase tracking-widest text-white/40">
+                          Revenue lift
+                        </p>
+                        <p className="mt-2 font-sans text-2xl font-black text-white sm:text-3xl">
+                          {active.revenueLift}
+                        </p>
+                      </div>
+                    </div>
+
+                    <button
+                      type="button"
+                      onClick={() => onOpenProject(active)}
+                      className="group mt-6 inline-flex items-center gap-3 rounded-full bg-[#FAF9F5] px-6 py-4 text-xs font-mono font-bold uppercase tracking-widest text-[#0E0E10] transition-colors hover:bg-[#CEFF00] sm:mt-8"
+                    >
+                      <span>Open case study</span>
+                      <ArrowUpRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+                    </button>
+                  </motion.div>
+                </AnimatePresence>
               </div>
             </div>
           </div>
