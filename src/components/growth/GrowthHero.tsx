@@ -1,8 +1,8 @@
 "use client";
 
 import React from "react";
-import Image from "next/image";
 import { ArrowRight, Megaphone } from "lucide-react";
+import GrowthHeroVisual from "@/components/growth/GrowthHeroVisual";
 
 interface GrowthHeroProps {
   onOpenContact: () => void;
@@ -10,7 +10,7 @@ interface GrowthHeroProps {
 
 export default function GrowthHero({ onOpenContact }: GrowthHeroProps) {
   return (
-    <section className="relative flex min-h-[min(88vh,820px)] flex-col overflow-hidden border-b border-black/10 bg-[#FAF9F5] py-28">
+    <section className="relative flex min-h-[min(88vh,920px)] flex-col overflow-hidden border-b border-black/10 bg-[#FAF9F5] pt-40 pb-28 md:pt-44">
       <div className="site-gutter relative z-10 w-full">
         <div className="grid grid-cols-1 items-start gap-12 lg:grid-cols-12 lg:items-center lg:gap-8">
           <div className="lg:col-span-7">
@@ -42,20 +42,11 @@ export default function GrowthHero({ onOpenContact }: GrowthHeroProps) {
           </div>
 
           <div className="lg:col-span-5">
-            <div className="relative aspect-[4/3]">
-              <Image
-                src="/images/growth/hero.png"
-                alt="Ads, search, email, and reports working together"
-                fill
-                priority
-                unoptimized
-                sizes="(max-width: 1024px) 100vw, 40vw"
-                className="object-contain"
-              />
-            </div>
+            <GrowthHeroVisual />
           </div>
         </div>
       </div>
     </section>
   );
 }
+

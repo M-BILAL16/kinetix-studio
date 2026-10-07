@@ -7,7 +7,7 @@ import AiHeroImageShowcase from "@/components/ai/AiHeroImageShowcase";
 
 export default function AiHero() {
   return (
-    <section className="relative flex min-h-[min(88vh,820px)] flex-col overflow-hidden border-b border-black/10 bg-noise py-28 site-gutter">
+    <section className="relative flex min-h-[min(88vh,920px)] flex-col overflow-hidden border-b border-black/10 bg-noise pt-40 pb-28 site-gutter md:pt-44">
       {/* Main Grid: Headline + Interactive Agent Mesh */}
       <div className="grid grid-cols-1 items-start gap-12 lg:grid-cols-12 lg:items-center lg:gap-8">
         {/* Left Column: Monumental Editorial Typography (7 cols) */}

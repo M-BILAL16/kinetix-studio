@@ -12,7 +12,7 @@ export default function WorkOutcomeStrip() {
     { value: "3.2x", label: "Booking growth", hint: "Digital channel lift for local care" },
     {
       value: String(caseCount).padStart(2, "0"),
-      label: "Cases in archive",
+      label: "Cases in portfolio",
       hint: "Software, growth, automation, and AI agents",
     },
   ];

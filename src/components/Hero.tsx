@@ -46,7 +46,7 @@ export default function Hero({ onOpenContact }: HeroProps) {
   };
 
   return (
-    <section className="relative flex min-h-[min(88vh,820px)] flex-col overflow-hidden bg-noise pt-28 pb-16 site-gutter lg:pb-20">
+    <section className="relative flex min-h-[min(88vh,920px)] flex-col overflow-hidden bg-noise pt-40 pb-16 site-gutter md:pt-44 lg:pb-20">
       {/* Main Asymmetric Grid */}
       <motion.div
         variants={containerVariants}

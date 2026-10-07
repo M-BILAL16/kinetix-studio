@@ -5,7 +5,6 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import ContactDrawer from "@/components/ContactDrawer";
 import GrowthHero from "@/components/growth/GrowthHero";
-import GrowthMarqueeBand from "@/components/growth/GrowthMarqueeBand";
 import GrowthVelocityEngines from "@/components/growth/GrowthVelocityEngines";
 import GrowthFit from "@/components/growth/GrowthFit";
 import Engagement from "@/components/Engagement";
@@ -24,9 +23,6 @@ export default function GrowthMarketingPage() {
 
       {/* Hero: High-Velocity Growth Radar & Live Traffic Surge Cockpit */}
       <GrowthHero onOpenContact={() => setIsContactOpen(true)} />
-
-      {/* Kinetic Dual-Track Velocity Marquee Ribbon */}
-      <GrowthMarqueeBand />
 
       {/* The 11 growth services */}
       <GrowthVelocityEngines onOpenContact={() => setIsContactOpen(true)} />

@@ -292,7 +292,7 @@ export default function AutomationHero({ onOpenContact }: AutomationHeroProps) {
   };
 
   return (
-    <section className="relative pt-32 pb-24 md:pt-40 md:pb-32 bg-[#FAF9F5] border-b border-black/10 overflow-hidden">
+    <section className="relative min-h-[min(88vh,920px)] pt-40 pb-24 md:pt-48 md:pb-32 bg-[#FAF9F5] border-b border-black/10 overflow-hidden">
       {/* Background Architectural Ambient Lighting */}
       <div className="absolute inset-0 pointer-events-none opacity-40">
         <div className="absolute inset-0 bg-[linear-gradient(to_right,#00000008_1px,transparent_1px),linear-gradient(to_bottom,#00000008_1px,transparent_1px)] bg-[size:4rem_4rem]" />

@@ -13,9 +13,7 @@ interface NavbarProps {
 const navLinks = [
   { label: "AI & Technology", href: "/ai-technology" },
   { label: "Growth & Marketing", href: "/growth-marketing" },
-  { label: "AI Automation", href: "/ai-automation" },
   { label: "What Have We Done", href: "/what-we-have-done" },
-  { label: "How We Work", href: "/#philosophy" },
 ];
 
 export default function Navbar({ onOpenContact }: NavbarProps) {
@@ -36,7 +34,6 @@ export default function Navbar({ onOpenContact }: NavbarProps) {
   }, [pathname]);
 
   const isActive = (href: string) => {
-    if (href.startsWith("/#")) return false;
     if (href === "/what-we-have-done") return pathname.startsWith("/what-we-have-done");
     return pathname === href;
   };
