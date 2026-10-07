@@ -329,91 +329,116 @@ export default function GrowthFaq() {
 
   return (
     <section className="relative overflow-hidden border-b border-black/10 bg-[#FAF9F5] py-28 site-gutter">
-      <div className="mb-10 flex flex-col justify-between gap-6 border-b border-black/10 pb-8 md:flex-row md:items-end">
+      <div className="mb-12 flex flex-col justify-between gap-6 border-b border-black/10 pb-8 md:flex-row md:items-end">
         <h2 className="font-sans text-4xl font-black uppercase leading-[0.95] tracking-tight text-[#0E0E10] sm:text-6xl">
           COMMON <span className="text-[#0047FF]">questions.</span>
         </h2>
         <p className="max-w-sm text-left font-mono text-xs leading-relaxed text-[#6E6E78] md:text-right">
-          ELEVEN SERVICES. FIVE ANSWERS EACH. PICK A TAB TO SEE WHAT THAT WORK ACTUALLY COVERS.
+          ELEVEN SERVICES. FIVE ANSWERS EACH. PICK A SERVICE ON THE LEFT TO READ ITS FAQ.
         </p>
       </div>
 
-      <div className="mb-10 flex gap-2 overflow-x-auto pb-2 [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
-        {TABS.map((tab) => {
-          const isActive = tab.id === activeTab;
-          return (
-            <button
-              key={tab.id}
-              type="button"
-              onClick={() => selectTab(tab.id)}
-              className={`shrink-0 rounded-full border px-4 py-2.5 text-[11px] font-mono font-bold uppercase tracking-widest transition-colors ${
-                isActive
-                  ? "border-[#0E0E10] bg-[#0E0E10] text-[#FAF9F5]"
-                  : "border-black/10 bg-white text-[#6E6E78] hover:border-black/25 hover:text-[#0E0E10]"
-              }`}
-            >
-              <span className="sm:hidden">{tab.short}</span>
-              <span className="hidden sm:inline">{tab.label}</span>
-            </button>
-          );
-        })}
-      </div>
-
-      <div className="mb-6 flex items-center gap-3">
-        <span className="rounded-full bg-[#0047FF] px-3 py-1 text-[10px] font-mono font-bold uppercase tracking-widest text-white">
-          {active.short}
-        </span>
-        <h3 className="font-sans text-xl font-black tracking-tight text-[#0E0E10] sm:text-2xl">
-          {active.label}
-        </h3>
-      </div>
-
-      <AnimatePresence mode="wait">
-        <motion.div
-          key={active.id}
-          initial={{ opacity: 0, y: 12 }}
-          animate={{ opacity: 1, y: 0 }}
-          exit={{ opacity: 0, y: -8 }}
-          transition={{ duration: 0.25 }}
-          className="divide-y divide-black/8 border-t border-black/10"
-        >
-          {active.faqs.map((faq, idx) => {
-            const isOpen = openIndex === idx;
-            return (
-              <div key={faq.q} className="py-6">
-                <button
-                  type="button"
-                  onClick={() => setOpenIndex(isOpen ? null : idx)}
-                  className="flex w-full items-center justify-between gap-4 text-left"
-                >
-                  <span className="font-sans text-lg font-bold text-[#0E0E10] sm:text-xl">{faq.q}</span>
-                  <span
-                    className={`flex h-8 w-8 shrink-0 items-center justify-center rounded-full border transition-colors ${
-                      isOpen
-                        ? "border-[#0E0E10] bg-[#0E0E10] text-white"
-                        : "border-black/10 bg-white text-[#0E0E10]"
+      <div className="grid grid-cols-1 items-stretch gap-6 lg:grid-cols-12 lg:gap-8">
+        {/* Left: service list */}
+        <aside className="flex lg:col-span-4">
+          <div className="flex h-full min-h-[36rem] w-full flex-col rounded-3xl border border-black/10 bg-white p-3 shadow-sm sm:min-h-[40rem] lg:min-h-[44rem]">
+            <p className="mb-3 shrink-0 px-3 pt-2 font-mono text-[10px] font-bold uppercase tracking-widest text-[#6E6E78]">
+              Services
+            </p>
+            <div className="min-h-0 flex-1 space-y-1 overflow-y-auto pr-1">
+              {TABS.map((tab, idx) => {
+                const isActive = tab.id === activeTab;
+                return (
+                  <button
+                    key={tab.id}
+                    type="button"
+                    onClick={() => selectTab(tab.id)}
+                    className={`flex w-full items-center gap-3 rounded-2xl px-3 py-3.5 text-left transition-colors ${
+                      isActive
+                        ? "bg-[#0E0E10] text-[#FAF9F5]"
+                        : "text-[#0E0E10] hover:bg-black/[0.04]"
                     }`}
                   >
-                    {isOpen ? <Minus className="h-4 w-4" /> : <Plus className="h-4 w-4" />}
-                  </span>
-                </button>
-                <AnimatePresence>
-                  {isOpen ? (
-                    <motion.p
-                      initial={{ height: 0, opacity: 0 }}
-                      animate={{ height: "auto", opacity: 1 }}
-                      exit={{ height: 0, opacity: 0 }}
-                      className="overflow-hidden pt-4 font-sans text-base leading-relaxed text-[#6E6E78]"
+                    <span
+                      className={`shrink-0 font-mono text-[10px] font-bold tracking-widest ${
+                        isActive ? "text-[#CEFF00]" : "text-[#9E9EA8]"
+                      }`}
                     >
-                      {faq.a}
-                    </motion.p>
-                  ) : null}
-                </AnimatePresence>
-              </div>
-            );
-          })}
-        </motion.div>
-      </AnimatePresence>
+                      {String(idx + 1).padStart(2, "0")}
+                    </span>
+                    <span className="font-sans text-sm font-bold leading-snug sm:text-[15px]">
+                      {tab.label}
+                    </span>
+                  </button>
+                );
+              })}
+            </div>
+          </div>
+        </aside>
+
+        {/* Right: FAQs */}
+        <div className="flex lg:col-span-8">
+          <div className="flex h-full min-h-[36rem] w-full flex-col rounded-3xl border border-black/10 bg-white p-6 shadow-sm sm:min-h-[40rem] sm:p-8 lg:min-h-[44rem] lg:p-10">
+            <div className="mb-6 flex shrink-0 flex-wrap items-center gap-3 border-b border-black/10 pb-6">
+              <span className="rounded-full bg-[#0047FF] px-3 py-1 text-[10px] font-mono font-bold uppercase tracking-widest text-white">
+                {active.short}
+              </span>
+              <h3 className="font-sans text-xl font-black tracking-tight text-[#0E0E10] sm:text-2xl">
+                {active.label}
+              </h3>
+            </div>
+
+            <AnimatePresence mode="wait">
+              <motion.div
+                key={active.id}
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -8 }}
+                transition={{ duration: 0.25 }}
+                className="min-h-0 flex-1 divide-y divide-black/8 overflow-y-auto"
+              >
+                {active.faqs.map((faq, idx) => {
+                  const isOpen = openIndex === idx;
+                  return (
+                    <div key={faq.q} className="py-6 first:pt-1 last:pb-1">
+                      <button
+                        type="button"
+                        onClick={() => setOpenIndex(isOpen ? null : idx)}
+                        className="flex w-full items-center justify-between gap-4 text-left"
+                      >
+                        <span className="font-sans text-base font-bold text-[#0E0E10] sm:text-lg">
+                          {faq.q}
+                        </span>
+                        <span
+                          className={`flex h-8 w-8 shrink-0 items-center justify-center rounded-full border transition-colors ${
+                            isOpen
+                              ? "border-[#0E0E10] bg-[#0E0E10] text-white"
+                              : "border-black/10 bg-[#FAF9F5] text-[#0E0E10]"
+                          }`}
+                        >
+                          {isOpen ? <Minus className="h-4 w-4" /> : <Plus className="h-4 w-4" />}
+                        </span>
+                      </button>
+                      <AnimatePresence>
+                        {isOpen ? (
+                          <motion.p
+                            initial={{ height: 0, opacity: 0 }}
+                            animate={{ height: "auto", opacity: 1 }}
+                            exit={{ height: 0, opacity: 0 }}
+                            className="overflow-hidden pt-3 font-sans text-base leading-relaxed text-[#6E6E78]"
+                          >
+                            {faq.a}
+                          </motion.p>
+                        ) : null}
+                      </AnimatePresence>
+                    </div>
+                  );
+                })}
+              </motion.div>
+            </AnimatePresence>
+          </div>
+        </div>
+      </div>
     </section>
   );
 }
