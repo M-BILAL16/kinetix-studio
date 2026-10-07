@@ -33,7 +33,9 @@ export default function FeaturedWork({ onOpenProject }: FeaturedWorkProps) {
 
       {/* Alternating Asymmetric Project Showcases */}
       <div className="space-y-32 sm:space-y-44">
-        {AGENCY_DATA.projects.map((project: Project, idx: number) => {
+        {AGENCY_DATA.projects
+          .filter((project: Project) => project.featured !== false)
+          .map((project: Project, idx: number) => {
           const isEven = idx % 2 === 0;
 
           return (

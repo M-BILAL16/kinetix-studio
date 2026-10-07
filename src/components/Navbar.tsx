@@ -1,19 +1,35 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { motion } from "framer-motion";
-import { ArrowUpRight } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
+import { ArrowUpRight, ChevronDown } from "lucide-react";
 
 interface NavbarProps {
   onOpenContact: () => void;
 }
 
+const workLinks = [
+  { label: "Stories", href: "/what-we-have-done", hint: "Long-scroll case studies" },
+  { label: "Index", href: "/what-we-have-done/grid", hint: "Interactive archive preview" },
+];
+
+const flatLinks = [
+  { label: "AI & Technology", href: "/ai-technology" },
+  { label: "Growth & Marketing", href: "/growth-marketing" },
+  { label: "AI Automation", href: "/ai-automation" },
+  { label: "How We Work", href: "/#philosophy" },
+];
+
 export default function Navbar({ onOpenContact }: NavbarProps) {
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [workOpen, setWorkOpen] = useState(false);
+  const [mobileWorkOpen, setMobileWorkOpen] = useState(false);
   const pathname = usePathname();
+  const workRef = useRef<HTMLDivElement>(null);
+  const workActive = pathname.startsWith("/what-we-have-done");
 
   useEffect(() => {
     const handleScroll = () => {
@@ -23,13 +39,21 @@ export default function Navbar({ onOpenContact }: NavbarProps) {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const navLinks = [
-    { label: "AI & Technology", href: "/ai-technology" },
-    { label: "Growth & Marketing", href: "/growth-marketing" },
-    { label: "AI Automation", href: "/ai-automation" },
-    { label: "What Have We Done", href: "/#work" },
-    { label: "How We Work", href: "/#philosophy" },
-  ];
+  useEffect(() => {
+    setWorkOpen(false);
+    setMobileMenuOpen(false);
+    setMobileWorkOpen(false);
+  }, [pathname]);
+
+  useEffect(() => {
+    const onPointerDown = (e: MouseEvent) => {
+      if (workRef.current && !workRef.current.contains(e.target as Node)) {
+        setWorkOpen(false);
+      }
+    };
+    document.addEventListener("mousedown", onPointerDown);
+    return () => document.removeEventListener("mousedown", onPointerDown);
+  }, []);
 
   return (
     <>
@@ -44,12 +68,7 @@ export default function Navbar({ onOpenContact }: NavbarProps) {
               : "bg-white/60 backdrop-blur-md border-black/8 py-3.5 px-5 sm:px-8 shadow-sm"
           } flex items-center justify-between`}
         >
-          {/* Brand Mark */}
-          <Link
-            href="/"
-            className="flex items-center gap-2.5 group"
-            data-cursor="home"
-          >
+          <Link href="/" className="flex items-center gap-2.5 group" data-cursor="home">
             <div className="w-8 h-8 rounded-full bg-[#0E0E10] flex items-center justify-center text-[#FAF9F5] font-black text-xs group-hover:bg-[#0047FF] transition-colors duration-300">
               <span className="tracking-tighter">S</span>
             </div>
@@ -58,9 +77,89 @@ export default function Navbar({ onOpenContact }: NavbarProps) {
             </span>
           </Link>
 
-          {/* Desktop Nav Links */}
           <div className="hidden lg:flex items-center gap-1 bg-black/3 p-1 rounded-full border border-black/5">
-            {navLinks.map((link) => {
+            {flatLinks.slice(0, 3).map((link) => {
+              const isActive = pathname === link.href;
+              return (
+                <Link
+                  key={link.label}
+                  href={link.href}
+                  className={`px-3.5 py-1.5 rounded-full text-[11px] font-mono font-medium transition-all duration-200 whitespace-nowrap ${
+                    isActive
+                      ? "bg-[#0E0E10] text-white shadow-xs font-bold"
+                      : "text-[#0E0E10] hover:text-[#0047FF] hover:bg-white/80"
+                  }`}
+                >
+                  {link.label}
+                </Link>
+              );
+            })}
+
+            <div
+              ref={workRef}
+              className="relative"
+              onMouseEnter={() => setWorkOpen(true)}
+              onMouseLeave={() => setWorkOpen(false)}
+            >
+              <button
+                type="button"
+                onClick={() => setWorkOpen((open) => !open)}
+                className={`px-3.5 py-1.5 rounded-full text-[11px] font-mono font-medium transition-all duration-200 whitespace-nowrap inline-flex items-center gap-1 ${
+                  workActive
+                    ? "bg-[#0E0E10] text-white shadow-xs font-bold"
+                    : "text-[#0E0E10] hover:text-[#0047FF] hover:bg-white/80"
+                }`}
+                aria-expanded={workOpen}
+                aria-haspopup="menu"
+              >
+                What Have We Done
+                <ChevronDown
+                  className={`w-3 h-3 transition-transform ${workOpen ? "rotate-180" : ""}`}
+                />
+              </button>
+
+              <AnimatePresence>
+                {workOpen ? (
+                  <motion.div
+                    initial={{ opacity: 0, y: 6 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: 6 }}
+                    transition={{ duration: 0.18 }}
+                    role="menu"
+                    className="absolute left-1/2 top-full z-50 mt-2 w-56 -translate-x-1/2 rounded-2xl border border-black/10 bg-[#FAF9F5] p-2 shadow-xl"
+                  >
+                    {workLinks.map((link) => {
+                      const isActive = pathname === link.href;
+                      return (
+                        <Link
+                          key={link.href}
+                          href={link.href}
+                          role="menuitem"
+                          className={`block rounded-xl px-3.5 py-3 transition-colors ${
+                            isActive
+                              ? "bg-[#0E0E10] text-white"
+                              : "text-[#0E0E10] hover:bg-black/5"
+                          }`}
+                        >
+                          <span className="block text-[11px] font-mono font-bold uppercase tracking-widest">
+                            {link.label}
+                          </span>
+                          <span
+                            className={`mt-1 block text-[10px] font-mono leading-snug ${
+                              isActive ? "text-white/60" : "text-[#6E6E78]"
+                            }`}
+                          >
+                            {link.hint}
+                          </span>
+                        </Link>
+                      );
+                    })}
+                  </motion.div>
+                ) : null}
+              </AnimatePresence>
+            </div>
+
+            {flatLinks.slice(3).map((link) => {
               const isActive = pathname === link.href;
               return (
                 <Link
@@ -78,9 +177,7 @@ export default function Navbar({ onOpenContact }: NavbarProps) {
             })}
           </div>
 
-          {/* Right Action */}
           <div className="flex items-center gap-3">
-            {/* Magnetic CTA */}
             <button
               onClick={onOpenContact}
               data-cursor="open"
@@ -90,7 +187,6 @@ export default function Navbar({ onOpenContact }: NavbarProps) {
               <ArrowUpRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform duration-200" />
             </button>
 
-            {/* Mobile Menu Button */}
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
               className="lg:hidden w-9 h-9 rounded-full border border-black/10 flex flex-col items-center justify-center gap-1 bg-white"
@@ -116,7 +212,6 @@ export default function Navbar({ onOpenContact }: NavbarProps) {
         </motion.nav>
       </header>
 
-      {/* Mobile Menu Dropdown */}
       {mobileMenuOpen && (
         <motion.div
           initial={{ opacity: 0, y: -20 }}
@@ -125,7 +220,7 @@ export default function Navbar({ onOpenContact }: NavbarProps) {
           className="fixed top-24 left-4 right-4 z-40 lg:hidden bg-[#FAF9F5] border border-black/10 rounded-2xl p-6 shadow-xl"
         >
           <div className="flex flex-col gap-3">
-            {navLinks.map((link) => (
+            {flatLinks.slice(0, 3).map((link) => (
               <Link
                 key={link.label}
                 href={link.href}
@@ -137,6 +232,51 @@ export default function Navbar({ onOpenContact }: NavbarProps) {
                 {link.label}
               </Link>
             ))}
+
+            <div className="border-b border-black/5 pb-2">
+              <button
+                type="button"
+                onClick={() => setMobileWorkOpen((open) => !open)}
+                className={`flex w-full items-center justify-between py-2 text-left text-lg font-sans font-bold hover:text-[#0047FF] ${
+                  workActive ? "text-[#0047FF]" : "text-[#0E0E10]"
+                }`}
+              >
+                What Have We Done
+                <ChevronDown
+                  className={`h-4 w-4 transition-transform ${mobileWorkOpen ? "rotate-180" : ""}`}
+                />
+              </button>
+              {mobileWorkOpen ? (
+                <div className="mb-2 ml-3 flex flex-col gap-1 border-l border-black/10 pl-3">
+                  {workLinks.map((link) => (
+                    <Link
+                      key={link.href}
+                      href={link.href}
+                      onClick={() => setMobileMenuOpen(false)}
+                      className={`py-2 text-sm font-mono font-bold uppercase tracking-widest ${
+                        pathname === link.href ? "text-[#0047FF]" : "text-[#6E6E78]"
+                      }`}
+                    >
+                      {link.label}
+                    </Link>
+                  ))}
+                </div>
+              ) : null}
+            </div>
+
+            {flatLinks.slice(3).map((link) => (
+              <Link
+                key={link.label}
+                href={link.href}
+                onClick={() => setMobileMenuOpen(false)}
+                className={`text-lg font-sans font-bold py-2 border-b border-black/5 hover:text-[#0047FF] ${
+                  pathname === link.href ? "text-[#0047FF]" : "text-[#0E0E10]"
+                }`}
+              >
+                {link.label}
+              </Link>
+            ))}
+
             <button
               onClick={() => {
                 setMobileMenuOpen(false);

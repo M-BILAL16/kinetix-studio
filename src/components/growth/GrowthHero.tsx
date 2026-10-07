@@ -20,13 +20,13 @@ export default function GrowthHero({ onOpenContact }: GrowthHeroProps) {
             </div>
 
             <h1 className="font-sans text-5xl font-black uppercase leading-[0.92] tracking-tight text-[#0E0E10] sm:text-7xl xl:text-8xl">
-              MARKETING THAT <br />
-              <span className="text-[#0047FF]">brings</span> CUSTOMERS.
+              GET FOUND BY <br />
+              THE <span className="text-[#0047FF]">right</span> BUYERS.
             </h1>
 
             <p className="mt-8 max-w-2xl font-sans text-base leading-relaxed text-[#6E6E78] sm:text-xl">
-              We run your ads, search, emails, and content. Then we show you what is working in one
-              simple report.
+              Ads, search, email, and content run as one system — so people nearby become customers,
+              and you see exactly what brought them in.
             </p>
 
             <div className="mt-10">

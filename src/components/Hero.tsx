@@ -71,7 +71,7 @@ export default function Hero({ onOpenContact }: HeroProps) {
               variants={lineVariants}
               className="text-5xl sm:text-7xl xl:text-8xl 2xl:text-[5.75rem] font-black uppercase tracking-tight text-[#0E0E10] leading-[0.92] font-sans"
             >
-              BRAND
+              BRANDS
             </motion.span>
             <motion.span
               variants={lineVariants}

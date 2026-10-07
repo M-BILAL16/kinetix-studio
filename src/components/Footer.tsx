@@ -90,6 +90,11 @@ export default function Footer({ onOpenContact }: FooterProps) {
             </div>
             <ul className="text-sm font-sans space-y-3 text-[#0E0E10]">
               <li>
+                <a href="/what-we-have-done" className="hover:text-[#0047FF] transition-colors">
+                  What We Have Done
+                </a>
+              </li>
+              <li>
                 <a href="#philosophy" className="hover:text-[#0047FF] transition-colors">
                   About
                 </a>

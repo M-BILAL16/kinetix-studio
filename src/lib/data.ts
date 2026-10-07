@@ -1,3 +1,5 @@
+export type ProjectService = "AI" | "Automation" | "Growth" | "Software";
+
 export interface Project {
   id: string;
   number: string;
@@ -12,6 +14,14 @@ export interface Project {
   badge: string;
   image: string;
   stats: { label: string; value: string }[];
+  challenge?: string;
+  solution?: string;
+  results?: string[];
+  timeSaved?: string;
+  revenueLift?: string;
+  services?: ProjectService[];
+  /** When false, hide from homepage Featured Work. Defaults to true. */
+  featured?: boolean;
 }
 
 export interface Service {
@@ -215,6 +225,19 @@ export const AGENCY_DATA = {
         { label: "Platform Release", value: "2.0" },
         { label: "Partner Since", value: "2024" },
       ],
+      challenge:
+        "Traders were dropping off after funding because the platform felt slow, confusing, and hard to trust day to day.",
+      solution:
+        "We rebuilt the product experience end to end — clearer flows, faster screens, and a 2.0 release that kept traders inside the system longer.",
+      results: [
+        "Platform 2.0 shipped and adopted by active traders",
+        "Retention improved as the product became easier to use daily",
+        "Revenue grew year over year with engineering at the core",
+      ],
+      timeSaved: "22 hrs/week",
+      revenueLift: "+62% revenue",
+      services: ["Software", "AI"] as ProjectService[],
+      featured: true,
     },
     {
       id: "uss",
@@ -236,8 +259,123 @@ export const AGENCY_DATA = {
         { label: "Enterprise Accounts", value: "4" },
         { label: "Channels Deployed", value: "2" },
       ],
+      challenge:
+        "USS knew schools needed their products, but outreach was scattered and the right buyers were hard to find consistently.",
+      solution:
+        "We mapped who buys, then ran focused performance marketing and sales campaigns so the team reached decision-makers instead of cold lists.",
+      results: [
+        "Four new enterprise accounts added",
+        "Two primary channels carrying the pipeline",
+        "Clearer path from interest to signed client",
+      ],
+      timeSaved: "14 hrs/week",
+      revenueLift: "+17% clients",
+      services: ["Growth"] as ProjectService[],
+      featured: true,
     },
-  ],
+    {
+      id: "harbor-ops",
+      number: "03",
+      title: "HARBOR OPS DESK",
+      client: "Harbor Logistics",
+      category: ["AUTOMATION", "INTEGRATIONS"],
+      year: "2025",
+      description:
+        "Dispatch and follow-up lived in spreadsheets and chat threads. We wired an automation layer that moves status, alerts, and handoffs without someone copying the same update five times.",
+      impact: "31 hours returned to the ops team each week",
+      accentColor: "#CEFF00",
+      tagline: "Stop paying people to copy the same update.",
+      badge: "LOGISTICS",
+      image:
+        "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?q=80&w=1600&auto=format&fit=crop",
+      stats: [
+        { label: "Hours Saved / Week", value: "31" },
+        { label: "Manual Steps Cut", value: "64%" },
+        { label: "Systems Linked", value: "5" },
+      ],
+      challenge:
+        "Ops staff spent nights updating status across email, sheets, and chat while customers waited for simple answers.",
+      solution:
+        "We connected their tools into one automation desk — status syncs, alerts fire, and follow-ups run without retyping.",
+      results: [
+        "Thirty-one hours given back to the ops team weekly",
+        "Fewer missed handoffs between warehouse and sales",
+        "Customers get status without chasing the desk",
+      ],
+      timeSaved: "31 hrs/week",
+      revenueLift: "+28% capacity",
+      services: ["Automation", "Software"] as ProjectService[],
+      featured: false,
+    },
+    {
+      id: "northline-clinic",
+      number: "04",
+      title: "NORTHLINE CLINIC",
+      client: "Northline Family Clinic",
+      category: ["SEO", "ADS", "AEO"],
+      year: "2025",
+      description:
+        "A local clinic was invisible when nearby patients searched. We rebuilt search presence, ran focused ads, and shaped pages so people — and answer tools — could find and book them.",
+      impact: "3.2x more booked appointments from digital channels",
+      accentColor: "#0047FF",
+      tagline: "Get found by the patient who is ready to book.",
+      badge: "HEALTHCARE",
+      image:
+        "https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?q=80&w=1600&auto=format&fit=crop",
+      stats: [
+        { label: "Bookings Lift", value: "3.2x" },
+        { label: "Cost Per Lead", value: "-41%" },
+        { label: "Local Rank Wins", value: "12" },
+      ],
+      challenge:
+        "Walk-ins were slow and digital leads were expensive because the clinic did not show up where local patients looked.",
+      solution:
+        "We fixed Google presence, ran search and Meta ads, and wrote pages that convert visits into booked appointments.",
+      results: [
+        "Bookings from digital channels more than tripled",
+        "Cost per lead dropped while volume rose",
+        "Twelve local search wins for core services",
+      ],
+      timeSaved: "9 hrs/week",
+      revenueLift: "+3.2x bookings",
+      services: ["Growth"] as ProjectService[],
+      featured: false,
+    },
+    {
+      id: "ledger-agents",
+      number: "05",
+      title: "LEDGER INTAKE AGENTS",
+      client: "Ledger & Co.",
+      category: ["AI AGENTS", "INTAKE"],
+      year: "2026",
+      description:
+        "Partners were buried in first-pass intake. We deployed agents that read new enquiries, extract what matters, and route ready files — with humans still approving anything sensitive.",
+      impact: "19 hours of partner time freed every week",
+      accentColor: "#FF3B14",
+      tagline: "Let agents clear the inbox so partners can close.",
+      badge: "PROFESSIONAL SERVICES",
+      image:
+        "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?q=80&w=1600&auto=format&fit=crop",
+      stats: [
+        { label: "Partner Hours Saved", value: "19/wk" },
+        { label: "Intake Speed", value: "4x" },
+        { label: "Escalation Rate", value: "12%" },
+      ],
+      challenge:
+        "Senior partners spent mornings sorting intake instead of client work, and slow replies lost good leads.",
+      solution:
+        "We built AI intake agents with guardrails — they sort, summarize, and route, then escalate edge cases to a human.",
+      results: [
+        "Nineteen partner hours returned each week",
+        "Intake handled four times faster",
+        "Sensitive steps still require human approval",
+      ],
+      timeSaved: "19 hrs/week",
+      revenueLift: "+24% billable",
+      services: ["AI", "Automation"] as ProjectService[],
+      featured: false,
+    },
+  ] as Project[],
   philosophy: [
     {
       number: "01",

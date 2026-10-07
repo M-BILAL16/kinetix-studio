@@ -17,8 +17,8 @@ export default function GrowthSavings() {
       <div className="mb-16 flex flex-col justify-between gap-6 border-b border-black/10 pb-8 md:flex-row md:items-end">
         <div>
           <h2 className="font-sans text-4xl font-black uppercase leading-[0.95] tracking-tight text-[#0E0E10] sm:text-6xl lg:text-7xl">
-            CALCULATE YOUR <br />
-            <span className="text-[#0047FF]">savings.</span>
+            SEE WHAT YOUR <br />
+            <span className="text-[#0047FF]">leads return.</span>
           </h2>
         </div>
         <div className="max-w-md text-left md:text-right">
