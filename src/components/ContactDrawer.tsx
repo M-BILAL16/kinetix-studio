@@ -258,7 +258,7 @@ export default function ContactDrawer({ isOpen, onClose }: ContactDrawerProps) {
 
             {/* Footer stamp */}
             <div className="p-6 border-t border-black/8 bg-black/2 flex items-center justify-between text-[11px] font-mono text-[#6E6E78]">
-              <span>KINETIX STUDIO, HQ NYC</span>
+              <span>SINGLE SOLUTION</span>
               <span>SLOTS LEFT: 02 FOR Q3/Q4</span>
             </div>
           </motion.div>

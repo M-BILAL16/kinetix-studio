@@ -92,7 +92,7 @@ export default function GrowthTiltWinsWall() {
                   : "text-[#6E6E78] hover:text-[#0E0E10]"
               }`}
             >
-              Before Kinetix
+              Before Single Solution
             </button>
             <button
               type="button"
@@ -103,7 +103,7 @@ export default function GrowthTiltWinsWall() {
                   : "text-[#6E6E78] hover:text-[#0E0E10]"
               }`}
             >
-              ⚡ With Kinetix Engine
+              ⚡ With Single Solution
             </button>
           </div>
         </div>

@@ -129,7 +129,7 @@ export default function Process() {
             </div>
 
             <div className="pt-3 border-t border-black/8 flex items-center justify-between text-[10px] font-mono text-[#6E6E78]">
-              <span>KINETIX EXECUTION RIG</span>
+              <span>SINGLE SOLUTION EXECUTION RIG</span>
               <span className="text-[#CEFF00] font-bold">READY TO SCALE</span>
             </div>
           </div>

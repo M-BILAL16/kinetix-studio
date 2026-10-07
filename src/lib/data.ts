@@ -87,7 +87,7 @@ export interface Testimonial {
 }
 
 export const AGENCY_DATA = {
-  name: "KINETIX",
+  name: "Single Solution",
   tagline: "Making your brand impossible to ignore.",
   subline:
     "We identify which part of your business is costing you time and money, then we deploy tested solutions to fix it for you.",

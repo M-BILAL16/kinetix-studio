@@ -21,24 +21,34 @@ const playfair = Playfair_Display({
 });
 
 export const metadata: Metadata = {
-  title: "KINETIX — AI Agents, Automation & Growth Systems",
+  title: "Single Solution — AI Agents, Automation & Growth Systems",
   description:
-    "Making your brand impossible to ignore. We identify which part of your business is costing you time and money, then we deploy tested solutions to fix it for you.",
+    "Single Solution builds AI agents, automation systems, custom software, and growth marketing that remove the work costing your business time and money.",
   keywords: [
+    "Single Solution",
     "AI Agents",
     "Business Automation",
     "Custom Software",
     "Internal Dashboards",
     "Performance Marketing",
     "SEO and AEO",
-    "Next.js Development",
+    "Growth Marketing",
   ],
-  authors: [{ name: "Kinetix Studio" }],
+  authors: [{ name: "Single Solution" }],
+  metadataBase: new URL("https://single-solution.com"),
   openGraph: {
-    title: "KINETIX — Making your brand impossible to ignore.",
+    title: "Single Solution — Making your brand impossible to ignore.",
     description:
-      "AI agents, automation systems, custom software, internal dashboards and growth marketing — from a free discovery call to a live system in 60 days.",
+      "AI agents, automation systems, custom software, internal dashboards, and growth marketing — from a free discovery call to a live system.",
+    url: "https://single-solution.com",
+    siteName: "Single Solution",
     type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Single Solution — AI Agents, Automation & Growth Systems",
+    description:
+      "We identify what is costing your business time and money, then deploy tested solutions to fix it.",
   },
 };
 
